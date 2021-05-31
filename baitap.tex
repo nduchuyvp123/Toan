@@ -1,0 +1,110 @@
+\documentclass[10pt]{article}
+% \usepackage[utf8]{vietnam}
+\usepackage{vntex}
+\usepackage{tikz}
+\usepackage[left=3.00cm, right=2.00cm, top=2.00cm, bottom=2.00cm]{geometry}
+\usepackage[unicode]{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{a4wide,amssymb,epsfig,latexsym,array,hhline,fancyhdr}
+\usepackage[normalem]{ulem}
+\usepackage[makeroom]{cancel}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{multicol,longtable,amscd}
+\usepackage{diagbox}
+\usepackage{booktabs}
+\usepackage{alltt}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{caption,subcaption}
+\usepackage[left=3.00cm, right=2.00cm, top=2.00cm, bottom=2.00cm]{geometry}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{lipsum}
+\usepackage{setspace}
+\usepackage{indentfirst}
+
+\usetikzlibrary{decorations}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{decorations.pathreplacing,calligraphy}
+
+\setstretch{1}
+
+\title{Bài tập Toán rời rạc}
+\author{Nguyễn Đức Huy}
+
+\begin{document}
+\maketitle
+\section{Bài 2}
+\indent Vì $min (deg(V)) \geq \frac{n}{2}$ nên $\forall x, y \in V$ , $deg(x) + deg(y) \geq n$
+
+Giả sử $G$ có một đường đi dài nhất là $x_0 \rightarrow x_1 \rightarrow \ldots \rightarrow x_q$ có độ dài $q$
+
+Nếu $q = n - 1$ thì đường đi trên chính là đường đi Hamilton
+
+Nếu $q \leq n - 2$ thì $deg(x_0) + deg(x_q) \geq n \geq q + 2$
+\begin{quote}
+    Gọi $G' =\ <V', E'>$ là đồ thị con của $G$ có $V' = \{x_0, x_1, \ldots , x_q\}$
+
+    Đặt $deg'(x)$ là bậc của $x$ trong $G'$
+
+    Vì đường đi $x_0 \rightarrow x_1 \rightarrow \ldots \rightarrow x_q$ là dài nhất nên:
+    $$deg'(x_0) = deg(x_0)$$
+    $$deg'(x_q) = deg(x_q)$$
+    Giả sử $deg(x_0) = k$ và $x_0$ kề với $k$ đỉnh là $x_1, x_{i_2}, x_{i_3}, \ldots, x_{i_k}$
+
+    $\Rightarrow deg(x_q) \geq  q - k + 2$
+
+    Chia $V' = A \cup B$ với $A = \{x_0, x_{i_2-1}, x_{i_3-1}, \ldots, x_{i_k-1}\}$, $B = V'\setminus A$
+
+    Vì $\vert B \vert = q + 1 - k < deg(x_q)$ nên $x_q$ phải kề với ít nhất 1 đỉnh thuộc $A$. Gọi đỉnh đó là đỉnh $x_{j-1}$
+
+    Vậy chu trình $x_0 \rightarrow x_j \rightarrow \ldots \rightarrow x_q \rightarrow x_{j-1} \rightarrow \ldots \rightarrow x_0$ là chu trình Hamilton của $G'$
+
+    Lại có $q \leq  n - 2$ nên tồn tại đỉnh $y$ của G và nằm ngoài chu trình trên.
+
+    Nếu $G$ không liên thông thì không thể có chu trình Hamilton được, nên chắc là $G$ liên thông nhưng thầy quên nói.
+
+    Mặt khác, nếu $G$ liên thông thì đỉnh $y$ sẽ phải kề với ít nhất 1 đỉnh trong chu trình trên, do đó sẽ tạo ra đường đi có độ dài $\geq  q + 1 \Rightarrow$ mâu thuẫn với giả thiết
+\end{quote}
+
+\indent Nên rõ ràng $q = n - 1$ và đường đi dài nhất trong $G$ là $x_0 \rightarrow x_1 \rightarrow \ldots \rightarrow x_{n-1}$
+
+Chứng minh tương tự như trên, suy ra $\exists \ j, 1 \leq j \leq n$ để \mbox{$x_0 \rightarrow x_j \rightarrow \ldots \rightarrow x_{n-1}\rightarrow x_{j-1} \rightarrow \ldots \rightarrow x_0$} là chu trình Hamilton của $G$
+
+\newpage
+\section{Bài 1}
+\indent Vì bài 1 em dùng kết quả của bài 2 nên em viết xuống dưới này
+
+Giả sử $V = \{x_0, x_1, \ldots, x_{n-1}\}$
+
+Không mất tính tổng quát, giả sử $deg(x_0) \leq deg(x_1) \leq \ldots \leq deg(x_{n-1})$
+
+Trường hợp $deg(x_0) \geq \frac{n}{2}$ , khi đó thì ta dùng kết quả của bài 2 ở trên.
+
+Với $deg(x_0) \leq \frac{n-1}{2}$
+\begin{quote}
+    Gọi $G' =\ <V', E'>$ là đồ thị con của $G$ có $V' = \{x_1, x_2, \ldots , x_{n-1}\}$
+
+    Đặt $deg'(x)$ là bậc của $x$ trong $G'$
+
+    Ta có:
+    $$\vert E' \vert = m - deg(x_0) > C^2_{n-1} + 1 - \frac{n - 1}{2} = \frac{(n - 1)(n - 3)}{2} + 1$$
+    Giả sử $deg'(x_i) = min(deg'(V'))$
+
+    Gọi $G'' =\ < V'', E''>$ là đồ thị con của $G'$ có $V'' = \{x_1, x_2, \ldots, x_{i-1}, x_{i+1}, \ldots, x_{n-1}\}$
+
+    Dễ thấy:
+    $$\vert E'' \vert \leq C^2_{n-2} = \frac{(n - 2)(n - 3)}{2}$$
+    Suy ra:
+    $$deg'(x_i) = \vert E' \vert - \vert E'' \vert > \frac{(n - 1)(n - 3)}{2} + 1 - \frac{(n - 2)(n - 3)}{2} = \frac{n - 3}{2} + 1 = \frac{n - 1}{2}$$
+    $\Rightarrow min(deg'(V')) > \frac{n-1}{2} \Rightarrow V'$ có chu trình Hamilton
+
+    Lại có:
+    $$\vert E' \vert \leq C^2_{n-1}$$
+    Nên:
+    $$deg(x_0) = \vert E \vert - \vert E' \vert > 1$$
+    Nghĩa là $x_0$ kề với ít nhất 2 đỉnh trong $V'$ và tạo thành chu trình Hamilton của $V$
+\end{quote}
+\end{document}
