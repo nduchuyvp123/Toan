@@ -117,6 +117,10 @@ The second direction of \hyperref[thr:kuratowski]{Kuratowski's theorem} states: 
               Chứng minh phản chứng: assume some vertex $v \in G$ has $deg(v) \leq 2$
 
         \item for some $uv \in G$, $G - uv$ is 2-connected
+
+              \begin{tikzpicture}
+
+              \end{tikzpicture}
     \end{enumerate}
 
 \end{proof}
@@ -170,11 +174,11 @@ $G-uv$ is 2-connected, so there is a cycle contains $u,v$.
 \begin{figure}[H]
     \begin{minipage}{0.4\textwidth}
         \begin{tikzpicture}
-            \draw[black, thick] (0,0) circle (3);
-            \draw[pink, ultra thick] (-21/25,72/25) arc (240:-60:1.65);
-            \draw[pink, ultra thick] (-21/25,72/25) arc (-253.75:73:3);
-            \filldraw[black, thick] (-21/25,72/25) circle (2pt);
-            \filldraw[black, thick] (21/25,72/25) circle (2pt);
+            \draw[pink, ultra thick] (1.5,{sqrt(27/4)}) arc (-30:210:{sqrt(3)});
+            \draw[black, thick] (1.5,{sqrt(27/4)}) arc (60:120:3);
+            \draw[pink, ultra thick] (-1.5,{sqrt(27/4)}) arc (120:420:3);
+            \filldraw[black, thick] (1.5,{sqrt(27/4)}) circle (2pt);
+            \filldraw[black, thick] (-1.5,{sqrt(27/4)}) circle (2pt);
             \filldraw[black, thick] (-3,0) circle (2pt);
             \filldraw[black, thick] (3,0) circle (2pt);
 
@@ -199,14 +203,15 @@ $G-uv$ is 2-connected, so there is a cycle contains $u,v$.
     \begin{minipage}{0.4\textwidth}
         \begin{tikzpicture}[scale = 0.8]
             \draw[black, thick] (0,0) circle (3);
-            \draw[pink, ultra thick] (-3,0) arc (221.5:-41:4);
-            \draw[black, thick] (1.65,2.5) arc (123.5:-125:3);
+            \draw[pink, ultra thick] (3,0) arc (-acos(3/3.75):180+acos(3/3.75):3.75);
+            \draw[black, thick] (1.5,-{sqrt(27/4)}) arc (-120:120:3);
+
             \filldraw[black, thick] (-3,0) circle (2pt);
             \filldraw[black, thick] (3,0) circle (2pt);
-            \filldraw[black, thick] (1.65,2.5) circle (2pt);
-            \filldraw[black, thick] (1.65,-2.5) circle (2pt);
-            \node at (1.65,3,0) {$v_i$};
-            \node at (1.65,-3,0) {$v_j$};
+            \filldraw[black, thick] (1.5,{sqrt(27/4)}) circle (2pt);
+            \filldraw[black, thick] (1.5,-{sqrt(27/4)}) circle (2pt);
+            \node at (1.5,3,0) {$v_i$};
+            \node at (1.5,-3,0) {$v_j$};
             \node at (-3.5,0,0) {$u$};
             \node at (3.5,0,0) {$v$};
             \node at (0,2.5,0) {$C$};
@@ -226,16 +231,16 @@ Up to equivalence there are only four types of obstructions we could draw here. 
     \begin{minipage}{0.4\textwidth}
         \begin{tikzpicture}[scale = 0.8]
             \draw[black, thick] (0,0) circle (3);
-            \draw[black, thick] (1.65,2.5) arc (123.5:-125:3);
-            \draw[black, thick] (-2.25,2) -- (2.25,-2);
+            \draw[black, thick] (1.5,-{sqrt(27/4)}) arc (-120:120:3);
+            \draw[black, thick] ({-sqrt(5)},2) -- ({sqrt(5)},-2);
             \filldraw[black, thick] (-3,0) circle (2pt);
             \filldraw[black, thick] (3,0) circle (2pt);
-            \filldraw[black, thick] (-2.25,2) circle (2pt);
-            \filldraw[black, thick] (2.25,-2) circle (2pt);
-            \filldraw[black, thick] (1.65,2.5) circle (2pt);
-            \filldraw[black, thick] (1.65,-2.5) circle (2pt);
-            \node at (1.65,3,0) {$v_i$};
-            \node at (1.65,-3,0) {$v_j$};
+            \filldraw[black, thick] ({-sqrt(5)},2) circle (2pt);
+            \filldraw[black, thick] ({sqrt(5)},-2) circle (2pt);
+            \filldraw[black, thick] (1.5,{sqrt(27/4)}) circle (2pt);
+            \filldraw[black, thick] (1.5,-{sqrt(27/4)}) circle (2pt);
+            \node at (1.5,3,0) {$v_i$};
+            \node at (1.5,-3,0) {$v_j$};
             \node at (-3.5,0,0) {$u$};
             \node at (3.5,0,0) {$v$};
             \node at (0,2.5,0) {$C$};
@@ -247,17 +252,17 @@ Up to equivalence there are only four types of obstructions we could draw here. 
     \begin{minipage}{0.4\textwidth}
         \begin{tikzpicture}[scale = 0.8]
             \draw[black, thick] (0,0) circle (3);
-            \draw[black, thick] (1.65,2.5) arc (123.5:-125:3);
-            \draw[black, thick] (-3,0) arc (126.8:53:5);
-            \draw[black, thick] (-2.25,2) -- (2.25,-2);
+            \draw[black, thick] (1.5,-{sqrt(27/4)}) arc (-120:120:3);
+            \draw[black, thick] (3,0) arc (acos(0.6):180-acos(0.6):5);
+            \draw[black, thick] ({sqrt(5)},-2) -- (-{sqrt(5)},2);
             \filldraw[blue, thick] (-3,0) circle (3pt);
             \filldraw[purple, thick] (3,0) circle (3pt);
-            \filldraw[purple, thick] (-2.25,2) circle (3pt);
-            \filldraw[blue, thick] (2.25,-2) circle (3pt);
-            \filldraw[blue, thick] (1.65,2.5) circle (3pt);
-            \filldraw[purple, thick] (1.65,-2.5) circle (3pt);
-            \node at (1.65,3,0) {$v_i$};
-            \node at (1.65,-3,0) {$v_j$};
+            \filldraw[purple, thick] ({-sqrt(5)},2) circle (3pt);
+            \filldraw[blue, thick] ({sqrt(5)},-2) circle (3pt);
+            \filldraw[blue, thick] (1.5,{sqrt(27/4)}) circle (3pt);
+            \filldraw[purple, thick] (1.5,-{sqrt(27/4)}) circle (3pt);
+            \node at (1.5,3,0) {$v_i$};
+            \node at (1.5,-3,0) {$v_j$};
             \node at (-3.5,0,0) {$u$};
             \node at (3.5,0,0) {$v$};
             \node at (0,2.5,0) {$C$};
@@ -271,19 +276,19 @@ Up to equivalence there are only four types of obstructions we could draw here. 
     \begin{minipage}{0.4\textwidth}
         \begin{tikzpicture}[scale = 0.8]
             \draw[black, thick] (0,0) circle (3);
-            \draw[black, thick] (1.65,2.5) arc (123.5:-125:3);
-            \draw[black, thick] (0,0) -- (2.25,-2);
-            \draw[black, thick] (0,0) -- (2.25,2);
+            \draw[black, thick] (1.5,-{sqrt(27/4)}) arc (-120:120:3);
+            \draw[black, thick] (0,0) -- ({sqrt(5)},-2);
+            \draw[black, thick] (0,0) -- ({sqrt(5)},2);
             \draw[black, thick] (0,0) -- (-3,0);
             \filldraw[black, thick] (-3,0) circle (2pt);
             \filldraw[black, thick] (3,0) circle (2pt);
             \filldraw[black, thick] (0,0) circle (2pt);
-            \filldraw[black, thick] (2.25,2) circle (2pt);
-            \filldraw[black, thick] (2.25,-2) circle (2pt);
-            \filldraw[black, thick] (1.65,2.5) circle (2pt);
-            \filldraw[black, thick] (1.65,-2.5) circle (2pt);
-            \node at (1.65,3,0) {$v_i$};
-            \node at (1.65,-3,0) {$v_j$};
+            \filldraw[black, thick] ({sqrt(5)},2) circle (2pt);
+            \filldraw[black, thick] ({sqrt(5)},-2) circle (2pt);
+            \filldraw[black, thick] (1.5,{sqrt(27/4)}) circle (2pt);
+            \filldraw[black, thick] (1.5,-{sqrt(27/4)}) circle (2pt);
+            \node at (1.5,3,0) {$v_i$};
+            \node at (1.5,-3,0) {$v_j$};
             \node at (-3.5,0,0) {$u$};
             \node at (3.5,0,0) {$v$};
             \node at (0,2.5,0) {$C$};
@@ -295,20 +300,20 @@ Up to equivalence there are only four types of obstructions we could draw here. 
     \begin{minipage}{0.4\textwidth}
         \begin{tikzpicture}[scale = 0.8]
             \draw[black, thick] (0,0) circle (3);
-            \draw[black, thick] (1.65,2.5) arc (123.5:-125:3);
-            \draw[black, thick] (-3,0) arc (126.8:53:5);
-            \draw[black, thick] (0,0) -- (2.25,-2);
-            \draw[black, thick] (0,0) -- (2.25,2);
+            \draw[black, thick] (1.5,-{sqrt(27/4)}) arc (-120:120:3);
+            \draw[black, thick] (3,0) arc (acos(0.6):180-acos(0.6):5);
+            \draw[black, thick] (0,0) -- ({sqrt(5)},-2);
+            \draw[black, thick] (0,0) -- ({sqrt(5)},2);
             \draw[black, thick] (0,0) -- (-3,0);
             \filldraw[blue, thick] (-3,0) circle (3pt);
             \filldraw[purple, thick] (3,0) circle (3pt);
             \filldraw[purple, thick] (0,0) circle (3pt);
-            \filldraw[blue, thick] (2.25,2) circle (3pt);
-            \filldraw[blue, thick] (2.25,-2) circle (3pt);
-            \filldraw[black, thick] (1.65,2.5) circle (2pt);
-            \filldraw[purple, thick] (1.65,-2.5) circle (3pt);
-            \node at (1.65,3,0) {$v_i$};
-            \node at (1.65,-3,0) {$v_j$};
+            \filldraw[blue, thick] ({sqrt(5)},2) circle (3pt);
+            \filldraw[blue, thick] ({sqrt(5)},-2) circle (3pt);
+            \filldraw[black, thick] (1.5,{sqrt(27/4)}) circle (2pt);
+            \filldraw[purple, thick] (1.5,-{sqrt(27/4)}) circle (3pt);
+            \node at (1.5,3,0) {$v_i$};
+            \node at (1.5,-3,0) {$v_j$};
             \node at (-3.5,0,0) {$u$};
             \node at (3.5,0,0) {$v$};
             \node at (0,2.5,0) {$C$};
@@ -322,18 +327,18 @@ Up to equivalence there are only four types of obstructions we could draw here. 
     \begin{minipage}{0.4\textwidth}
         \begin{tikzpicture}[scale = 0.8]
             \draw[black, thick] (0,0) circle (3);
-            \draw[black, thick] (1.65,2.5) arc (123.5:-125:3);
+            \draw[black, thick] (1.5,-{sqrt(27/4)}) arc (-120:120:3);
             \draw[black, thick] (3,0) -- (-3,0);
-            \draw[black, thick] (1.65,0) -- (1.65,2.5);
-            \draw[black, thick] (-1.65,0) -- (1.65,-2.5);
+            \draw[black, thick] (1.5,0) -- (1.5,{sqrt(27/4)});
+            \draw[black, thick] (-1.5,0) -- (1.5,-{sqrt(27/4)});
             \filldraw[black, thick] (-3,0) circle (2pt);
             \filldraw[black, thick] (3,0) circle (2pt);
-            \filldraw[black, thick] (1.65,2.5) circle (2pt);
-            \filldraw[black, thick] (1.65,-2.5) circle (2pt);
-            \filldraw[black, thick] (1.65,0) circle (2pt);
-            \filldraw[black, thick] (-1.65,0) circle (2pt);
-            \node at (1.65,3,0) {$v_i$};
-            \node at (1.65,-3,0) {$v_j$};
+            \filldraw[black, thick] (1.5,{sqrt(27/4)}) circle (2pt);
+            \filldraw[black, thick] (1.5,-{sqrt(27/4)}) circle (2pt);
+            \filldraw[black, thick] (1.5,0) circle (2pt);
+            \filldraw[black, thick] (-1.5,0) circle (2pt);
+            \node at (1.5,3,0) {$v_i$};
+            \node at (1.5,-3,0) {$v_j$};
             \node at (-3.5,0,0) {$u$};
             \node at (3.5,0,0) {$v$};
             \node at (0,2.5,0) {$C$};
@@ -344,20 +349,20 @@ Up to equivalence there are only four types of obstructions we could draw here. 
     \hfill
     \begin{minipage}{0.4\textwidth}
         \begin{tikzpicture}[scale = 0.8]
-            \draw[black, thick] (-3,0) arc (126.8:53:5);
+            \draw[black, thick] (3,0) arc (acos(0.6):180-acos(0.6):5);
             \draw[black, thick] (0,0) circle (3);
-            \draw[black, thick] (1.65,2.5) arc (123.5:-125:3);
+            \draw[black, thick] (1.5,-{sqrt(27/4)}) arc (-120:120:3);
             \draw[black, thick] (3,0) -- (-3,0);
-            \draw[black, thick] (1.65,0) -- (1.65,2.5);
-            \draw[black, thick] (-1.65,0) -- (1.65,-2.5);
+            \draw[black, thick] (1.5,0) -- (1.5,{sqrt(27/4)});
+            \draw[black, thick] (-1.5,0) -- (1.5,-{sqrt(27/4)});
             \filldraw[purple, thick] (-3,0) circle (3pt);
             \filldraw[blue, thick] (3,0) circle (3pt);
-            \filldraw[blue, thick] (1.65,2.5) circle (3pt);
-            \filldraw[purple, thick] (1.65,-2.5) circle (3pt);
-            \filldraw[purple, thick] (1.65,0) circle (3pt);
-            \filldraw[blue, thick] (-1.65,0) circle (3pt);
-            \node at (1.65,3,0) {$v_i$};
-            \node at (1.65,-3,0) {$v_j$};
+            \filldraw[blue, thick] (1.5,{sqrt(27/4)}) circle (3pt);
+            \filldraw[purple, thick] (1.5,-{sqrt(27/4)}) circle (3pt);
+            \filldraw[purple, thick] (1.5,0) circle (3pt);
+            \filldraw[blue, thick] (-1.5,0) circle (3pt);
+            \node at (1.5,3,0) {$v_i$};
+            \node at (1.5,-3,0) {$v_j$};
             \node at (-3.5,0,0) {$u$};
             \node at (3.5,0,0) {$v$};
             \node at (0,2.5,0) {$C$};
@@ -372,17 +377,17 @@ Up to equivalence there are only four types of obstructions we could draw here. 
     \begin{minipage}{0.4\textwidth}
         \begin{tikzpicture}[scale = 0.8]
             \draw[black, thick] (0,0) circle (3);
-            \draw[black, thick] (1.65,2.5) arc (123.5:-125:3);
+            \draw[black, thick] (1.5,-{sqrt(27/4)}) arc (-120:120:3);
             \draw[black, thick] (3,0) -- (-3,0);
-            \draw[black, thick] (0,0) -- (1.65,2.5);
-            \draw[black, thick] (0,0) -- (1.65,-2.5);
+            \draw[black, thick] (0,0) -- (1.5,{sqrt(27/4)});
+            \draw[black, thick] (0,0) -- (1.5,-{sqrt(27/4)});
             \filldraw[black, thick] (-3,0) circle (2pt);
             \filldraw[black, thick] (3,0) circle (2pt);
-            \filldraw[black, thick] (1.65,2.5) circle (2pt);
-            \filldraw[black, thick] (1.65,-2.5) circle (2pt);
+            \filldraw[black, thick] (1.5,{sqrt(27/4)}) circle (2pt);
+            \filldraw[black, thick] (1.5,-{sqrt(27/4)}) circle (2pt);
             \filldraw[black, thick] (0,0) circle (2pt);
-            \node at (1.65,3,0) {$v_i$};
-            \node at (1.65,-3,0) {$v_j$};
+            \node at (1.5,3,0) {$v_i$};
+            \node at (1.5,-3,0) {$v_j$};
             \node at (-3.5,0,0) {$u$};
             \node at (3.5,0,0) {$v$};
             \node at (0,2.5,0) {$C$};
@@ -393,19 +398,19 @@ Up to equivalence there are only four types of obstructions we could draw here. 
     \hfill
     \begin{minipage}{0.4\textwidth}
         \begin{tikzpicture}[scale = 0.8]
-            \draw[black, thick] (-3,0) arc (126.8:53:5);
+            \draw[black, thick] (3,0) arc (acos(0.6):180-acos(0.6):5);
             \draw[black, thick] (0,0) circle (3);
-            \draw[black, thick] (1.65,2.5) arc (123.5:-125:3);
+            \draw[black, thick] (1.5,-{sqrt(27/4)}) arc (-120:120:3);
             \draw[black, thick] (3,0) -- (-3,0);
-            \draw[black, thick] (0,0) -- (1.65,2.5);
-            \draw[black, thick] (0,0) -- (1.65,-2.5);
+            \draw[black, thick] (0,0) -- (1.5,{sqrt(27/4)});
+            \draw[black, thick] (0,0) -- (1.5,-{sqrt(27/4)});
             \filldraw[black, thick] (-3,0) circle (3pt);
             \filldraw[black, thick] (3,0) circle (3pt);
-            \filldraw[black, thick] (1.65,2.5) circle (3pt);
-            \filldraw[black, thick] (1.65,-2.5) circle (3pt);
+            \filldraw[black, thick] (1.5,{sqrt(27/4)}) circle (3pt);
+            \filldraw[black, thick] (1.5,-{sqrt(27/4)}) circle (3pt);
             \filldraw[black, thick] (0,0) circle (3pt);
-            \node at (1.65,3,0) {$v_i$};
-            \node at (1.65,-3,0) {$v_j$};
+            \node at (1.5,3,0) {$v_i$};
+            \node at (1.5,-3,0) {$v_j$};
             \node at (-3.5,0,0) {$u$};
             \node at (3.5,0,0) {$v$};
             \node at (0,2.5,0) {$C$};
