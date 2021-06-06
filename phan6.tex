@@ -101,6 +101,10 @@ $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa subdivision 
 
     Cho $G$ là đồ thị có \textit{ít cạnh nhất}. Khi loại bỏ một cạnh bất kì của $G$ thì ta được đồ thị \textit{phẳng}.
 
+    Giả sử $G$ có nhiều thành phần liên thông, dễ thấy $G$ phải có một thành phần liên thông không phẳng. Gọi thành phần liên thông đó là $K$.
+    Rõ ràng $\epsilon(K) \leq \epsilon(G)$ và $K$ không chứa $K_5$ và $K_{3,3}$. Khi $K$ ít cạnh hơn $G$, $G$ sẽ không phải đồ thị không phẳng \textit{ít cạnh nhất}, mâu thuẫn, do đó $\epsilon(K) = \epsilon(G)$
+    và các thành phần liên thông khác $K$ của $G$ đều chỉ gồm đỉnh cô lập. Không mất tính tổng quát, giả sử $G$ liên thông.
+
     \begin{enumerate}
         \item $G$ là 2-connected
               \begin{proof}
@@ -127,9 +131,9 @@ $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa subdivision 
 
                       \end{tikzpicture}
                   \end{figure}
-                  Đầu tiên, ta chỉ ra $G$ 1-connected (liên thông). Giả sử $G$ không liên thông, và không phẳng.
-                  Vì $G$ là đồ thị không phẳng \textit{ít cạnh nhất} nên các thành phần của nó là phẳng. Không mất tính tổng quát, giả sử G có 2 thành phần liên thông là $G_1$ và $G_2$.
-                  Bởi vì $G_1$ và $G_2$ cùng phẳng, ta có thể thêm biểu diễn phẳng của $G_1$ vào một trong các diện biểu diễn phẳng của $G_2$ (ví dụ diện vô hạn), cho ta biểu diễn phẳng của $G$. Vô lý.
+                  %   Đầu tiên, ta chỉ ra $G$ 1-connected (liên thông). Giả sử $G$ không liên thông, và không phẳng.
+                  %   Vì $G$ là đồ thị không phẳng \textit{ít cạnh nhất} nên các thành phần của nó là phẳng. Không mất tính tổng quát, giả sử G có 2 thành phần liên thông là $G_1$ và $G_2$.
+                  %   Bởi vì $G_1$ và $G_2$ cùng phẳng, ta có thể thêm biểu diễn phẳng của $G_1$ vào một trong các diện biểu diễn phẳng của $G_2$ (ví dụ diện vô hạn), cho ta biểu diễn phẳng của $G$. Vô lý.
 
                   Vì $G$ liên thông nên $\kappa(G) \geq 1$. Giả sử $\kappa(G) = 1$, theo định nghĩa, tồn tại đỉnh $v$ sao cho $G -v$ không liên thông.
                   Không mất tính tổng quát, giả sử $G-v$ có 2 thành phần liên thông $H_1$ và $H_2$.
@@ -145,36 +149,36 @@ $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa subdivision 
 
         \item Nếu $G$ là đồ thị không phẳng \textit{ít cạnh nhất} và $xy$ là một cạnh của $G$ thì $G-xy$ 2-connected
               \begin{proof}
-                  Vì $G$ 2-connected nên $\kappa(G) \geq 2$. Giả sử $\kappa(G) =2$ thì tồn tại 2 đỉnh $u,v$ sao cho $G-\{u,v\}$ không liên thông.
-                  Gọi các thành phần liên thông của $G-\{u,v\}$ là $H_1, H_2, \ldots,H_k$. Xây dựng tập $M_1,M_2,\ldots,M_k$ trọng đó $M_i=H_i \cup \{u,v\} +uv$.
-                  Ta sẽ chỉ ra tồn tại $M_i (1 \geq i \geq k)$ không phẳng.
+                  Vì $G$ 2-connected nên $\kappa(G) \geq 2$. Giả sử $\kappa(G) =2$ thì tồn tại 2 đỉnh $x,y$ sao cho $G-\{x,y\}$ không liên thông.
+                  Gọi các thành phần liên thông của $G-\{x,y\}$ là $H_1, H_2, \ldots,H_k$. Xây dựng tập $M_1,M_2,\ldots,M_k$ trọng đó $M_i=H_i \cup \{x,y\} +xy$.
+                  Ta sẽ chỉ ra tồn tại $M_j (1 \geq j \geq k)$ không phẳng.
 
-                  Giả sử tất cả $M_i (1 \geq i \geq k)$ đều phẳng, do đó tồn tại biểu diễn phẳng của mỗi chúng. Với phép chiếu lập thể, ta luôn có một biểu phẳng sao cho $uv$ là biên của diện vô hạn.
-                  Vì $\{u,v\}$ và $uv$ là phân chung duy nhất của các $M_i$, do đó, ta có thể hợp nhất biểu diễn phẳng của chúng, thu được biểu diễn phẳng của $G+uv$.
-                  Nghĩa là $G+uv$ phẳng, nên $G$ cũng phẳng. Vô lý, do đó tồn tại $M_j (1 \geq j \geq k)$ không phẳng.
+                  Giả sử tất cả $M_i (1 \geq i \geq k)$ đều phẳng, do đó tồn tại biểu diễn phẳng của mỗi chúng. Với phép chiếu lập thể, ta luôn có một biểu phẳng sao cho $xy$ là biên của diện vô hạn.
+                  Vì $\{x,y\}$ và $xy$ là phân chung duy nhất của các $M_i$, do đó, ta có thể hợp nhất biểu diễn phẳng của chúng, thu được biểu diễn phẳng của $G+xy$.
+                  Nghĩa là $G+xy$ phẳng, nên $G$ cũng phẳng. Vô lý, do đó tồn tại $M_j (1 \geq j \geq k)$ không phẳng.
 
                   Giả sử $H_p (1 \geq p \geq k)$ là một thành phần liên thông của $G$.
-                  Nếu trong 2 đỉnh $u,v$ không có đỉnh nào nổi với $H_p$, khi đó, $H_p$ là một thành phần liên thông, hay $G$ không liên thông, vô lý.
-                  Nếu trong 2 đỉnh $u,v$ có một đỉnh nối tới $H_p$, giả sử $u$, thì khi xóa đỉnh $u$, $G-u$ không còn liên thông, hay $\kappa(G)=1$, vô lý.
-                  Vậy cả $u$ và $v$ đều có cạnh nối tới $H_p$ hay có ít nhất 2 cạnh từ $\{u,v\}$ nối đến $H_p$
+                  Nếu trong 2 đỉnh $x,y$ không có đỉnh nào nổi với $H_p$, khi đó, $H_p$ là một thành phần liên thông, hay $G$ không liên thông, vô lý.
+                  Nếu trong 2 đỉnh $x,y$ có một đỉnh nối tới $H_p$, giả sử $x$, thì khi xóa đỉnh $x$, $G-x$ không còn liên thông, hay $\kappa(G)=1$, vô lý.
+                  Vậy cả $x$ và $y$ đều có cạnh nối tới $H_p$ hay có ít nhất 2 cạnh từ $\{x,y\}$ nối đến $H_p$
 
                   Ta có:
                   \begin{eqnarray*}
-                      \epsilon(G)& \geq &\epsilon(H_j+\{u,v\}) + \epsilon(H_p +\{u,v\}) \\
-                      & \geq & \epsilon(H_j+\{u,v\}) + 2\\
-                      & > & \epsilon(H_j+\{u,v\}) + 1 \\
-                      & = & \epsilon(H_j+\{u,v\} + uv) = \epsilon(M_j)
+                      \epsilon(G)& \geq &\epsilon(H_j+\{x,y\}) + \epsilon(H_p +\{x,y\}) \\
+                      & \geq & \epsilon(H_j+\{x,y\}) + 2\\
+                      & > & \epsilon(H_j+\{x,y\}) + 1 \\
+                      & = & \epsilon(H_j+\{x,y\} + xy) = \epsilon(M_j)
                   \end{eqnarray*}
                   Cuối cùng thì $\epsilon(M_j) < \epsilon(G)$. Vì $G$ là đồ thị ít cạnh nhất không chứa subdivision $K_5$ và $K_{3,3}$, $M_j$ không phẳng và ít cạnh hơn $G$, nên $M_j$ phải chứa subdivision của $K_5$ hoặc $K_{3,3}$.
                   Suy ra $M_j$ không phải đồ thị con của $G$.
-                  Lại có $M_j -uv$ là đồ thị con của $G$ nghĩa là $G$ không chứa cạnh $uv$.
-                  Ta hợp nhất $M_j-uv$ với $M_p-uv$ bằng cách hợp nhất đỉnh $u$ và đỉnh $v$, ta thu được một đồ thị con của $G$.
-                  Do $M_p -uv$ liên thông nên tồn tại một path giữa $u$ và $v$, kết hợp path này với $M_j-uv$ ta được một subdivision của  $K_5$ hoặc $K_{3,3}$.
+                  Lại có $M_j -xy$ là đồ thị con của $G$ nghĩa là $G$ không chứa cạnh $xy$.
+                  Ta hợp nhất $M_j-xy$ với $M_p-xy$ bằng cách hợp nhất đỉnh $x$ và đỉnh $y$, ta thu được một đồ thị con của $G$.
+                  Do $M_p -xy$ liên thông nên tồn tại một path giữa $x$ và $y$, kết hợp path này với $M_j-xy$ ta được một subdivision của  $K_5$ hoặc $K_{3,3}$.
                   \begin{figure}[H]
                       \centering
                       \begin{tikzpicture}
-                          \node at (0,0.5,0){$u$};
-                          \node at (1,-0.5,0){$v$};
+                          \node at (0,0.5,0){$x$};
+                          \node at (1,-0.5,0){$y$};
                           \draw[blue, thick] (0, -1) -- (-1,1);
                           \draw[blue, thick] (-1, 0) -- (1,0);
                           \draw[blue, thick] (0, -1) -- (-1,-1);
@@ -202,7 +206,7 @@ $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa subdivision 
                           \filldraw[black] (-1,-1) circle (2pt);
                           \filldraw[black] (0,2) circle (2pt);
                       \end{tikzpicture}
-                      \caption*{\textcolor{blue}{Xanh}: $M_j-uv$ \\ \textcolor{red}{Đỏ}: $M_p-uv$}
+                      \caption*{\textcolor{blue}{Xanh}: $M_j-xy$ \\ \textcolor{red}{Đỏ}: $M_p-xy$}
                   \end{figure}
 
 
@@ -210,27 +214,28 @@ $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa subdivision 
 
                   $\Rightarrow \kappa(G) \geq 3$ hay $G$ 3-connected.
               \end{proof}
-              Tiếp theo, ta sẽ chỉ ra với mọi cặp đỉnh $a,b \in V(G-xy)$, tồn tại một chu trình đi qua chúng.
+              Tiếp theo, ta sẽ chỉ ra với mọi cặp đỉnh $a,b \in V(G-uv)$, tồn tại một chu trình đi qua chúng.
               Ta sẽ chứng minh qua 3 trường hợp.
               \begin{itemize}
-                  \item $\{a,b\} = \{x,y\}$. Rõ ràng $\nu(G) \geq 4$ ?? :D ??. Chọn bừa 2 đỉnh $c$ và $d$ trong đồ thị $G-xy$.
-                        Không mất tính tổng quát, giả sử $a=x$. Vì $G$ 3-connected nên loại bỏ 2 đỉnh không làm mất tính liên thông của $G$.
-                        nghĩa là khi loại bỏ $y$ và $d$, vẫn còn một path nối giữa $x$ và $c$. Nói cách khác, có một path $P_1$ giữa $x$ và $c$ không đi qua $y$ và $d$.
-                        Tương tự, có một path $P_2$ giữa $c$ và $y$ không đi qua $x$ và $d$,
-                        một path $P_3$ giữa $y$ và $d$ không đi qua $x$ và $c$,
-                        một path $P_4$ giữa $d$ và $x$ không đi qua $y$ và $c$.
-                        Khi đó, ta có $x$ và $y$ cùng nằm trên một chu trình $x-P_1-c-P_2-y-P_3-d-P_4-x$.
-                  \item Có duy nhất 1 đỉnh trong $\{a,b\}$ là $x$ hoặc $y$. Không mất tính tổng quát, giả sử $a=x$ và $b \neq y$.
-                        Chọn bừa 1 điểm $c \neq b$ không trùng $x$ và $y$. Tương tự trường hợp trên,
-                        tồn tại một path $P_1$ giữa $x$ và $b$ không đi qua $c$ và $y$,
-                        một path $P_2$ giữa $c$ và $b$ không đi qua $x$ và $y$,
-                        một path $P_2$ giữa $c$ và $x$ không đi qua $x$. Ta lại thu được một chu trình $x-P_1-b-P_2-c-P_3-x$, chu trình này chứa cả $x$ và $b$.
-                  \item Cả $a,b$ đều không trùng $x,y$. Lại một lần nữa, tương tự trường hợp trên,
-                        tồn tại một path $P_1$ giữa $a,b$ không đi qua $x,y$,
-                        một path $P_2$ giữa $b,y$ không đi qua $x,a$,
-                        một path $P_1$ giữa $y,a$ không đi qua $x,b$. Ta thu được chu trình $a-P_1-b-P_2-y-P_3-a$ chứa cả $a$ và $b$.
+                  \item $\{a,b\} = \{u,v\}$. Rõ ràng $\nu(G) \geq 4$ ?? :D ??. Chọn bừa 2 đỉnh $c$ và $d$ trong đồ thị $G-uv$.
+                        Không mất tính tổng quát, giả sử $a=u$. Vì $G$ 3-connected nên loại bỏ 2 đỉnh không làm mất tính liên thông của $G$.
+                        nghĩa là khi loại bỏ $v$ và $d$, vẫn còn một path nối giữa $u$ và $c$. Nói cách khác, có một path $P_1$ giữa $u$ và $c$ không đi qua $v$ và $d$.
+                        Tương tự, có một path $P_2$ giữa $c$ và $v$ không đi qua $u$ và $d$,
+                        một path $P_3$ giữa $v$ và $d$ không đi qua $u$ và $c$,
+                        một path $P_4$ giữa $d$ và $u$ không đi qua $v$ và $c$.
+                        Khi đó, ta có $u$ và $v$ cùng nằm trên một chu trình $u-P_1-c-P_2-v-P_3-d-P_4-u$.
+                  \item Có duy nhất 1 đỉnh trong $\{a,b\}$ là $u$ hoặc $v$. Không mất tính tổng quát, giả sử $a=u$ và $b \neq v$.
+                        Chọn bừa 1 điểm $c \neq b$ không trùng $u$ và $v$. Tương tự trường hợp trên,
+                        tồn tại một path $P_1$ giữa $u$ và $b$ không đi qua $c$ và $v$,
+                        một path $P_2$ giữa $c$ và $b$ không đi qua $u$ và $v$,
+                        một path $P_2$ giữa $c$ và $u$ không đi qua $u$. Ta lại thu được một chu trình $u-P_1-b-P_2-c-P_3-u$, chu trình này chứa cả $u$ và $b$.
+                  \item Cả $a,b$ đều không trùng $u,v$. Lại một lần nữa, tương tự trường hợp trên,
+                        tồn tại một path $P_1$ giữa $a,b$ không đi qua $u,v$,
+                        một path $P_2$ giữa $b,v$ không đi qua $u,a$,
+                        một path $P_1$ giữa $v,a$ không đi qua $u,b$. Ta thu được chu trình $a-P_1-b-P_2-v-P_3-a$ chứa cả $a$ và $b$.
               \end{itemize}
-              Từ 3 trường hợp trên, luôn có một chu trình đi qua $a,b$ trong $G-xy$, nên $G-uv$ phải 2-connected.
+              Từ 3 trường hợp trên, luôn có một chu trình đi qua $a,b$ trong $G-uv$, nên $G-uv$ phải 2-connected.
+
               \begin{tikzpicture}
 
               \end{tikzpicture}
