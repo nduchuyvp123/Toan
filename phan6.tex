@@ -142,7 +142,43 @@ $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa subdivision 
                   Với phép chiếu lập thể, ta có thể thu được biểu diễn phẳng của $H_1 \cup v$ và $H_2 \cup v$ mà $v$ nằm trên đường biên của diện không bị chặn.
                   Bằng cách đặt điểm ở vô cùng.
                   Sau đó, ta gộp $H_1 \cup v$ và $H_2 \cup v$ bằng cách hợp nhất $v$ và thu được một biểu diễn phẳng của G. Vô lý.
-
+                  \begin{figure}[H]
+                      \centering
+                      \begin{tikzpicture}[line join=round, line cap=round, >=stealth]%Hinh nón
+                          \def\a{1}% Bán trục lớn
+                          \def\b{\a/3}% Bán trục bé
+                          \pgfmathsetmacro{\h}{sqrt(3)*\a}% Chiều cao
+                          \pgfmathsetmacro{\t}{asin(\b/\h)}
+                          \shade[ball color=cyan,opacity=0.65](-\h*0.75,0.15*\h)circle(\h);
+                          \begin{scope}[xslant=-0.9,magenta]
+                              \coordinate (M) at ({\a*cos(\t)}, {\b*sin(\t)});
+                              \coordinate (N) at ({-\a*cos(\t)}, {\b*sin(\t)});
+                              \path(0,0)coordinate(O)(\a,0)coordinate(A)(-\a,0)coordinate(B);
+                              \path (0,\h)coordinate(S)(intersection of A--B and S--N)coordinate(N');
+                              \pgfmathsetmacro{\s}{0.5*atan((\h-\b*sin(\t))/(\a*cos(\t)))}
+                              \path([rotate around ={{\s}:(N')}]A)coordinate(K)(intersection of N'--K and S--O)coordinate(H);
+                              \draw[name path=mot,red] let \p1 =($(O)-(H)$)in(H) circle({veclen(\x1,\y1)});
+                              \draw[shift={(0,-2*\h)},scale=3,cyan] ({\a*cos(\t)}, {\b*sin(\t)}) arc(\t:{180-\t}:{\a} and {\b})--(0,\h);
+                              \draw[shift={(0,-2*\h)},scale=3,cyan] ({\a*cos(\t)}, {\b*sin(\t)}) arc(\t:360+\t:{\a} and {\b})--(0,\h);
+                              \foreach \m[count=\j] in{120,50}{
+                                      \draw[shift={(0,-2*\h)},cyan,scale=3] ({\a*cos(\t)}, {\b*sin(\t)}) arc(\t:\m:{\a} and {\b})coordinate(v\j);
+                                      \path[name path =hai](v\j)--(0,\h);
+                                      \path[name intersections ={of= mot and hai,by={m1\j,n1\j}}];
+                                  }
+                              \foreach \m[count=\j] in{250,300}{
+                                      \path[shift={(0,-2*\h)},scale=3] ({\a*cos(\t)}, {\b*sin(\t)}) arc(\t:\m:{\a} and {\b})coordinate(u\j);
+                                      \path[name path =hai](u\j)--(0,\h);
+                                      \path[name intersections ={of= mot and hai,by={m2\j,n2\j}}];
+                                  }
+                              \draw[cyan](-3*\h,-3*\h)rectangle(3*\h,-\h);
+                          \end{scope}
+                          \draw[dotted,magenta](S)--(n11)(S)--(n12)(S)--(m21)(S)--(m22);
+                          \draw[magenta](v1)--(n11)(v2)--(n12)(u1)--(m21)(u2)--(m22);
+                          \foreach \d in{v1,S,v2,n11,n12,u1,u2,m21,m22}
+                          \fill[magenta](\d)circle(1pt);
+                      \end{tikzpicture}
+                      \caption*{Ví dụ phép chiếu lập thể từ mặt cầu đến mặt phẳng }
+                  \end{figure}
                   Vậy, nếu $G$ là đồ thị không phẳng cực tiểu thì $G$ 2-connected.
 
               \end{proof}
