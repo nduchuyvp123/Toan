@@ -1,116 +1,265 @@
-\section{Phát biểu định lý}
+\section{Định nghĩa}
 
-\begin{theorem}[Kuratowski]
-    \label{thr:kuratowski}
-    Một đồ thị phẳng khi và chỉ khi không chứa bất kỳ đồ thị con nào là subdivision của $K_5$ hoặc $K_{3,3}$
+Vài cái định nghĩa cơ bản, thêm sau
+
+\begin{definition}[Đồ thị]
+    Một đồ thị $G(V(G),E(G))$ gồm tập $V \neq \varnothing $ là tập hợp các đỉnh và tập $E(G)$ được gọi là tập cạnh, môi cạnh nối 2 đỉnh là 2 thành phần của $V(G)$. $|V(G)|$ là số đỉnh trong tập kí hiệu bởi $\nu$ và $|E(G)|$ là số cạnh kí hiệu bởi $\epsilon$
+\end{definition}
+
+\begin{definition}[Khuyên]
+    Khuyên là một cạnh bắt đầu và kết thúc tại cùng 1 đỉnh
+\end{definition}
+
+\begin{definition}
+    Đồ thị vô hướng $G(V(G),E(G))$ gọi là đơn đồ thị nếu mỗi cặp đỉnh khác nhau $a,b \in V(G)$ được nối với nhau bởi không quá một cạnh và mọi đỉnh đều không có khuyên
+\end{definition}
+
+\begin{definition}
+    Một đỉnh là liên thuộc với một cạnh nếu đỉnh đó là một trong 2 đầu mút của cạnh; hai đỉnh được gọi là kề nhau nếu chúng được nối bởi 1 cạnh.
+    Bậc của một đỉnh $v$, kí hiệu bởi $deg(v)$, là số các cạnh kề với $v$, trong đó khuyên được tính như hai cạnh. Bậc của đồ thị là tổng bậc tất cả các đỉnh.
+    Ta gọi $\delta = \min_{v \in V}(deg v)$ và $\Delta = \max_{v \in V}(deg v)$
+\end{definition}
+
+\begin{definition}
+    Một đường đi $W$ trong $G$ là một dãy luân phiên các đỉnh và cạnh, biểu thị bởi $W=v_0e_1v_1e_2....v_ke_k$ trong đó $e_i (i \in [1,k], i \in \mathbb{N})$ nối giữa đỉnh $v_{i-1}$ và $v_i$.
+    Một đường đi mà tất cả cách cạnh $e_i$ khác nhau gọi là đường đi đơn.
+    Hơn nữa, nếu tất các đỉnh $v_i$ phân biệt thì $W$ là đường đi sơ cấp.
+    Đồ thị $G$ liên thông nếu tồn tại một đường đi sơ cấp nối giữa mọi cặp đỉnh trong $G$
+
+    Một đường đi là đường đi đóng nếu nó có độ dài dương và điều đầu trùng điểm cuối.
+
+    Một dường đi đơn đóng với các đỉnh phân biệt được gọi là chu trình.
+\end{definition}
+
+\begin{definition}
+    $H$ là đồ thị con của $G$ nếu $V(H) \subseteq V(G), E(H) \subseteq E(G)$ và đầu mút các cạnh trong $E(H)$ thuộc $V(H)$. Hơn nữa, nếu $H$ là một đồ thị con liên thông cực đại thì $H$ là một thành phần liên thông của $G$.
+    Số các thành phần liên thông của $G$ được biểu diễn bởi $\omega(G)$. Một cạnh $e$ được gọi là cầu nếu $\omega(G-e) > \omega(G)$
+\end{definition}
+
+\begin{definition}
+    Đồ thị đầy đủ là đồ thị mà mỗi cặp đỉnh được nối với nhau bởi duy nhất một cạnh. Kí hiệu $K_m$ là đồ thị đầy đủ $m$ đỉnh
+
+    Đồ thị G là đồ thị phân đôi nếu tập đỉnh $V$ của nó có thể chia thành hai tập con khác rỗng $X$ và $Y$ sao cho mọi cạnh trong $G$ nối một đỉnh trong $X$ với một đỉnh trong $Y$
+
+    Đồ thị G là đồ thị phân đôi đầy đủ nễu $\forall x \in X, y \in Y$ thì $x$ được nối với $y$ bởi một cạnh duy nhất
+    Khi $X$ chứa $m$ đỉnh, $Y$ chứa $n$ đỉnh thì $G$ kí hiệu bởi $K_{m,n}$
+    \begin{center}
+        \begin{tikzpicture}
+            \foreach \i in {1, 2, 3, 4, 5}
+            \fill[black] (\i*360/5:3) coordinate (5\i) circle(3 pt)
+            \ifnum \i>1 foreach \j in {\i,...,1}{(5\i) edge (5\j)} \fi;
+
+            \node at (0,-4,0) {$K_5$};
+        \end{tikzpicture}
+        \hspace{2cm}
+        \begin{tikzpicture}
+            \foreach \x/\y in {0/1, 0/3, 0/5} {
+                    \filldraw[black] (\x,\y) circle (3pt);
+                    \foreach \z/\t in {4/1, 4/3, 4/5} {
+                            \filldraw[black] (\z,\t) circle (3pt);
+                            \draw[black, thick] (\x,\y) -- (\z,\t);
+                        }
+                }
+            \node at (2,-1,0) {$K_{3,3}$};
+        \end{tikzpicture}
+    \end{center}
+\end{definition}
+\begin{theorem}
+    \label{thr:v2e}
+    Cho đồ thị $G$ với tập đỉnh $V$ và tập cạnh $E$, $$\sum_{v\in V}deg(v) = 2\epsilon$$
 \end{theorem}
+\begin{proof}
 
-\begin{center}
-    \begin{tikzpicture}
-        \draw[black, thick] (0,1) -- (1,0);
-        \draw[black, thick] (0,1) -- (2,2);
-        \draw[black, thick] (3,4) -- (2,2);
-        \draw[black, thick] (3,4) -- (1,4);
-        \draw[black, thick] (0,3) -- (1,4);
-        \draw[black, thick] (4,3) -- (3,4);
-        \draw[black, thick] (1,0) -- (4,3);
-        \draw[black, thick] (1,0) -- (3,0);
-        \draw[black, thick] (3,0) -- (4,1);
-        \draw[black, thick] (3,0) -- (0,3);
-        \draw[black, thick] (2,2) -- (4,1);
-        \draw[black, thick] (0,1) -- (0,3);
-        \draw[black, thick] (4,1) -- (4,3);
-        \draw[black, thick] (0,3) -- (4,3);
+    Giả sử $x,y \in V$ và $(x,y) \in E$
 
-        \filldraw[black] (1,0) circle (2pt);
-        \filldraw[black] (0,1) circle (2pt);
-        \filldraw[black] (3,0) circle (2pt);
-        \filldraw[black] (4,1) circle (2pt);
-        \filldraw[black] (2,2) circle (2pt);
-        \filldraw[black] (0,3) circle (2pt);
-        \filldraw[black] (4,3) circle (2pt);
-        \filldraw[black] (1,4) circle (2pt);
-        \filldraw[black] (3,4) circle (2pt);
+    \indent Với $x \neq y$, khi đó nếu xóa cạnh $(x,y)$ thì bậc của đồ thị giảm đi 2. Nếu ta xóa tất cả các cạnh như trên thì đồ thị còn lại chỉ gồm các đỉnh cô lập và các đỉnh có khuyên.
 
-        \node at (2, -1, 0) {Nonplanar graph $G$};
-    \end{tikzpicture}
+    Tại mỗi đỉnh $x$ có khuyên, nếu ta xóa khuyên, thì bậc của đồ thị cũng sẽ giảm đi 2
 
-\end{center}
+    Như vậy, sau khi xóa 1 cạnh nối 2 đỉnh khác nhau hoặc xóa 1 khuyên, thì bậc của đồ thị giảm đi 2. Sau khi xóa tất cả cách cạnh và các khuyên của đồ thị, thì đồ thị chỉ còn lại các đỉnh cô lập nên bậc đồ thị bằng 0.
 
-\begin{center}
-    \label{fig:G1}
-    \begin{tikzpicture}
-        \draw[black, thick] (0,1) -- (1,0);
-        \draw[black, thick] (0,1) -- (2,2);
-        \draw[black, thick] (3,4) -- (2,2);
-        \draw[black, thick] (3,4) -- (1,4);
-        \draw[black, thick] (0,3) -- (1,4);
-        \draw[black, thick] (4,3) -- (3,4);
-        \draw[black, thick] (1,0) -- (4,3);
-        \draw[black, thick] (1,0) -- (3,0);
-        \draw[black, thick] (3,0) -- (4,1);
-        \draw[black, thick] (3,0) -- (0,3);
-        \draw[black, thick] (2,2) -- (4,1);
-        \draw[black, thick] (0,1) -- (0,3);
-        \draw[black, thick] (4,1) -- (4,3);
-        \draw[black, thick] (0,3) -- (4,3);
+    Từ đó, suy ra điều phải chứng minh
+    %     Với $v\in V, e \in E$ gọi $n(v)$ là tập các cạnh liên thuộc với $v$. Gọi $m(e)$ là tập các đầu mút của $e$.
+    %     Ta có: $$\sum_{v \in V}deg(v) = \sum_{v \in V}(\sum_{e \in n(v)}1) = \sum_{e \in E}(\sum_{v \in m(e)}1) = 2\epsilon$$
+\end{proof}
 
-        \filldraw[blue] (1,0) circle (3pt);
-        \filldraw[purple] (0,1) circle (3pt);
-        \filldraw[purple] (3,0) circle (3pt);
-        \filldraw[blue] (4,1) circle (3pt);
-        \filldraw[black] (2,2) circle (2pt);
-        \filldraw[blue] (0,3) circle (3pt);
-        \filldraw[purple] (4,3) circle (3pt);
-        \filldraw[black] (1,4) circle (2pt);
-        \filldraw[black] (3,4) circle (2pt);
+\begin{definition}
+    % Một cách để vẽ đồ thị, biểu diễn đỉnh bởi các điểm và cạnh bởi cách đường nối các điểm được gọi là biểu diễn của đồ thị.
+    % Một biểu diễn của đồ thị được nhúng trên mặt phẳng.
+    % Một đồ thị có một cách biểu diễn mà các cạnh không cắt nhau ngoài trừ tại đầu mút thì gọi là đồ thị phẳng.
+    % Khi đó, biểu diễn của đồ thị gọi là biểu diễn phẳng
+    Đồ thị phẳng là đồ thị mà ta có thể vẽ nó trên một mặt phẳng, biểu diễn đỉnh bởi các điểm và cạnh bởi các đường nối các điểm, sao cho cho các cạnh chỉ giao nhau tại các đầu mút.
+    Cách vẽ như vậy được gọi là biểu diễn phẳng của đồ thị.
+\end{definition}
 
-        \node at (2,-1,0) {Nonplanar graph $G$};
-    \end{tikzpicture}
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.4\textwidth}
 
-\end{center}
-
-\begin{center}
-    \begin{tikzpicture}
-        \draw[black, thick] (0,1) -- (1,0);
-        \draw[black, thick] (1,0) -- (4,3);
-        \draw[black, thick] (1,0) -- (3,0);
-        \draw[black, thick] (3,0) -- (4,1);
-        \draw[black, thick] (3,0) -- (0,3);
-        \draw[black, thick] (0,1) -- (0,3);
-        \draw[black, thick] (4,1) -- (4,3);
-        \draw[black, thick] (0,3) -- (4,3);
-        \draw[black, thick] (0,1) -- (2,2);
-        \draw[black, thick] (2,2) -- (4,1);
-        \filldraw[blue] (1,0) circle (3pt);
-        \filldraw[purple] (0,1) circle (3pt);
-        \filldraw[purple] (3,0) circle (3pt);
-        \filldraw[blue] (4,1) circle (3pt);
-        \filldraw[blue] (0,3) circle (3pt);
-        \filldraw[purple] (4,3) circle (3pt);
-        \filldraw[black] (2,2) circle (2pt);
-        \draw [-{To}] (6.5, 2) -- (7.5, 2);
-        \node at (2,-2,0) {Subgraph of G};
-    \end{tikzpicture}
+        \begin{tikzpicture}
+            \draw[black, thick] (0,1) -- (2,0);
+            \draw[black, thick] (2,0) -- (4,1);
+            \draw[black, thick] (4,1) -- (4,3);
+            \draw[black, thick] (4,3) -- (2,4);
+            \draw[black, thick] (2,0) -- (2,4);
+            \draw[black, thick] (2,4) -- (0,3);
+            \draw[black, thick] (0,3) -- (0,1);
+            \draw[black, thick] (4,3) arc (0:270-asin(3/5):2.5);
+            \filldraw[purple] (0,1) circle (3pt);
+            \filldraw[purple] (4,1) circle (3pt);
+            \filldraw[purple] (2,4) circle (3pt);
+            \filldraw[blue] (0,3) circle (3pt);
+            \filldraw[blue] (4,3) circle (3pt);
+            \filldraw[blue] (2,0) circle (3pt);
+            \node at (2,-1,0) {Biểu diễn phẳng};
+        \end{tikzpicture}
+    \end{minipage}
     \hspace{2cm}
-    \begin{tikzpicture}
-        \draw[black, thick] (8,-0.5) -- (12,-0.5);
-        \draw[black, thick] (8,-0.5) -- (12,1.5);
-        \draw[black, thick] (8,-0.5) -- (12,3.5);
-        \draw[black, thick] (8,1.5) -- (12,-0.5);
-        \draw[black, thick] (8,1.5) -- (12,1.5);
-        \draw[black, thick] (8,1.5) -- (12,3.5);
-        \draw[black, thick] (8,3.5) -- (12,-0.5);
-        \draw[black, thick] (8,3.5) -- (12,1.5);
-        \draw[black, thick] (8,3.5) -- (12,3.5);
-        \filldraw[white] (10,5) circle (2pt);
-        \filldraw[black] (10,3.5) circle (2pt);
-        \filldraw[blue] (12,-0.5) circle (3pt);
-        \filldraw[purple] (8,-0.5) circle (3pt);
-        \filldraw[blue] (12,1.5) circle (3pt);
-        \filldraw[purple] (8,1.5) circle (3pt);
-        \filldraw[blue] (12,3.5) circle (3pt);
-        \filldraw[purple] (8,3.5) circle (3pt);
-        \node at (10,-2,0) {Subdivision of $K_{3,3}$};
+    \begin{minipage}{0.4\textwidth}
+
+        \begin{tikzpicture}
+            \draw[black, thick] (0,1) -- (2,0);
+            \draw[black, thick] (2,0) -- (4,1);
+            \draw[black, thick] (4,1) -- (4,3);
+            \draw[black, thick] (4,3) -- (2,4);
+            \draw[black, thick] (2,0) -- (2,4);
+            \draw[black, thick] (2,4) -- (0,3);
+            \draw[black, thick] (0,3) -- (0,1);
+            \draw[densely dotted, black, thick] (0,3) -- (4,1);
+            \draw[black, thick] (4,3) arc (0:270-asin(3/5):2.5);
+            \filldraw[purple] (0,1) circle (3pt);
+            \filldraw[purple] (4,1) circle (3pt);
+            \filldraw[purple] (2,4) circle (3pt);
+            \filldraw[blue] (0,3) circle (3pt);
+            \filldraw[blue] (4,3) circle (3pt);
+            \filldraw[blue] (2,0) circle (3pt);
+            \draw[pink] (2,2) circle (0.3);
+            \node at (2,-1,0) {Không phải biểu diễn phẳng};
+        \end{tikzpicture}
+    \end{minipage}
+
+\end{figure}
+\begin{definition}
+    Không gian khép kín được phân vùng bởi biểu diễn phẳng được gọi là diện. Số diện của đồ thị kí hiệu bởi $\phi$.
+    Trong biểu diễn phẳng của đồ thị, bậc của diện $f$, kí hiệu $deg(f)$, là số cạnh liên thuộc với $f$, với cầu được đếm hai lần.
+\end{definition}
+
+\begin{definition}
+    \label{def:dualgraph}
+    Đồ thị đối ngẫu của đồ thị phẳng $G$, kí hiệu $G^*$ được xây dựng bằng cách: mỗi đỉnh $v^*$ trong $G^*$ tương ứng với một diện $f$ trong $G$
+    và mỗi cạnh $e^*$ trong $G^*$ tương ứng với một cạnh $e$ trong $G$. 2 đỉnh trong $G^*$, $u^*$ và $w^*$, được nối bởi cạnh $e^*$ khi và chỉ khi chúng tương ứng với 2 diện trong $G$, $f$ và $g$, được phân chia bởi $e$.
+\end{definition}
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+            V/.style = {
+                    draw,circle,thick,fill=#1},
+            V/.default = blue
+        ]
+
+        \node[V] (A) at (0,0)[] {A};
+        \node[V] (B) at (3,0) {B};
+        \node[V] (C) at (6,-2) {C};
+        \node[V] (D) at (0,-4) {D};
+        \node[V] (E) at (3,-4) {E};
+        \begin{scope}[V/.default = red]
+            \node[V] (ABD) at (1.5,-1) {};
+            \node[V] (BDE) at (2,-3) {};
+            \node[V] (out) at (-2,2) {};
+            \node[V] (BCE) at (4.5,-2) {};
+        \end{scope}
+
+        %%graph G
+        \draw[blue, thick]
+        (A) to ["$e_2$ ",near end] (B)
+        (A) to ["$e_1$ " '] (D)
+        (D) to ["$e_5$ "] (B)
+        (D) to ["$e_4$ ",near start] (E)
+        (E) to ["$e_6$ " ',near end] (B)
+        (E) to ["$e_7$ " ',near end] (C)
+        (B) to ["$e_3$ ",near start] (C);
+        %%dual graph G*
+        \clip (-4,-6) rectangle + (10.5,9.2);% remove empty spaces caused by looseness option
+        %\draw (-4,-6) rectangle + (10.5,9.2); % to see clip border
+        \draw[red,dashed, thick]
+        (ABD) to ["$e^*_5$ ",near end] (BDE)
+        (ABD) to ["$e^*_2$ ",bend right=50,swap,near end] (out)
+        (BDE) to ["$e^*_6$ " '] (BCE)
+        (BCE) to ["$e^*_3$ " ',bend right=100] (out)
+        (out) to ["$e^*_1$ " ',bend right=50]  (ABD)
+        (out) to ["$e^*_7$ " ', out=-135,in=-105,looseness=2.7] (BCE)
+        (out) to ["$e^*_4$ "  , out=-135,in=-120,looseness=2.2] (BDE);
     \end{tikzpicture}
-\end{center}
+    \caption*{Đồ thị $G^*$ (\textcolor{red}{Đỏ}) là đối ngẫu của đồ thị $G$ (\textcolor{blue}{Xanh}) và ngược lại}
+\end{figure}
+\begin{theorem}
+    Cho đồ thị phẳng $G$, $F(G)$ là tập hợp các diện của $G$, biểu thức sau luôn đúng:
+    $$\sum_{f \in F(G)}deg(f) = 2\epsilon $$
+\end{theorem}
+\begin{proof}
+    Xét đồ thị đối ngẫu $G^*$ của $G$. Từ dịnh lý \hyperref[thr:v2e]{này}, ta có:
+    $$\sum_{v^* \in V^*}deg(v^*) = 2\epsilon^*$$
+    Từ định nghĩa \hyperref[def:dualgraph]{đồ thị đối ngẫu}, $\forall f in F(G), deg(f)=deg(v^*)$ và $\epsilon = \epsilon^*$. Vậy nên
+    $$\sum_{f \in F(G)}deg(f) = \sum_{v^* \in V^*}deg(v^*) = 2\epsilon^* = 2\epsilon$$
+\end{proof}
+\begin{theorem}[Euler's formula]
+    $\nu -\epsilon+\phi=2$ for convex polyhedra
+\end{theorem}
+But we will generalize it to planar graphs by using stereographic projection
+
+First, we see that we can take a graph embedded on the surface of a sphere and under stereographic projection get a planar graph \\
+
+% \begin{figure}[H]
+%     \begin{tikzpicture}[scale = 0.5]
+%         \draw[black, thick] (-7,-1) -- (7/3,-2);
+%         \draw[black, thick] (-7,-1) -- (0,5);
+%         \draw[black, thick] (-1,0) -- (7/3,-2);
+%         \draw[black, thick] (-1,0) -- (0,5);
+%         \draw[black, thick] (-1,0) -- (1,2);
+%         \draw[black, thick] (10,-1) -- (1,2);
+%         \draw[black, thick] (0,5) -- (1,2);
+%         \draw[black, thick] (0,5) -- (10,-1);
+%         \draw[black, thick] (4,1) -- (7/3,-2);
+%         \draw[black, thick] (10,-1) -- (7/3,-2);
+
+%         \filldraw[black, thick] (-1,0) circle (2pt);
+%         \filldraw[black, thick] (4,1) circle (2pt);
+%         \filldraw[black, thick] (10,-1) circle (2pt);
+%         \filldraw[black, thick] (-7,-1) circle (2pt);
+%         \filldraw[black, thick] (1,2) circle (2pt);
+%         \filldraw[black, thick] (0,5) circle (2pt);
+%         \filldraw[black, thick] (7/3,-2) circle (2pt);
+%     \end{tikzpicture}
+% \end{figure}
+
+% \begin{figure}[H]
+
+%     \begin{tikzpicture}[scale = 0.5]
+%         \draw[black, thick] (-1,2) -- (-2,4);
+%         \draw[black, thick] (-4,-1) -- (-8,-2);
+%         \draw[black, thick] (4,1) -- (8,2);
+%         \draw[black, thick] (1,-2) -- (2,-4);
+%         \draw[black, thick] (-1,2) -- (-4,-1);
+%         \draw[black, thick] (-4,-1) -- (1,-2);
+%         \draw[black, thick] (1,-2) -- (4,1);
+%         \draw[black, thick] (4,1) -- (-1,2);
+%         \draw[purple, thick] (-2,4) -- (-8,-2);
+%         \draw[purple, thick] (-8,-2) -- (2,-4);
+%         \draw[purple, thick] (2,-4) -- (8,2);
+%         \draw[purple, thick] (8,2) -- (-2,4);
+
+%         \filldraw[black, thick] (-1,2) circle (2pt);
+%         \filldraw[black, thick] (-2,4) circle (2pt);
+%         \filldraw[black, thick] (-4,-1) circle (2pt);
+%         \filldraw[black, thick] (-8,-2) circle (2pt);
+%         \filldraw[black, thick] (4,1) circle (2pt);
+%         \filldraw[black, thick] (8,2) circle (2pt);
+%         \filldraw[black, thick] (1,-2) circle (2pt);
+%         \filldraw[black, thick] (2,-4) circle (2pt);
+%     \end{tikzpicture}
+% \end{figure}
+
+\begin{definition}[Planarity]
+    A graph is planar if some embedding of it onto the plane has no edge intersections.
+\end{definition}
+
