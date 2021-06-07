@@ -1,11 +1,9 @@
-\section{Phát biểu định lý}
-
+\section{Định lý Kuratowski}
+Năm 1930, Kuratowski công bố định lý đưa ra một điều kiện cần và đủ cho tính phẳng.
 \begin{theorem}[Kuratowski]
     \label{thr:kuratowski}
     Một đồ thị phẳng khi và chỉ khi không chứa bất kỳ đồ thị con nào là subdivision của $K_5$ hoặc $K_{3,3}$
 \end{theorem}
-
-
 \begin{figure}[H]
     \centering
     \begin{minipage}{0.05\textwidth}
@@ -40,7 +38,7 @@
             \filldraw[black] (1,4) circle (2pt);
             \filldraw[black] (3,4) circle (2pt);
 
-            \node at (2, -1, 0) {Nonplanar graph $G$};
+            \node at (2, -1, 0) {Đồ thị không phẳng $G$};
         \end{tikzpicture}
 
     \end{minipage}
@@ -73,13 +71,15 @@
             \filldraw[black] (1,4) circle (2pt);
             \filldraw[black] (3,4) circle (2pt);
 
-            \node at (2,-1,0) {Nonplanar graph $G$};
+            \node at (2,-1,0) {Đồ thị không phẳng $G$};
         \end{tikzpicture}
 
     \end{minipage}
 \end{figure}
 
-\begin{center}
+\begin{figure}[H]
+    \centering
+
     \begin{tikzpicture}
         \draw[black, thick] (0,1) -- (1,0);
         \draw[black, thick] (1,0) -- (4,3);
@@ -99,7 +99,7 @@
         \filldraw[purple] (4,3) circle (3pt);
         \filldraw[black] (2,2) circle (2pt);
         \draw [-{To}] (6.5, 2) -- (7.5, 2);
-        \node at (2,-2,0) {Subgraph of G};
+        \node at (2,-2,0) {Đồ thị con của $G$};
     \end{tikzpicture}
     \hspace{2cm}
     \begin{tikzpicture}
@@ -120,6 +120,8 @@
         \filldraw[purple] (8,1.5) circle (3pt);
         \filldraw[blue] (12,3.5) circle (3pt);
         \filldraw[purple] (8,3.5) circle (3pt);
-        \node at (10,-2,0) {Subdivision of $K_{3,3}$};
+        \node at (10,-2,0) {Subdivision của $K_{3,3}$};
     \end{tikzpicture}
-\end{center}
+\end{figure}
+
+Để chứng minh định lý này, ta cần chứng minh một số bổ đề cần thiết.

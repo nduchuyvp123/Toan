@@ -34,9 +34,9 @@
 \usetikzlibrary{intersections}
 \usetikzlibrary{calc}
 
-\setstretch{1}
+\setstretch{1.15}
 
-\newtheorem*{theorem}{Định lý}
+\newtheorem{theorem}{Định lý}
 \newtheorem{corollary}{Hệ quả}
 \newtheorem{lemma}{Bổ đề}
 \newtheorem*{remark}{Nhận xét}
@@ -44,7 +44,7 @@
 \newtheorem*{recap}{Tóm lại}
 
 
-\title{\textbf{Kuratowski's Theorem}}
+\title{\textbf{Định lý Kuratowski}}
 \posttitle{
 \par\end{center}
 \begin{center}\LARGE(Toán rời rạc)\end{center}
@@ -53,17 +53,17 @@
 
 
 \author{
-    Nguyễn Đức Huy \thanks{K64 ...}\\
+    Nguyễn Đức Huy \thanks{K64 Máy tính và Khoa học Thông tin}\\
     Departement \\
     Đại học Khoa học Tự Nhiên \\
     mail@edu
     \and
-    Trần Thị Như Quỳnh \thanks{K65 ...} \\
+    Trần Thị Như Quỳnh \thanks{K65 Khoa học Dữ liệu} \\
     Departement \\
     Đại học Khoa học Tự Nhiên \\
     mail@edu
     \and
-    Bùi Khánh Duy \thanks{K65 ...}\\
+    Bùi Khánh Duy \thanks{K65 Máy tính và Khoa học Thông tin}\\
     Departement \\
     Đại học Khoa học Tự Nhiên \\
     mail@edu
@@ -73,7 +73,7 @@
 \begin{titlepage}
     \maketitle
     \begin{abstract}
-        Đây là tóm tắt \footnote{Quyền sao chép một phần hoặc toàn bộ bài viết này cho mục đích sử dụng cá nhân hoặc lớp học được cho phép với điều kiện bản sao không được tạo ra hoặc phân phối vì lợi nhuận hoặc mục đích thương mại và các bản sao đó phải trích dẫn đầy đủ thông báo này trên trang đầu tiên. Các bên thứ ba của bài viết này phải được tôn trọng. Đối với tất cả các mục đích sử dụng khác, hãy liên hệ với chủ sở hữu hoặc các tác giả}
+        Bài viết này giới thiệu các khái niệm và định lý cơ bản trong đồ thị, tập trung vào đồ thị phẳng. Trên nền tảng của những điều cơ bản, chúng tôi phát biểu và trình bày một chứng minh chặt chẽ về định lý Kuratowski, bao gồm điều kiện cần và đủ để có tính chính xác. \footnote{Quyền sao chép một phần hoặc toàn bộ bài viết này cho mục đích sử dụng cá nhân hoặc lớp học được cho phép với điều kiện bản sao không được tạo ra hoặc phân phối vì lợi nhuận hoặc mục đích thương mại và các bản sao đó phải trích dẫn đầy đủ thông báo này trên trang đầu tiên. Các bên thứ ba của bài viết này phải được tôn trọng. Đối với tất cả các mục đích sử dụng khác, hãy liên hệ với chủ sở hữu hoặc các tác giả}
     \end{abstract}
 \end{titlepage}
 
@@ -86,11 +86,10 @@
 \input{phan3.tex}
 \input{phan4.tex}
 \input{phan5.tex}
-\input{phan6.tex}
 
 \section*{Acknowledgement}
 \addcontentsline{toc}{section}{Acknowledgement}
-We would like to thank:
+Chúng tôi muốn gửi lời cảm ơn đến:
 \begin{itemize}
     \item Người hướng dẫn, Nguyễn Hải Vinh, vì sự hướng dẫn.
     \item \href{https://cses.fi/book/book.pdf}{Giáo sư Antti Laaksonen} đã giới thiệu chúng tôi đến với Lý thuyết đồ thị.
