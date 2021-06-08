@@ -32,9 +32,10 @@
 \begin{corollary}
     Mọi cặp đỉnh trong đồ thị 2-connected đều cùng nằm trên một chu trình.
     \begin{proof}
-        Quy nạp:
+        Cho $G$ là đồ thị 2-liên thông, ta sẽ chứng minh bằng quy nạp, mọi cặp đỉnh $u,v \in V(G)$ đều có một chu trình đi qua chúng.
+        Ta định nghĩa \textit{khoảng cách} giữa $u$ và $v$ là độ dài path ngắn nhất giữa $u$ và $v$
 
-        Trường hợp cơ bản: $u$ kề $v$
+        Trường hợp cơ bản: $u$ kề $v$ ($u,v$ có \textit{khoảng cách} là 1)
         \begin{center}
             \begin{tikzpicture}
                 \draw[pink, thick] (0,0) -- (0.3,1);
@@ -53,7 +54,11 @@
                 \filldraw[black] (4,0) circle (2pt);
             \end{tikzpicture}
         \end{center}
-        Quy nạp: $u,v$ có khoảng cách $d+1$
+        Vì $G$ là 2-connected nên tồn tại đường đi khác giữa $u$ và $v$ mà không chứa cạnh $uv$, kết hợp với cạnh $uv$ sẽ tạo thành một chu trình chứa $u,v$.
+        \indent Giả sử, tồn tại chu trình đi qua mỗi cặp đỉnh có \textit{khoảng cách} là $d$. Ta sẽ chứng minh tồn tại chu trình đi qua $u$ và $v$ với $u,v$ có \textit{khoảng cách} $d+1$
+        Gọi $w$ là đỉnh ngay trước $v$ trên đường đi giữa $u,v$. Vì \textit{khoảng cách} của $u$ và $w$ là $d$, dễ dàng suy ra $u$ và $w$ cùng nằm trên một chu trình.
+        Nếu ta \textit{loại bỏ} $w$ khỏi $G$, vì $G$ là 2-liên thông nên ta biết còn một đường đi khác giữa $u$ và $v$. Kết hợp đường đi này với chu trình chứa $u,w$ và cạnh $wv$ cho ta chu trình chứa $u,v$.
+
         \begin{center}
             \begin{tikzpicture}
                 \draw[pink, thick] (0,0) -- (0.3,1);
