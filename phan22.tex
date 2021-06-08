@@ -1,5 +1,5 @@
 \subsection{Đồ thị phẳng}
-\begin{definition}
+\begin{definition}[Đồ thị phẳng]
     % Một cách để vẽ đồ thị, biểu diễn đỉnh bởi các điểm và cạnh bởi cách đường nối các điểm được gọi là biểu diễn của đồ thị.
     % Một biểu diễn của đồ thị được nhúng trên mặt phẳng.
     % Một đồ thị có một cách biểu diễn mà các cạnh không cắt nhau ngoài trừ tại đầu mút thì gọi là đồ thị phẳng.
@@ -70,7 +70,7 @@
     \begin{tikzpicture}[
             V/.style = {
                     draw,circle,thick,fill=#1},
-            V/.default = blue
+            V/.default = blue, scale = 0.9
         ]
 
         \node[V] (A) at (0,0)[] {A};
@@ -119,10 +119,44 @@
     $$\sum_{f \in F(G)}deg(f) = \sum_{v^* \in V^*}deg(v^*) = 2\epsilon^* = 2\epsilon$$
 \end{proof}
 \begin{theorem}[Công thức Euler]
+    \label{thr:euler}
     Cho $G$ là đồ thị phẳng và liên thông, biểu thức sau luôn đúng: $$\nu -\epsilon+\phi=2$$
 \end{theorem}
 \begin{proof}
-    Chịu :v
+    Ta chứng minh bằng quy nạp theo số cạnh.
+
+    \begin{itemize}
+
+        \item Bước cơ sở: $\epsilon=0$
+
+              Vì $G$ liên thông nên $\nu=1, \phi = 1$, suy ra $\nu-\epsilon+\phi = 1 - 0 + 1 = 2$.
+              Do đó biểu thức đúng với $\epsilon = 0$.
+
+        \item Bước quy nạp: giả sử $\epsilon(G) = k$ thỏa mãn $\nu(G)-\epsilon(G)+\phi(G)=2$. Gọi $H$ là đồ thị phẳng thỏa mãn $\epsilon(H) = k+1$ và $H$ thu được bằng cách thêm cạnh $e$ vào $G$.
+              \begin{itemize}
+                  \item Trường hợp 1: $e$ là một khuyên được thêm vào 1 đỉnh của $G$. Khi đó $\nu(H) = \nu(G)$.
+                        Vì $H$ là đồ thị phẳng nên khuyên $e$ không cắt bất kỳ cạnh nào trong $G$, do đó khuyên $e$ sẽ tạo 1 diện mới, suy ra $\phi(H) = \phi(G)+1$.
+                        Ta có:
+                        \begin{eqnarray*}
+                            \nu(H)-\epsilon(H)+\phi(H)& = &\nu(H)-(\epsilon(G) +1)+(\phi(G)+1) \\
+                            & = & \nu(G)-\epsilon(G)+\phi(G)\\
+                            & = & 2
+                        \end{eqnarray*}
+                  \item Trường hợp 2: cạnh $e$ được thêm bằng cách nối 2 đỉnh $v_1,v_2$ trong $G$. Vì $G$ liên thông nên tồn tại đường đi giữa $v_1$ và $v_2$.
+                        Thêm cạnh $e$ tạo ra chu trình mới, do đó tạo ra diện mới. Vậy nên, $\nu(H) = \nu(G), \phi(H) = \phi(G)+1,\epsilon(H) = \epsilon(G)+1$.
+                        Tương tự trường hợp 1, suy ra biểu thức vẫn đúng.
+                  \item Trường hợp 3: cạnh $e$ nối đỉnh $v_1 \in V(G)$ với đỉnh mới $v_2$.
+                        Khi đó, \mbox{$\nu(H) = \nu(G)+1$}. Vì $v_2$ là đỉnh mới, cạnh $e$ nằm trong diện có đường biên chứa $v_1$, do đó không tạo thêm diện mới, do đó $\phi(H) = \phi(G)$.
+                        Ta có:
+                        \begin{eqnarray*}
+                            \nu(H)-\epsilon(H)+\phi(H)& = &(\nu(G)+1)-(\epsilon(G)+1)+\phi(G) \\
+                            & = & \nu(G)-\epsilon(G)+\phi(G)\\
+                            & = & 2
+                        \end{eqnarray*}
+              \end{itemize}
+
+    \end{itemize}
+    Từ 3 trường hợp, biểu thức được chứng minh.
 \end{proof}
 
 

@@ -3,7 +3,7 @@
 
 \begin{definition}[Đồ thị]
     Một đồ thị $G$ gồm một cặp thứ tự $(V(G),E(G))$, trong đó tập $V(G) \neq \varnothing $ là tập hợp các đỉnh và tập $E(G)$ được gọi là tập cạnh,
-    môi cạnh nối 2 đỉnh là 2 thành phần của $V(G)$.
+    mỗi cạnh nối 2 đỉnh là 2 thành phần của $V(G)$.
     $|V(G)|$ là số đỉnh trong tập kí hiệu bởi $\nu$ và $|E(G)|$ là số cạnh kí hiệu bởi $\epsilon$.
     Chú ý, tập $E(G)$ có thể rỗng, và một cạnh có thể nối 1 đỉnh đến chính nó.
 \end{definition}
@@ -15,10 +15,9 @@
 \begin{definition}
     Đồ thị vô hướng $G(V(G),E(G))$ gọi là đơn đồ thị nếu $G$ không có khuyên và mỗi cặp đỉnh khác nhau $a,b \in V(G)$ được nối với nhau bởi không quá một cạnh.
 \end{definition}
-
 \begin{definition}
     Một đỉnh là liên thuộc với một cạnh nếu đỉnh đó là một trong 2 đầu mút của cạnh; hai đỉnh được gọi là kề nhau nếu chúng được nối bởi 1 cạnh.
-    Bậc của một đỉnh $v$, kí hiệu bởi $deg(v)$, là số các cạnh kề với $v$, trong đó khuyên được tính như hai cạnh. Bậc của đồ thị là tổng bậc tất cả các đỉnh.
+    Bậc của một đỉnh $v$, kí hiệu bởi $deg(v)$, là số các cạnh liên thuộc với $v$, trong đó khuyên được tính như hai cạnh. Bậc của đồ thị là tổng bậc tất cả các đỉnh.
     Ta gọi $\delta = \displaystyle\min_{v \in V}(deg (v))$ và $\Delta = \displaystyle\max_{v \in V}(deg (v))$.
 \end{definition}
 
@@ -28,13 +27,16 @@
     Hơn nữa, nếu tất các đỉnh $v_i$ phân biệt thì $W$ là đường đi sơ cấp.
     Đồ thị $G$ liên thông nếu tồn tại một đường đi sơ cấp nối giữa mọi cặp đỉnh trong $G$.
 
-    Một đường đi là đường đi đóng nếu nó có độ dài dương và điều đầu trùng điểm cuối.
+    Một đường đi là đường đi đóng nếu nó có độ dài dương và điểm đầu trùng điểm cuối.
 
     Một đường đi đơn đóng với các đỉnh phân biệt được gọi là chu trình.
 \end{definition}
-
+\begin{remark}
+    Trong phạm vi bài viết này, nếu chỉ nói đường đi mà không nói gì thêm tức là đường đi sơ cấp.
+\end{remark}
 \begin{definition}
-    $H$ là đồ thị con của $G$ nếu $V(H) \subseteq V(G), E(H) \subseteq E(G)$ và đầu mút các cạnh trong $E(H)$ thuộc $V(H)$. Hơn nữa, nếu $H$ là một đồ thị con liên thông cực đại thì $H$ là một thành phần liên thông của $G$.
+    $H$ là đồ thị con của $G$ nếu $V(H) \subseteq V(G), E(H) \subseteq E(G)$ và đầu mút các cạnh trong $E(H)$ thuộc $V(H)$.
+    Một thành phần liên thông của một đồ thị vô hướng là một đồ thị con trong đó giữa bất kì hai đỉnh nào đều có đường đi đến nhau, và nếu nhận thêm bất kỳ đỉnh nào sẽ mất tính liên thông.
     Số các thành phần liên thông của $G$ được biểu diễn bởi $\omega(G)$. Một cạnh $e$ được gọi là cầu nếu $\omega(G-e) > \omega(G)$
 \end{definition}
 \begin{center}
@@ -76,12 +78,12 @@
 \end{center}
 
 \begin{definition}
-    Đồ thị đầy đủ là đồ thị mà mỗi cặp đỉnh được nối với nhau bởi duy nhất một cạnh. Kí hiệu $K_m$ là đồ thị đầy đủ $m$ đỉnh.
+    Đồ thị đầy đủ là đồ thị đơn mà mỗi cặp đỉnh khác nhau được nối với nhau bởi duy nhất một cạnh. Kí hiệu $K_m$ là đồ thị đầy đủ $m$ đỉnh.
 
     Đồ thị G là đồ thị phân đôi nếu tập đỉnh $V$ của nó có thể chia thành hai tập con khác rỗng $X$ và $Y$ sao cho mọi cạnh trong $G$ nối một đỉnh trong $X$ với một đỉnh trong $Y$.
 
     Đồ thị G là đồ thị phân đôi đầy đủ nếu $\forall x \in X, y \in Y$ thì $x$ được nối với $y$ bởi một cạnh duy nhất.
-    Khi $X$ chứa $m$ đỉnh, $Y$ chứa $n$ đỉnh thì $G$ kí hiệu bởi $K_{m,n}$
+    Khi $X$ chứa $m$ đỉnh, $Y$ chứa $n$ đỉnh thì $G$ kí hiệu bởi $K_{m,n}$.
     \begin{center}
         \begin{tikzpicture}
             \foreach \i in {1, 2, 3, 4, 5}
@@ -123,7 +125,7 @@
 \end{proof}
 \begin{definition}[Đồ thị phân chia]
     \label{def:subdivision}
-    \textit{Chia nhỏ} một cạnh là phép toán trong thay thế một cạnh bằng 2 cạnh được nối với một đỉnh mới, đỉnh mới được thêm vào đồ thị ban đầu.
+    \textit{Chia nhỏ} cạnh $uv$ là phép toán thay thế cạnh $uv$ bằng 2 cạnh $uw$ và $wv$, đỉnh mới $w$ được thêm vào đồ thị ban đầu.
     Một đồ thị phân chia của đồ thị $G$ là đồ thị đạt được bằng cách \textit{chia nhỏ} cạnh trên $G$.
 \end{definition}
 \begin{figure}[H]
@@ -136,6 +138,8 @@
                     }
             }
         \node at (1.5,-1,0) {Đồ thị ban đầu};
+        \node at (1.5,0.5,0) {$u$};
+        \node at (1.5,3.5,0) {$v$};
     \end{tikzpicture}
     \hspace{2cm}
     \begin{tikzpicture}
@@ -145,6 +149,9 @@
                     }
             }
         \node at (1.5,-1,0) {Đồ thị phân chia};
+        \node at (1.5,0.5,0) {$u$};
+        \node at (1.5,3.5,0) {$v$};
+        \node at (1.75,2,0) {$w$};
         \draw[blue, thick] (1.5,1) -- (1.5,3);
         \filldraw[purple] (1.5,2) circle (2pt);
         \foreach \x/\y in {0/0, 1.5/1, 3/0, 1.5/3} {
@@ -154,8 +161,9 @@
 \end{figure}
 
 \begin{definition}
+    \label{def:kcn}
     Cho đồ thị $G$, \textit{tập cắt} $V' \subseteq V$ là tập các đỉnh mà khi loại bỏ chúng sẽ làm cho đồ thị mất tính liên thông (khi \textit{loại bỏ} một đỉnh, ta loại bỏ cả những cạnh liên thuộc đỉnh đó).
-    \textit{Bậc liên thông} của $G$, kí hiệu $\kappa(G)$, là minimum size của \textit{tập cắt} $V'$. Đồ thị $G$ là k-connected nếu $k \leq \kappa(G)$.
+    \textit{Bậc liên thông} của $G$, kí hiệu $\kappa(G)$, $\kappa(G) = |V'|$ với $V'$ là \textit{tập cắt} có ít phần tử nhất. Đồ thị $G$ là k-liên thông nếu $k \leq \kappa(G)$.
 \end{definition}
 \begin{center}
     \begin{tikzpicture}
@@ -169,7 +177,7 @@
         \foreach \x/\y in {0/0, 0/4, 2/2, 2/4, 4/0, 4/4} {
                 \filldraw[black] (\x,\y) circle (2pt);
             }
-        \node at (2,-1,0) {Đồ thị 2-connected};
+        \node at (2,-1,0) {Đồ thị 2-liên thông};
     \end{tikzpicture}
     \hspace{2cm}
     \begin{tikzpicture}
@@ -182,6 +190,6 @@
         \foreach \x/\y in {0/0, 0/4, 2/2, 4/0, 4/4} {
                 \filldraw[black] (\x,\y) circle (2pt);
             }
-        \node at (2,-1,0) {Không phải 2-connected};
+        \node at (2,-1,0) {Không phải 2-liên thông};
     \end{tikzpicture}
 \end{center}

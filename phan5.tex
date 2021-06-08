@@ -4,12 +4,11 @@ $(\Rightarrow)$  Nếu đồ thị $G$ chứa đồ thị con là đồ thị ph
 \begin{proof}
     Ta có:
     \begin{itemize}
-        \item Đồ thị phân chia của đồ thị không phẳng thì không phẳng
+        \item Đồ thị phân chia của đồ thị không phẳng thì không phẳng (theo \hyperref[lem:subp]{bổ đề 2})
 
-        \item Nếu một đồ thị con không phẳng thì đồ thị không phẳng
-
-        \item Nếu một đồ thị con của đồ thị $G$ là đồ thị phân chia của đồ thị không phẳng thì $G$ không phẳng
+        \item Nếu một đồ thị con của dồ thị không phẳng thì đồ thị đó không phẳng (theo \hyperref[lem:plnp]{bổ đề 1})
     \end{itemize}
+    $\Rightarrow$ Nếu một đồ thị con của đồ thị $G$ là đồ thị phân chia của đồ thị không phẳng thì $G$ không phẳng
     \begin{lemma}
         $K_{3,3}$ is không phẳng
     \end{lemma}
@@ -17,11 +16,10 @@ $(\Rightarrow)$  Nếu đồ thị $G$ chứa đồ thị con là đồ thị ph
     \begin{proof}
         Chúng ta sẽ chứng minh bằng phản chứng.
 
-        Giả sử tồn tại một biểu diễn phẳng của $K_{3,3}$. Trong đồ thị phân đôi đơn, chiều dài nhỏ nhất của chu trình là 4, nghĩa là với mọi $f \in F(K_{3,3})$
-        $$deg(f) \geq 4$$
-        Lại có $$\sum_{f \in F(K_{3,3})}deg(f) = 2\epsilon$$
+        Giả sử tồn tại một biểu diễn phẳng của $K_{3,3}$.
+        Với $K_{3,3}$, có $\nu = 6, \epsilon = 9$, từ \hyperref[thr:euler]{công thức Euler} ta có:
         \begin{figure}[H]
-            \begin{minipage}{0.3\textwidth}
+            \begin{minipage}{0.4\textwidth}
                 \begin{eqnarray*}
                     \nu-\epsilon+\phi& = &2 \\
                     6-\epsilon+\phi& = & 2\\
@@ -30,7 +28,7 @@ $(\Rightarrow)$  Nếu đồ thị $G$ chứa đồ thị con là đồ thị ph
                 \end{eqnarray*}
             \end{minipage}
             \hfill
-            \begin{minipage}{0.35\textwidth}
+            \begin{minipage}{0.4\textwidth}
                 \centering
                 \begin{tikzpicture}
                     \foreach \x/\y in {0/1, 0/3, 0/5} {
@@ -40,31 +38,24 @@ $(\Rightarrow)$  Nếu đồ thị $G$ chứa đồ thị con là đồ thị ph
                                     \draw[black, thick] (\x,\y) -- (\z,\t);
                                 }
                         }
-                    \node at (2,0,0) {$5 \leq 4.5$};
                 \end{tikzpicture}
             \end{minipage}
-            \hfill
-            \begin{minipage}{0.3\textwidth}
-                \centering
-                % No 3 edge faces
-                \begin{eqnarray*}
-                    4\phi& \leq &2\epsilon\\
-                    4\phi& \leq & 2 \times 9\\
-                    \phi& \leq & 4.5
-                \end{eqnarray*}
-            \end{minipage}
         \end{figure}
+        Trong đồ thị phân đôi đơn, chiều dài nhỏ nhất của chu trình là 4, nghĩa là với mọi $f \in F(K_{3,3})$
+        $$deg(f) \geq 4 \Rightarrow \sum_{f \in F(K_{3,3})}deg(f) \geq 4\phi$$
+        Lại có $$ \sum_{f \in F(K_{3,3})}deg(f) = 2\epsilon \Rightarrow 2\epsilon \geq 4\phi \Rightarrow 2 \times 9 \geq 4 \times 5$$
+        Vô lý.
     \end{proof}
 
     \begin{lemma}
         $K_5$ is không phẳng
     \end{lemma}
     \begin{proof}
-        Giả sử tồn tại một biểu diễn phẳng của $K_{3,3}$. Trong đồ thị phân đôi đơn, chiều dài nhỏ nhất của chu trình là 4, nghĩa là với mọi $f \in F(K_{3,3})$
-        $$deg(f) \geq 3$$
-        Lại có $$\sum_{f \in F(K_{3,3})}deg(f) = 2\epsilon$$
+        Giả sử tồn tại một biểu diễn phẳng của $K_{3,3}$.
+
+        Với $K_5$, có $\nu = 5, \epsilon = 10$, từ \hyperref[thr:euler]{công thức Euler} ta có:
         \begin{figure}[H]
-            \begin{minipage}{0.3\textwidth}
+            \begin{minipage}{0.4\textwidth}
                 \begin{eqnarray*}
                     \nu-\epsilon+\phi& = &2 \\
                     5-\epsilon+\phi& = & 2\\
@@ -73,48 +64,42 @@ $(\Rightarrow)$  Nếu đồ thị $G$ chứa đồ thị con là đồ thị ph
                 \end{eqnarray*}
             \end{minipage}
             \hfill
-            \begin{minipage}{0.35\textwidth}
+            \begin{minipage}{0.4\textwidth}
                 \centering
                 \begin{tikzpicture}
                     \foreach \i in {1, 2, 3, 4, 5}
                     \fill[black] (\i*360/5:3) coordinate (5\i) circle(3 pt)
                     \ifnum \i>1 foreach \j in {\i,...,1}{(5\i) edge (5\j)} \fi;
-
-                    \node at (0,-4,0) {$7 \leq \frac{20}{3}$};
                 \end{tikzpicture}
             \end{minipage}
-            \hfill
-            \begin{minipage}{0.3\textwidth}
-                \centering
-                \begin{eqnarray*}
-                    3\phi& \leq &2\epsilon\\
-                    3\phi& \leq & 2 \times 10\\
-                    \phi& \leq & \frac{30}{3}
-                \end{eqnarray*}
-            \end{minipage}
         \end{figure}
+        Trong đồ thị đầy đủ, chiều dài nhỏ nhất của chu trình là 3, nghĩa là với mọi $f \in F(K_5)$
+        $$deg(f) \geq 3 \Rightarrow \sum_{f \in F(K_5)}deg(f) \geq 3\phi$$
+        Lại có $$\sum_{f \in F(K_5)}deg(f) = 2\epsilon \Rightarrow 2\epsilon \geq 3\phi \Rightarrow 2 \times 10 \geq 3\times 7$$
+        Vô lý.
     \end{proof}
     \begin{recap}
     \end{recap}
     $K_5$ và $K_{3,3}$ là không phẳng
 
-    $\Rightarrow$ Tất cả subdivisions của chúng đều không phẳng
+    $\Rightarrow$ Tất cả các đồ thị phân chia của chúng đều không phẳng.
 
-    $\Rightarrow$ Nếu đồ thị $G$ chứa đồ thị con là đồ thị phân chia của $K_5$ hoặc $K_{3,3}$ thì G không phẳng \\
+    $\Rightarrow$ Nếu đồ thị $G$ chứa đồ thị con là đồ thị phân chia của $K_5$ hoặc $K_{3,3}$ thì G không phẳng. \\
 
 \end{proof}
 $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa đồ thị phân chia của $K_5$ hoặc $K_{3,3}$
 \begin{proof}
-    Giả sử tồn tại đồ thị không phẳng mà không chứa đồ thị con là subdivisions của $K_5$ hoặc $K_{3,3}$.
+    Giả sử tồn tại đồ thị không phẳng mà không chứa đồ thị con là đồ thị phân chia của $K_5$ và $K_{3,3}$.
 
-    Cho $G$ là đồ thị có \textit{ít cạnh nhất}. Khi loại bỏ một cạnh bất kì của $G$ thì ta được đồ thị \textit{phẳng}.
+    Trong những đồ thị không phẳng không chứa đồ thị con là đồ thị phân chia của $K_5$ và $K_{3,3}$, giả sử $G$ là đồ thị có \textit{ít cạnh nhất}.
+    Khi loại bỏ một cạnh bất kì của $G$ thì ta được đồ thị \textit{phẳng}.
 
     Giả sử $G$ có nhiều thành phần liên thông, dễ thấy $G$ phải có một thành phần liên thông không phẳng. Gọi thành phần liên thông đó là $K$.
-    Rõ ràng $\epsilon(K) \leq \epsilon(G)$ và $K$ không chứa $K_5$ và $K_{3,3}$. Khi $K$ ít cạnh hơn $G$, $G$ sẽ không phải đồ thị không phẳng \textit{ít cạnh nhất}, mâu thuẫn, do đó $\epsilon(K) = \epsilon(G)$
+    Rõ ràng $\epsilon(K) \leq \epsilon(G)$ và $K$ không chứa đồ thị phân chia của $K_5$ và $K_{3,3}$. Khi $K$ ít cạnh hơn $G$, $G$ sẽ không phải đồ thị \textit{ít cạnh nhất}, mâu thuẫn, do đó $\epsilon(K) = \epsilon(G)$
     và các thành phần liên thông khác $K$ của $G$ đều chỉ gồm đỉnh cô lập. Không mất tính tổng quát, giả sử $G$ liên thông.
 
     \begin{enumerate}
-        \item $G$ là 2-connected
+        \item $G$ là 2-liên thông
               \begin{proof}
                   \begin{figure}[H]
                       \centering
@@ -139,13 +124,13 @@ $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa đồ thị 
 
                       \end{tikzpicture}
                   \end{figure}
-                  %   Đầu tiên, ta chỉ ra $G$ 1-connected (liên thông). Giả sử $G$ không liên thông, và không phẳng.
+                  %   Đầu tiên, ta chỉ ra $G$ 1-liên thông (liên thông). Giả sử $G$ không liên thông, và không phẳng.
                   %   Vì $G$ là đồ thị không phẳng \textit{ít cạnh nhất} nên các thành phần của nó là phẳng. Không mất tính tổng quát, giả sử G có 2 thành phần liên thông là $G_1$ và $G_2$.
                   %   Bởi vì $G_1$ và $G_2$ cùng phẳng, ta có thể thêm biểu diễn phẳng của $G_1$ vào một trong các diện biểu diễn phẳng của $G_2$ (ví dụ diện vô hạn), cho ta biểu diễn phẳng của $G$. Vô lý.
 
                   Vì $G$ liên thông nên $\kappa(G) \geq 1$. Giả sử $\kappa(G) = 1$, theo định nghĩa, tồn tại đỉnh $v$ sao cho $G -v$ không liên thông.
                   Không mất tính tổng quát, giả sử $G-v$ có 2 thành phần liên thông $H_1$ và $H_2$.
-                  Ta có $H_1 \cup v$ và $H_2 \cup v$ đều phẳng vì tính cực tiểu của $G$.
+                  Ta có $H_1 \cup v$ và $H_2 \cup v$ đều phẳng vì chúng là đồ thị con của $G$ và ít cạnh hơn $G$, đồng thời không chứa đồ thị phân chia của $K_5$ và $K_{3,3}$.
                   Trong biểu diễn phẳng của chúng, ta có thể tìm một diện $f$ mà biên chứa đỉnh $v$.
                   Với phép chiếu lập thể, ta có thể thu được biểu diễn phẳng của $H_1 \cup v$ và $H_2 \cup v$ mà $v$ nằm trên đường biên của diện không bị chặn.
                   Bằng cách đặt điểm ở vô cùng.
@@ -187,23 +172,24 @@ $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa đồ thị 
                       \end{tikzpicture}
                       \caption*{Ví dụ phép chiếu lập thể từ mặt cầu đến mặt phẳng }
                   \end{figure}
-                  Vậy, nếu $G$ là đồ thị không phẳng cực tiểu thì $G$ 2-connected.
+                  Vậy $G$ là đồ thị 2-liên thông.
 
               \end{proof}
 
-        \item Nếu $G$ là đồ thị không phẳng \textit{ít cạnh nhất} và $uv$ là một cạnh của $G$ thì $G-uv$ 2-connected
+        \item Nếu $uv$ là một cạnh của $G$ thì $G-uv$ là đồ thị 2-liên thông
               \begin{proof}
-                  Vì $G$ 2-connected nên $\kappa(G) \geq 2$. Giả sử $\kappa(G) =2$ thì tồn tại 2 đỉnh $x,y$ sao cho $G-\{x,y\}$ không liên thông.
+                  Vì $G$ 2-liên thông nên $\kappa(G) \geq 2$. Giả sử $\kappa(G) =2$ thì tồn tại 2 đỉnh $x,y$ sao cho $G-\{x,y\}$ không liên thông.
                   Gọi các thành phần liên thông của $G-\{x,y\}$ là $H_1, H_2, \ldots,H_k$. Xây dựng tập $M_1,M_2,\ldots,M_k$ trọng đó $M_i=H_i \cup \{x,y\} +xy$.
-                  Ta sẽ chỉ ra tồn tại $M_j (1 \geq j \geq k)$ không phẳng.
+                  Ta sẽ chỉ ra tồn tại $M_j (1 \leq j \leq k)$ không phẳng.
 
-                  Giả sử tất cả $M_i (1 \geq i \geq k)$ đều phẳng, do đó tồn tại biểu diễn phẳng của mỗi chúng. Với phép chiếu lập thể, ta luôn có một biểu phẳng sao cho $xy$ là biên của diện vô hạn.
-                  Vì $\{x,y\}$ và $xy$ là phân chung duy nhất của các $M_i$, do đó, ta có thể hợp nhất biểu diễn phẳng của chúng, thu được biểu diễn phẳng của $G+xy$.
-                  Nghĩa là $G+xy$ phẳng, nên $G$ cũng phẳng. Vô lý, do đó tồn tại $M_j (1 \geq j \geq k)$ không phẳng.
+                  Giả sử tất cả $M_i (1 \leq i \leq k)$ đều phẳng, do đó tồn tại biểu diễn phẳng của mỗi chúng. Với phép chiếu lập thể, ta luôn có một biểu phẳng sao cho $xy$ là biên của diện vô hạn.
+                  Vì $\{x,y\}$ và $xy$ là phân chung duy nhất của các $M_i$, do đó, ta có thể hợp nhất biểu diễn phẳng của chúng, thu được biểu diễn phẳng của $G\cup xy$.
+                  Nghĩa là $G\cup xy$ phẳng, nên $G$ cũng phẳng. Vô lý, do đó tồn tại $M_j (1 \leq j \leq k)$ không phẳng.
 
-                  Giả sử $H_p (1 \geq p \geq k)$ là một thành phần liên thông của $G$.
-                  Nếu trong 2 đỉnh $x,y$ không có đỉnh nào nổi với $H_p$, khi đó, $H_p$ là một thành phần liên thông, hay $G$ không liên thông, vô lý.
-                  Nếu trong 2 đỉnh $x,y$ có một đỉnh nối tới $H_p$, giả sử $x$, thì khi xóa đỉnh $x$, $G-x$ không còn liên thông, hay $\kappa(G)=1$, vô lý.
+                  Giả sử $H_p (1 \leq p \leq k)$ là một thành phần liên thông của $G- \{x,y\}$.
+
+                  Xét trong $G$ ban đầu. Nếu trong 2 đỉnh $x,y$ không có đỉnh nào nối với $H_p$, khi đó, $H_p$ là một thành phần liên thông, hay $G$ không liên thông, vô lý.
+                  Nếu trong 2 đỉnh $x,y$ có một đỉnh nối tới $H_p$, giả sử $x$, thì $x$ là \textit{đỉnh cắt} hay $\kappa(G)=1$, vô lý.
                   Vậy cả $x$ và $y$ đều có cạnh nối tới $H_p$ hay có ít nhất 2 cạnh từ $\{x,y\}$ nối đến $H_p$
 
                   Ta có:
@@ -217,7 +203,7 @@ $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa đồ thị 
                   Suy ra $M_j$ không phải đồ thị con của $G$.
                   Lại có $M_j -xy$ là đồ thị con của $G$ nghĩa là $G$ không chứa cạnh $xy$.
                   Ta hợp nhất $M_j-xy$ với $M_p-xy$ bằng cách hợp nhất đỉnh $x$ và đỉnh $y$, ta thu được một đồ thị con của $G$.
-                  Do $M_p -xy$ liên thông nên tồn tại một path giữa $x$ và $y$, kết hợp path này với $M_j-xy$ ta được một đồ thị phân chia của  $K_5$ hoặc $K_{3,3}$.
+                  Do $M_p -xy$ liên thông nên tồn tại một đường đi giữa $x$ và $y$, kết hợp đường đi này với $M_j-xy$ ta được một đồ thị phân chia của  $K_5$ hoặc $K_{3,3}$.
                   \begin{figure}[H]
                       \centering
                       \begin{tikzpicture}
@@ -256,29 +242,29 @@ $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa đồ thị 
 
                   Dẫn đến $G$ chứa đồ thị phân chia của $K_5$ hoặc $K_{3,3}$. Vô lý
 
-                  $\Rightarrow \kappa(G) \geq 3$ hay $G$ 3-connected.
+                  $\Rightarrow \kappa(G) \geq 3$ hay $G$ 3-liên thông.
               \end{proof}
               Tiếp theo, ta sẽ chỉ ra với mọi cặp đỉnh $a,b \in V(G-uv)$, tồn tại một chu trình đi qua chúng.
               Ta sẽ chứng minh qua 3 trường hợp.
               \begin{itemize}
-                  \item $\{a,b\} = \{u,v\}$. Rõ ràng $\nu(G) \geq 4$ ?? :D ??. Chọn bừa 2 đỉnh $c$ và $d$ trong đồ thị $G-uv$.
-                        Không mất tính tổng quát, giả sử $a=u$. Vì $G$ 3-connected nên loại bỏ 2 đỉnh không làm mất tính liên thông của $G$.
-                        nghĩa là khi loại bỏ $v$ và $d$, vẫn còn một path nối giữa $u$ và $c$. Nói cách khác, có một path $P_1$ giữa $u$ và $c$ không đi qua $v$ và $d$.
-                        Tương tự, có một path $P_2$ giữa $c$ và $v$ không đi qua $u$ và $d$,
-                        một path $P_3$ giữa $v$ và $d$ không đi qua $u$ và $c$,
-                        một path $P_4$ giữa $d$ và $u$ không đi qua $v$ và $c$.
+                  \item $\{a,b\} = \{u,v\}$. Vì $\kappa(G) \geq 3$ nên $\nu(G) \geq 4$. Chọn 2 đỉnh $c$ và $d$ bất kỳ trong đồ thị $G-uv$.
+                        Không mất tính tổng quát, giả sử $a = u, b = v$. Vì $G$ 3-liên thông nên loại bỏ 2 đỉnh không làm mất tính liên thông của $G$.
+                        Nghĩa là khi loại bỏ $v$ và $d$, vẫn còn một đường đi nối giữa $u$ và $c$. Nói cách khác, có một đường đi $P_1$ giữa $u$ và $c$ không đi qua $v$ và $d$.
+                        Tương tự, có một đường đi $P_2$ giữa $c$ và $v$ không đi qua $u$ và $d$,
+                        một đường đi $P_3$ giữa $v$ và $d$ không đi qua $u$ và $c$,
+                        một đường đi $P_4$ giữa $d$ và $u$ không đi qua $v$ và $c$.
                         Khi đó, ta có $u$ và $v$ cùng nằm trên một chu trình $u-P_1-c-P_2-v-P_3-d-P_4-u$.
                   \item Có duy nhất 1 đỉnh trong $\{a,b\}$ là $u$ hoặc $v$. Không mất tính tổng quát, giả sử $a=u$ và $b \neq v$.
-                        Chọn bừa 1 điểm $c \neq b$ không trùng $u$ và $v$. Tương tự trường hợp trên,
-                        tồn tại một path $P_1$ giữa $u$ và $b$ không đi qua $c$ và $v$,
-                        một path $P_2$ giữa $c$ và $b$ không đi qua $u$ và $v$,
-                        một path $P_2$ giữa $c$ và $u$ không đi qua $u$. Ta lại thu được một chu trình $u-P_1-b-P_2-c-P_3-u$, chu trình này chứa cả $u$ và $b$.
+                        Chọn bất kỳ điểm $c \neq b$ không trùng $u$ và $v$. Tương tự trường hợp trên,
+                        tồn tại một đường đi $P_1$ giữa $u$ và $b$ không đi qua $c$ và $v$,
+                        một đường đi $P_2$ giữa $c$ và $b$ không đi qua $u$ và $v$,
+                        một đường đi $P_3$ giữa $c$ và $u$ không đi qua $v$ và $b$. Ta lại thu được một chu trình $u-P_1-b-P_2-c-P_3-u$, chu trình này chứa cả $u$ và $b$.
                   \item Cả $a,b$ đều không trùng $u,v$. Lại một lần nữa, tương tự trường hợp trên,
-                        tồn tại một path $P_1$ giữa $a,b$ không đi qua $u,v$,
-                        một path $P_2$ giữa $b,v$ không đi qua $u,a$,
-                        một path $P_1$ giữa $v,a$ không đi qua $u,b$. Ta thu được chu trình $a-P_1-b-P_2-v-P_3-a$ chứa cả $a$ và $b$.
+                        tồn tại một đường đi $P_1$ giữa $a,b$ không đi qua $u,v$,
+                        một đường đi $P_2$ giữa $b,v$ không đi qua $u,a$,
+                        một đường đi $P_3$ giữa $v,a$ không đi qua $u,b$. Ta thu được chu trình $a-P_1-b-P_2-v-P_3-a$ chứa cả $a$ và $b$.
               \end{itemize}
-              Từ 3 trường hợp trên, luôn có một chu trình đi qua $a,b$ trong $G-uv$, nên $G-uv$ phải 2-connected.
+              Từ 3 trường hợp trên, luôn có một chu trình đi qua $a,b$ trong $G-uv$, nên $G-uv$ phải 2-liên thông.
 
               \begin{tikzpicture}
 
@@ -290,7 +276,7 @@ $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa đồ thị 
 
     $G-uv$ là đồ thị phẳng
 
-    $G-uv$ là 2-connected, nên tồn tại chu trình đi qua $u$ và $v$.
+    $G-uv$ là 2-liên thông, nên tồn tại chu trình đi qua $u$ và $v$.
 
     \begin{remark}
         Chú ý những cạnh chúng tôi vẽ dưới đây là những path trong đồ thị.
