@@ -1,14 +1,14 @@
-\section{Proof the Theorem}
-$(\Rightarrow)$  Nếu đồ thị $G$ chứa đồ thị con là subdivision của $K_5$ hoặc $K_{3,3}$ thì $G$ không phẳng. \\
+\section{Chứng minh định lý}
+$(\Rightarrow)$  Nếu đồ thị $G$ chứa đồ thị con là đồ thị phân chia của $K_5$ hoặc $K_{3,3}$ thì $G$ không phẳng. \\
 
 \begin{proof}
     Ta có:
     \begin{itemize}
-        \item Subdivision của đồ thị không phẳng thì không phẳng
+        \item Đồ thị phân chia của đồ thị không phẳng thì không phẳng
 
         \item Nếu một đồ thị con không phẳng thì đồ thị không phẳng
 
-        \item Nếu một đồ thị con của đồ thị $G$ là subdivision của đồ thị không phẳng thì $G$ không phẳng
+        \item Nếu một đồ thị con của đồ thị $G$ là đồ thị phân chia của đồ thị không phẳng thì $G$ không phẳng
     \end{itemize}
     \begin{lemma}
         $K_{3,3}$ is không phẳng
@@ -100,10 +100,10 @@ $(\Rightarrow)$  Nếu đồ thị $G$ chứa đồ thị con là subdivision c�
 
     $\Rightarrow$ Tất cả subdivisions của chúng đều không phẳng
 
-    $\Rightarrow$ Nếu đồ thị $G$ chứa đồ thị con là subdivision của $K_5$ hoặc $K_{3,3}$ thì G không phẳng \\
+    $\Rightarrow$ Nếu đồ thị $G$ chứa đồ thị con là đồ thị phân chia của $K_5$ hoặc $K_{3,3}$ thì G không phẳng \\
 
 \end{proof}
-$(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa subdivision của $K_5$ hoặc $K_{3,3}$
+$(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa đồ thị phân chia của $K_5$ hoặc $K_{3,3}$
 \begin{proof}
     Giả sử tồn tại đồ thị không phẳng mà không chứa đồ thị con là subdivisions của $K_5$ hoặc $K_{3,3}$.
 
@@ -191,7 +191,7 @@ $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa subdivision 
 
               \end{proof}
 
-        \item Nếu $G$ là đồ thị không phẳng \textit{ít cạnh nhất} và $xy$ là một cạnh của $G$ thì $G-xy$ 2-connected
+        \item Nếu $G$ là đồ thị không phẳng \textit{ít cạnh nhất} và $uv$ là một cạnh của $G$ thì $G-uv$ 2-connected
               \begin{proof}
                   Vì $G$ 2-connected nên $\kappa(G) \geq 2$. Giả sử $\kappa(G) =2$ thì tồn tại 2 đỉnh $x,y$ sao cho $G-\{x,y\}$ không liên thông.
                   Gọi các thành phần liên thông của $G-\{x,y\}$ là $H_1, H_2, \ldots,H_k$. Xây dựng tập $M_1,M_2,\ldots,M_k$ trọng đó $M_i=H_i \cup \{x,y\} +xy$.
@@ -213,11 +213,11 @@ $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa subdivision 
                       & > & \epsilon(H_j+\{x,y\}) + 1 \\
                       & = & \epsilon(H_j+\{x,y\} + xy) = \epsilon(M_j)
                   \end{eqnarray*}
-                  Cuối cùng thì $\epsilon(M_j) < \epsilon(G)$. Vì $G$ là đồ thị ít cạnh nhất không chứa subdivision $K_5$ và $K_{3,3}$, $M_j$ không phẳng và ít cạnh hơn $G$, nên $M_j$ phải chứa subdivision của $K_5$ hoặc $K_{3,3}$.
+                  Cuối cùng thì $\epsilon(M_j) < \epsilon(G)$. Vì $G$ là đồ thị ít cạnh nhất không chứa đồ thị phân chia $K_5$ và $K_{3,3}$, $M_j$ không phẳng và ít cạnh hơn $G$, nên $M_j$ phải chứa đồ thị phân chia của $K_5$ hoặc $K_{3,3}$.
                   Suy ra $M_j$ không phải đồ thị con của $G$.
                   Lại có $M_j -xy$ là đồ thị con của $G$ nghĩa là $G$ không chứa cạnh $xy$.
                   Ta hợp nhất $M_j-xy$ với $M_p-xy$ bằng cách hợp nhất đỉnh $x$ và đỉnh $y$, ta thu được một đồ thị con của $G$.
-                  Do $M_p -xy$ liên thông nên tồn tại một path giữa $x$ và $y$, kết hợp path này với $M_j-xy$ ta được một subdivision của  $K_5$ hoặc $K_{3,3}$.
+                  Do $M_p -xy$ liên thông nên tồn tại một path giữa $x$ và $y$, kết hợp path này với $M_j-xy$ ta được một đồ thị phân chia của  $K_5$ hoặc $K_{3,3}$.
                   \begin{figure}[H]
                       \centering
                       \begin{tikzpicture}
@@ -254,7 +254,7 @@ $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa subdivision 
                   \end{figure}
 
 
-                  Dẫn đến $G$ chứa subdivision của $K_5$ hoặc $K_{3,3}$. Vô lý
+                  Dẫn đến $G$ chứa đồ thị phân chia của $K_5$ hoặc $K_{3,3}$. Vô lý
 
                   $\Rightarrow \kappa(G) \geq 3$ hay $G$ 3-connected.
               \end{proof}
@@ -423,7 +423,7 @@ $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa subdivision 
                 \node at (-3.5,0,0) {$u$};
                 \node at (3.5,0,0) {$v$};
                 \node at (0,2.5,0) {$C$};
-                \node at (2,-4,0) {$G$ chứa một subdivision của $K_{3,3}$};
+                \node at (2,-4,0) {$G$ chứa một đồ thị phân chia của $K_{3,3}$};
 
             \end{tikzpicture}
         \end{minipage}
@@ -474,7 +474,7 @@ $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa subdivision 
                 \node at (-3.5,0,0) {$u$};
                 \node at (3.5,0,0) {$v$};
                 \node at (0,2.5,0) {$C$};
-                \node at (2,-4,0) {$G$ chứa một subdivision của $K_{3,3}$};
+                \node at (2,-4,0) {$G$ chứa một đồ thị phân chia của $K_{3,3}$};
 
             \end{tikzpicture}
         \end{minipage}
@@ -523,7 +523,7 @@ $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa subdivision 
                 \node at (-3.5,0,0) {$u$};
                 \node at (3.5,0,0) {$v$};
                 \node at (0,2.5,0) {$C$};
-                \node at (2,-4,0) {$G$ chứa một subdivision của $K_{3,3}$};
+                \node at (2,-4,0) {$G$ chứa một đồ thị phân chia của $K_{3,3}$};
 
             \end{tikzpicture}
         \end{minipage}
@@ -571,13 +571,13 @@ $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa subdivision 
                 \node at (-3.5,0,0) {$u$};
                 \node at (3.5,0,0) {$v$};
                 \node at (0,2.5,0) {$C$};
-                \node at (2,-4,0) {$G$ chứa một subdivision của $K_5$};
+                \node at (2,-4,0) {$G$ chứa một đồ thị phân chia của $K_5$};
 
             \end{tikzpicture}
         \end{minipage}
     \end{figure}
     \begin{remark}
-        $G$ luôn có một đồ thị con là  subdivision của $K_5$ hoặc $K_{3,3}$
+        $G$ luôn có một đồ thị con là  đồ thị phân chia của $K_5$ hoặc $K_{3,3}$
     \end{remark}
     Kết quả của 4 trường hợp trên đều mâu thuẫn với giả thiết. Từ đây, ta kết luận rằng, không tồn tại đồ thị nào như $G$. Định lý được chứng minh.
 \end{proof}

@@ -153,5 +153,34 @@
 \end{figure}
 
 \begin{definition}
-    Đồ thị k-connected và $\kappa(G)$
+    Cho đồ thị $G$, \textit{tập cắt} $V' \subseteq V$ là tập các đỉnh mà khi loại bỏ chúng sẽ làm cho đồ thị mất tính liên thông (khi \textit{loại bỏ} một đỉnh, ta loại bỏ cả những cạnh liên thuộc đỉnh đó).
+    \textit{Bậc liên thông} của $G$, kí hiệu $\kappa(G)$, là minimum size của \textit{tập cắt} $V'$. Đồ thị $G$ là k-connected nếu $k \leq \kappa(G)$.
 \end{definition}
+\begin{center}
+    \begin{tikzpicture}
+        \draw[black, thick] (0,0) -- (0,4);
+        \draw[black, thick] (0,0) -- (4,4);
+        \draw[black, thick] (4,0) -- (4,4);
+        \draw[black, thick] (2,2) -- (4,4);
+        \draw[black, thick] (2,2) -- (2,4);
+        \draw[black, thick] (0,4) -- (4,4);
+        \draw[black, thick] (0,4) -- (4,0);
+        \foreach \x/\y in {0/0, 0/4, 2/2, 2/4, 4/0, 4/4} {
+                \filldraw[black] (\x,\y) circle (2pt);
+            }
+        \node at (2,-1,0) {Đồ thị 2-connected};
+    \end{tikzpicture}
+    \hspace{2cm}
+    \begin{tikzpicture}
+        \draw[black, thick] (0,0) -- (0,4);
+        \draw[black, thick] (0,0) -- (4,4);
+        \draw[black, thick] (4,0) -- (4,4);
+        \draw[black, thick] (2,2) -- (4,4);
+        \draw[black, thick] (0,4) -- (4,0);
+        \draw[pink, thick] (2,2) circle (0.5);
+        \foreach \x/\y in {0/0, 0/4, 2/2, 4/0, 4/4} {
+                \filldraw[black] (\x,\y) circle (2pt);
+            }
+        \node at (2,-1,0) {Không phải 2-connected};
+    \end{tikzpicture}
+\end{center}

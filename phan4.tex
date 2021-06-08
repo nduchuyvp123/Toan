@@ -1,5 +1,5 @@
 \section{Sơ bộ}
-\subsection{Tính chất của đồ thị con và subdivision}
+\subsection{Tính chất của đồ thị con và đồ thị phân chia}
 
 \begin{corollary}
     Đồ thị con của đồ thị phẳng là đồ thị phẳng
@@ -13,7 +13,7 @@
 
 
 \begin{corollary}
-    Subdivision của một đồ thị không phẳng là một đồ thị không phẳng.
+    Đồ thị phân chia của một đồ thị không phẳng là một đồ thị không phẳng.
 \end{corollary}
 \begin{proof}
     Giả sử đồ thị không phẳng $G$ có một đồ thị phân chia $G'$ của $G$ là đồ thị phẳng.
@@ -21,38 +21,11 @@
     Vậy nên, nếu $G$ không phẳng thì $G'$ cũng không phẳng.
 \end{proof}
 
-\subsection{2-Connected Graphs and their Properties}
+\subsection{Tính chất đồ thị 2-Connected}
 \begin{definition}
     A graph is 2-connected if it cannot be separated into two components by removing a single vertex
 \end{definition}
-\begin{center}
-    \begin{tikzpicture}
-        \draw[black, thick] (0,0) -- (0,4);
-        \draw[black, thick] (0,0) -- (4,4);
-        \draw[black, thick] (4,0) -- (4,4);
-        \draw[black, thick] (2,2) -- (4,4);
-        \draw[black, thick] (2,2) -- (2,4);
-        \draw[black, thick] (0,4) -- (4,4);
-        \draw[black, thick] (0,4) -- (4,0);
-        \foreach \x/\y in {0/0, 0/4, 2/2, 2/4, 4/0, 4/4} {
-                \filldraw[black] (\x,\y) circle (2pt);
-            }
-        \node at (2,-1,0) {Example 2-connected graph};
-    \end{tikzpicture}
-    \hspace{2cm}
-    \begin{tikzpicture}
-        \draw[black, thick] (0,0) -- (0,4);
-        \draw[black, thick] (0,0) -- (4,4);
-        \draw[black, thick] (4,0) -- (4,4);
-        \draw[black, thick] (2,2) -- (4,4);
-        \draw[black, thick] (0,4) -- (4,0);
-        \draw[pink, thick] (2,2) circle (0.5);
-        \foreach \x/\y in {0/0, 0/4, 2/2, 4/0, 4/4} {
-                \filldraw[black] (\x,\y) circle (2pt);
-            }
-        \node at (2,-1,0) {Not 2-connected};
-    \end{tikzpicture}
-\end{center}
+
 \begin{theorem}
     Mọi cặp đỉnh trong đồ thị 2-connected đều cùng nằm trên một chu trình.
     \begin{proof}
