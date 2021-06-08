@@ -306,7 +306,10 @@ $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa đồ thị 
     \begin{figure}[H]
         \begin{minipage}{0.4\textwidth}
             \begin{tikzpicture}
-                \draw[black, thick] (0,0) circle (3);
+                \draw[pink, ultra thick] (0,0) circle (3);
+                \draw[black, thick] (3,0) arc (acos(0.6):180-acos(0.6):5);
+                \draw[black, thick] (-3,0) arc (-(180-acos(0.6)):-acos(0.6):5);
+
                 \filldraw[black, thick] (-3,0) circle (2pt);
                 \filldraw[black, thick] (3,0) circle (2pt);
                 \node at (-3.5,0,0) {$u$};
@@ -316,28 +319,29 @@ $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa đồ thị 
         \end{minipage}
         \hfill
         \begin{minipage}{0.5\textwidth}
-            Gọi $C$ là chu trình dài nhất chứa $u,v$
+            Trong tất cả các chu trình đi qua 2 đỉnh $u,v$ thuộc biểu diễn phẳng của $G-uv$.
+            Gọi $C$ là chu trình sao cho số cạnh nằm vùng bên trong nó là lớn nhất.
         \end{minipage}
 
     \end{figure}
 
-    \begin{figure}[H]
-        \begin{minipage}{0.4\textwidth}
-            \begin{tikzpicture}
-                \draw[black, thick] (0,0) circle (3);
-                \filldraw[black, thick] (-3,0) circle (2pt);
-                \filldraw[black, thick] (3,0) circle (2pt);
-                \node at (-3.5,0,0) {$u$};
-                \node at (3.5,0,0) {$v$};
-                \node at (0,2.5,0) {$C$};
-            \end{tikzpicture}
-        \end{minipage}
-        \hfill
-        \begin{minipage}{0.5\textwidth}
-            Có một biểu diễn phẳng của $G$ sao cho $C$ chiếm nhiều diện tích nhất trong tất cả các chu trình chứa $u$ và $v$.
-        \end{minipage}
+    % \begin{figure}[H]
+    %     \begin{minipage}{0.4\textwidth}
+    %         \begin{tikzpicture}
+    %             \draw[black, thick] (0,0) circle (3);
+    %             \filldraw[black, thick] (-3,0) circle (2pt);
+    %             \filldraw[black, thick] (3,0) circle (2pt);
+    %             \node at (-3.5,0,0) {$u$};
+    %             \node at (3.5,0,0) {$v$};
+    %             \node at (0,2.5,0) {$C$};
+    %         \end{tikzpicture}
+    %     \end{minipage}
+    %     \hfill
+    %     \begin{minipage}{0.5\textwidth}
+    %         Có một biểu diễn phẳng của $G$ sao cho $C$ chiếm nhiều diện tích nhất trong tất cả các chu trình chứa $u$ và $v$.
+    %     \end{minipage}
 
-    \end{figure}
+    % \end{figure}
 
     \begin{figure}[H]
         \begin{minipage}{0.4\textwidth}
@@ -350,6 +354,8 @@ $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa đồ thị 
                 \filldraw[black, thick] (-3,0) circle (2pt);
                 \filldraw[black, thick] (3,0) circle (2pt);
 
+                \node at (-1.5,{sqrt(27/4) - 0.5},0) {$a$};
+                \node at (1.5,{sqrt(27/4) - 0.5},0) {$b$};
                 \node at (-3.5,0,0) {$u$};
                 \node at (3.5,0,0) {$v$};
                 \node at (0,2.5,0) {$C$};
@@ -357,7 +363,7 @@ $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa đồ thị 
         \end{minipage}
         \hfill
         \begin{minipage}{0.4\textwidth}
-            Ta không thể có đường đi phụ ở phần trên hay dưới $C$ vì nó sẽ tạo ra chu trình chiếm nhiều diện tích hơn $C$, mâu thuẫn.
+            Với mọi đỉnh $a,b$ nằm trên $C$ mà $a,b$ cùng thuộc một đường đi giữa $u,v$ trên $C$. Ta không thể có đường đi giữa $a,b$ mà nằm ngoài $C$ vì nó sẽ tạo ra chu trình chứa nhiều cạnh ở phía trong hơn $C$ , mâu thuẫn.
         \end{minipage}
 
     \end{figure}
@@ -387,9 +393,9 @@ $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa đồ thị 
         \end{minipage}
     \end{figure}
 
-    Phía trong của $C$ cũng cần có một đường đi cắt đường $v_iv_j$ và $uv$ vẽ từ bên trong của $C$ vì nếu không ta có thể vẽ đường $v_iv_j$ ở trong và vẽ $uv$ ở bên ngoài hoặc ngược lại.
+    Phía trong của $C$ cũng cần có một phần của đồ thị $G$ cắt đường $v_iv_j$ và $uv$ vẽ từ bên trong của $C$ vì nếu không, ta có thể vẽ đường $v_iv_j$ ở trong và vẽ $uv$ ở bên ngoài hoặc ngược lại để nhận được biểu diễn phẳng của $G$.
 
-    Tương đương, Ta có 4 trường hợp tổng quát được miêu tả dưới đây. \\
+    Tương đương, ta có 4 trường hợp tổng quát được miêu tả dưới đây. \\
 
     \begin{figure}[H]
         \begin{minipage}{0.4\textwidth}
