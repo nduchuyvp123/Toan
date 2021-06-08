@@ -10,13 +10,14 @@ $(\Rightarrow)$  Nếu đồ thị $G$ chứa đồ thị con là đồ thị ph
     \end{itemize}
     $\Rightarrow$ Nếu một đồ thị con của đồ thị $G$ là đồ thị phân chia của đồ thị không phẳng thì $G$ không phẳng
     \begin{lemma}
-        $K_{3,3}$ is không phẳng
+        $K_{3,3}$ không phẳng
     \end{lemma}
 
     \begin{proof}
         Chúng ta sẽ chứng minh bằng phản chứng.
 
         Giả sử tồn tại một biểu diễn phẳng của $K_{3,3}$.
+
         Với $K_{3,3}$, có $\nu = 6, \epsilon = 9$, từ \hyperref[thr:euler]{công thức Euler} ta có:
         \begin{figure}[H]
             \begin{minipage}{0.4\textwidth}
@@ -42,16 +43,26 @@ $(\Rightarrow)$  Nếu đồ thị $G$ chứa đồ thị con là đồ thị ph
             \end{minipage}
         \end{figure}
         Trong đồ thị phân đôi đơn, chiều dài nhỏ nhất của chu trình là 4, nghĩa là với mọi $f \in F(K_{3,3})$
-        $$deg(f) \geq 4 \Rightarrow \sum_{f \in F(K_{3,3})}deg(f) \geq 4\phi$$
-        Lại có $$ \sum_{f \in F(K_{3,3})}deg(f) = 2\epsilon \Rightarrow 2\epsilon \geq 4\phi \Rightarrow 2 \times 9 \geq 4 \times 5$$
+        \begin{eqnarray*}
+            deg(f)& \geq &4 \\
+            \Rightarrow \sum_{f \in F(K_{3,3})}deg(f)& \geq & 4\phi
+        \end{eqnarray*}
+        Lại có, từ \hyperref[thr:v2e]{định lý 1}:
+        \begin{center}
+            \begin{tabular}{ c c c c }
+                              & $\displaystyle \sum_{f \in F(K_{3,3})}deg(f)$ & $=$    & $2\epsilon$  \\
+                $\Rightarrow$ & $2\epsilon $                                  & $\geq$ & $4\phi$      \\
+                $\Rightarrow$ & $2 \times 9$                                  & $\geq$ & $4 \times 5$
+            \end{tabular}
+        \end{center}
         Vô lý.
     \end{proof}
 
     \begin{lemma}
-        $K_5$ is không phẳng
+        $K_5$ không phẳng
     \end{lemma}
     \begin{proof}
-        Giả sử tồn tại một biểu diễn phẳng của $K_{3,3}$.
+        Giả sử tồn tại một biểu diễn phẳng của $K_5$.
 
         Với $K_5$, có $\nu = 5, \epsilon = 10$, từ \hyperref[thr:euler]{công thức Euler} ta có:
         \begin{figure}[H]
@@ -74,8 +85,18 @@ $(\Rightarrow)$  Nếu đồ thị $G$ chứa đồ thị con là đồ thị ph
             \end{minipage}
         \end{figure}
         Trong đồ thị đầy đủ, chiều dài nhỏ nhất của chu trình là 3, nghĩa là với mọi $f \in F(K_5)$
-        $$deg(f) \geq 3 \Rightarrow \sum_{f \in F(K_5)}deg(f) \geq 3\phi$$
-        Lại có $$\sum_{f \in F(K_5)}deg(f) = 2\epsilon \Rightarrow 2\epsilon \geq 3\phi \Rightarrow 2 \times 10 \geq 3\times 7$$
+        \begin{eqnarray*}
+            deg(f)& \geq &3 \\
+            \Rightarrow \sum_{f \in F(K_5)}deg(f)& \geq & 3\phi
+        \end{eqnarray*}
+        Lại có, từ \hyperref[thr:v2e]{định lý 1}:
+        \begin{center}
+            \begin{tabular}{ c c c c }
+                              & $\displaystyle \sum_{f \in F(K_5)}deg(f)$ & $=$    & $2\epsilon$  \\
+                $\Rightarrow$ & $2\epsilon $                              & $\geq$ & $3\phi$      \\
+                $\Rightarrow$ & $2 \times 10$                             & $\geq$ & $3 \times 7$
+            \end{tabular}
+        \end{center}
         Vô lý.
     \end{proof}
     \begin{recap}
@@ -279,7 +300,7 @@ $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa đồ thị 
     $G-uv$ là 2-liên thông, nên tồn tại chu trình đi qua $u$ và $v$.
 
     \begin{remark}
-        Chú ý những cạnh chúng tôi vẽ dưới đây là những path trong đồ thị.
+        Những cạnh chúng tôi vẽ dưới đây là những đường đi trong đồ thị.
     \end{remark}
 
     \begin{figure}[H]
@@ -313,7 +334,7 @@ $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa đồ thị 
         \end{minipage}
         \hfill
         \begin{minipage}{0.5\textwidth}
-            Có một biểu diễn phẳng củ $G$ sao cho $C$ chiếm nhiều diện tích nhất trong tất cả các chu trình chứa $u$ và $v$
+            Có một biểu diễn phẳng của $G$ sao cho $C$ chiếm nhiều diện tích nhất trong tất cả các chu trình chứa $u$ và $v$.
         \end{minipage}
 
     \end{figure}
@@ -336,7 +357,7 @@ $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa đồ thị 
         \end{minipage}
         \hfill
         \begin{minipage}{0.4\textwidth}
-            Ta không thể có extra paths ở phần trên hay dưới $C$ vì nó sẽ tạo ra chu trình chiếm nhiều diện tích hơn $C$, mâu thuẫn.
+            Ta không thể có đường đi phụ ở phần trên hay dưới $C$ vì nó sẽ tạo ra chu trình chiếm nhiều diện tích hơn $C$, mâu thuẫn.
         \end{minipage}
 
     \end{figure}
@@ -362,13 +383,13 @@ $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa đồ thị 
         \end{minipage}
         \hfill
         \begin{minipage}{0.4\textwidth}
-            $G$ không phẳng, nên ta có một obstruction $uv$ ở phía ngoài của $C$. There must exist a path $v_iv_j$ that blocks $uv$
+            Vì $G$ không phẳng nên ta có một đường đi  cắt $uv$ ở phía ngoài của $C$. Gọi đường đi đó là $v_iv_j$ ($v_i,v_j$ nằm trên $C$ và không cùng nằm trên một đường đi giữa $u,v$)
         \end{minipage}
     \end{figure}
 
-    Phía trong của $C$ cũng cần có một obstruction. Cái obstruction này cũng phải block $v_iv_j$ và $uv$ from being draw inside of $C$ since otherwise we could just draw it inside and draw $uv$ on the outside.
+    Phía trong của $C$ cũng cần có một đường đi cắt đường $v_iv_j$ và $uv$ vẽ từ bên trong của $C$ vì nếu không ta có thể vẽ đường $v_iv_j$ ở trong và vẽ $uv$ ở bên ngoài hoặc ngược lại.
 
-    Tương đương, Ta có 4 loại obstructions tổng quát được miêu tả dưới đây. \\
+    Tương đương, Ta có 4 trường hợp tổng quát được miêu tả dưới đây. \\
 
     \begin{figure}[H]
         \begin{minipage}{0.4\textwidth}
@@ -388,7 +409,7 @@ $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa đồ thị 
                 \node at (3.5,0,0) {$v$};
                 \node at (0,2.5,0) {$C$};
 
-                \node at (2,-4,0) {Obstruction 1};
+                \node at (2,-4,0) {Trường hợp 1};
             \end{tikzpicture}
         \end{minipage}
         \hfill
@@ -436,7 +457,7 @@ $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa đồ thị 
                 \node at (3.5,0,0) {$v$};
                 \node at (0,2.5,0) {$C$};
 
-                \node at (2,-4,0) {Obstruction 2};
+                \node at (2,-4,0) {Trường hợp 2};
             \end{tikzpicture}
         \end{minipage}
         \hfill
@@ -486,7 +507,7 @@ $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa đồ thị 
                 \node at (3.5,0,0) {$v$};
                 \node at (0,2.5,0) {$C$};
 
-                \node at (2,-4,0) {Obstruction 3};
+                \node at (2,-4,0) {Trường hợp 3};
             \end{tikzpicture}
         \end{minipage}
         \hfill
@@ -535,7 +556,7 @@ $(\Leftarrow)$ Nếu đồ thị $G$ không phẳng thì $G$ chứa đồ thị 
                 \node at (3.5,0,0) {$v$};
                 \node at (0,2.5,0) {$C$};
 
-                \node at (2,-4,0) {Obstruction 4};
+                \node at (2,-4,0) {Trường hợp 4};
             \end{tikzpicture}
         \end{minipage}
         \hfill
