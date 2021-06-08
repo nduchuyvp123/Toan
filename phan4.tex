@@ -17,16 +17,19 @@
 \end{corollary}
 \begin{proof}
     Giả sử đồ thị không phẳng $G$ có một đồ thị phân chia $G'$ của $G$ là đồ thị phẳng.
-    Khi đảo ngược phép \textit{chia nhỏ}, ta thu được đồ thị $G$ cũng là đồ thị phẳng, mâu thuẫn.
+    Khi đảo ngược phép \hyperref[def:subdivision]{\textit{chia nhỏ}}, ta thu được đồ thị $G$ cũng là đồ thị phẳng, mâu thuẫn.
     Vậy nên, nếu $G$ không phẳng thì $G'$ cũng không phẳng.
 \end{proof}
 
 \subsection{Tính chất đồ thị 2-Connected}
-\begin{definition}
-    A graph is 2-connected if it cannot be separated into two components by removing a single vertex
-\end{definition}
+\begin{corollary}
+    Xóa một đỉnh khỏi đồ thị 2-liên thông không làm mất tính liên thông của nó.
+\end{corollary}
+\begin{proof}
+    Vì đồ thị $G$ là 2-liên thông nên $\kappa(G) \geq 2$. Nếu việc loại bỏ 1 điểm khỏi $G$ làm nó mất tính liên thông nghĩa là $\kappa(G) \leq 1$. Vô lý.
+\end{proof}
 
-\begin{theorem}
+\begin{corollary}
     Mọi cặp đỉnh trong đồ thị 2-connected đều cùng nằm trên một chu trình.
     \begin{proof}
         Quy nạp:
@@ -87,4 +90,4 @@
             \end{tikzpicture}
         \end{center}
     \end{proof}
-\end{theorem}
+\end{corollary}

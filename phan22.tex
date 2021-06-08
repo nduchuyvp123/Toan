@@ -62,8 +62,8 @@
 
 \begin{definition}
     \label{def:dualgraph}
-    Đồ thị đối ngẫu của đồ thị phẳng $G$, kí hiệu $G^*$ được xây dựng bằng cách: mỗi đỉnh $v^*$ trong $G^*$ tương ứng với một diện $f$ trong $G$
-    và mỗi cạnh $e^*$ trong $G^*$ tương ứng với một cạnh $e$ trong $G$. 2 đỉnh trong $G^*$, $u^*$ và $w^*$, được nối bởi cạnh $e^*$ khi và chỉ khi chúng tương ứng với 2 diện trong $G$, $f$ và $g$, được phân chia bởi $e$.
+    Đồ thị đối ngẫu của đồ thị phẳng $G$, kí hiệu $G^*$ là đồ thị được xây dựng bằng cách: mỗi đỉnh $v^*$ trong $G^*$ tương ứng với một diện $f$ trong $G$
+    và mỗi cạnh $e^*$ trong $G^*$ tương ứng với một cạnh $e$ trong $G$, 2 đỉnh trong $G^*$, $u^*$ và $w^*$, được nối bởi cạnh $e^*$ khi và chỉ khi chúng tương ứng với 2 diện trong $G$, $f$ và $g$, được phân chia bởi $e$.
 \end{definition}
 \begin{figure}[H]
     \centering
@@ -113,7 +113,7 @@
     $$\sum_{f \in F(G)}deg(f) = 2\epsilon $$
 \end{theorem}
 \begin{proof}
-    Xét đồ thị đối ngẫu $G^*$ của $G$. Từ dịnh lý \hyperref[thr:v2e]{này}, ta có:
+    Xét đồ thị đối ngẫu $G^*$ của $G$. Từ \hyperref[thr:v2e]{định lý 1}, ta có:
     $$\sum_{v^* \in V^*}deg(v^*) = 2\epsilon^*$$
     Từ định nghĩa \hyperref[def:dualgraph]{đồ thị đối ngẫu}, $\forall f \in F(G), deg(f)=deg(v^*)$ và $\epsilon = \epsilon^*$. Vậy nên
     $$\sum_{f \in F(G)}deg(f) = \sum_{v^* \in V^*}deg(v^*) = 2\epsilon^* = 2\epsilon$$

@@ -2,7 +2,7 @@
 
 
 \begin{definition}[Đồ thị]
-    Một đồ thị $G$ gồm một cặp thứ tự $(V(G),E(G))$, bao gồm tập $V(G) \neq \varnothing $ là tập hợp các đỉnh và tập $E(G)$ được gọi là tập cạnh,
+    Một đồ thị $G$ gồm một cặp thứ tự $(V(G),E(G))$, trong đó tập $V(G) \neq \varnothing $ là tập hợp các đỉnh và tập $E(G)$ được gọi là tập cạnh,
     môi cạnh nối 2 đỉnh là 2 thành phần của $V(G)$.
     $|V(G)|$ là số đỉnh trong tập kí hiệu bởi $\nu$ và $|E(G)|$ là số cạnh kí hiệu bởi $\epsilon$.
     Chú ý, tập $E(G)$ có thể rỗng, và một cạnh có thể nối 1 đỉnh đến chính nó.
@@ -22,15 +22,15 @@
     Ta gọi $\delta = \displaystyle\min_{v \in V}(deg (v))$ và $\Delta = \displaystyle\max_{v \in V}(deg (v))$.
 \end{definition}
 
-\begin{definition}
-    Một đường đi $W$ trong $G$ là một dãy luân phiên các đỉnh và cạnh, biểu thị bởi $W=v_0e_1v_1e_2....v_ke_k$ trong đó $e_i (i \in [1,k], i \in \mathbb{N})$ nối giữa đỉnh $v_{i-1}$ và $v_i$.
+\begin{definition}[Liên thông]
+    Một đường đi $W$ trong $G$ là một dãy luân phiên các đỉnh và cạnh, biểu thị bởi $W=v_0e_1v_1e_2....e_kv_k$ trong đó $e_i (i \in [1,k], i \in \mathbb{N})$ nối giữa đỉnh $v_{i-1}$ và $v_i$.
     Một đường đi mà tất cả cách cạnh $e_i$ khác nhau gọi là đường đi đơn.
     Hơn nữa, nếu tất các đỉnh $v_i$ phân biệt thì $W$ là đường đi sơ cấp.
     Đồ thị $G$ liên thông nếu tồn tại một đường đi sơ cấp nối giữa mọi cặp đỉnh trong $G$.
 
     Một đường đi là đường đi đóng nếu nó có độ dài dương và điều đầu trùng điểm cuối.
 
-    Một dường đi đơn đóng với các đỉnh phân biệt được gọi là chu trình.
+    Một đường đi đơn đóng với các đỉnh phân biệt được gọi là chu trình.
 \end{definition}
 
 \begin{definition}
@@ -80,7 +80,7 @@
 
     Đồ thị G là đồ thị phân đôi nếu tập đỉnh $V$ của nó có thể chia thành hai tập con khác rỗng $X$ và $Y$ sao cho mọi cạnh trong $G$ nối một đỉnh trong $X$ với một đỉnh trong $Y$.
 
-    Đồ thị G là đồ thị phân đôi đầy đủ nễu $\forall x \in X, y \in Y$ thì $x$ được nối với $y$ bởi một cạnh duy nhất.
+    Đồ thị G là đồ thị phân đôi đầy đủ nếu $\forall x \in X, y \in Y$ thì $x$ được nối với $y$ bởi một cạnh duy nhất.
     Khi $X$ chứa $m$ đỉnh, $Y$ chứa $n$ đỉnh thì $G$ kí hiệu bởi $K_{m,n}$
     \begin{center}
         \begin{tikzpicture}
@@ -122,6 +122,7 @@
     %     Ta có: $$\sum_{v \in V}deg(v) = \sum_{v \in V}(\sum_{e \in n(v)}1) = \sum_{e \in E}(\sum_{v \in m(e)}1) = 2\epsilon$$
 \end{proof}
 \begin{definition}[Đồ thị phân chia]
+    \label{def:subdivision}
     \textit{Chia nhỏ} một cạnh là phép toán trong thay thế một cạnh bằng 2 cạnh được nối với một đỉnh mới, đỉnh mới được thêm vào đồ thị ban đầu.
     Một đồ thị phân chia của đồ thị $G$ là đồ thị đạt được bằng cách \textit{chia nhỏ} cạnh trên $G$.
 \end{definition}
