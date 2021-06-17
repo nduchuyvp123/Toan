@@ -102,4 +102,56 @@
     \path (S) +(0.4ex,-0.4ex) node[below] {$\mathbf{0}$};
     \draw (P) node[above right] {$\mathbf{P}$};
 \end{tikzpicture}
+
+\begin{tikzpicture}
+    \def\rm{4}
+    \pgfmathsetmacro{\R}{sqrt(1+(1+sqrt(5))^2/4+(1+sqrt(5))/2)*\rm}
+    \pgfmathsetmacro{\rh}{sqrt(1+(1+sqrt(5))^2/4-(1+sqrt(5))/2)*\rm};
+    \pgfmathsetmacro{\b}{\rm*(1+sqrt(5))/2}
+    \pgfmathsetmacro{\goc}{acos(((\rm)^2-(\b)^2+(\R)^2)/(2*(\rm)*(\R)))}
+    \clip (0,0) circle(1.2*\R);
+    \foreach \i in{0,1,2}{
+            \path (90+\i*120:\rm)coordinate(A\i);
+            \draw (0,0)--(A\i);
+        }
+    \foreach \j in{0,1,2}{
+            \pgfmathsetmacro{\jh}{\j+1}
+            \path (90+\goc+ \j*120:\rh)coordinate(B\j);
+        }
+    \foreach \k in{0,1,...,5}{
+            \pgfmathsetmacro{\kh}{\k+1}
+            \draw[blue](90+\goc+60*\k:\R)coordinate(C\k)--(90+\goc+60*\kh:\R);
+        }
+    \foreach \y/\mau in{0/pink,120/yellow!65,240/blue!30}{
+            \draw[blue,rotate=\y](90+\goc:\R)--(90+300+\goc:\rh);
+            \draw[blue,rotate=\y,fill=\mau](0,0)--(-30:\rm)--([turn]60:\b)--([turn]120:2*\rm)--(0,0);
+            \draw [blue,rotate=\y](90+\goc+240:\rh)--(90+\goc+240:\R)--(390+\goc:\R)--cycle;
+        }
+    \foreach \n/\mau in{0/blue!30,120/pink,240/yellow!65}{
+            \draw[blue,rotate=\n,fill=\mau](90:\rm)--(0,0)--([turn]-60:\rm)--++(90:\b)--([turn]-60:2*\rm)--++(-90:\b)--cycle;
+        }
+    \draw [dash pattern ={on 2pt off 2pt},gray](0,0)circle(\R cm);
+    \foreach \x in{0,1,2}{
+            \fill[ball color=red](B\x)circle(3pt);}
+    \draw[blue](B0)--(B2)--(B1)--cycle;
+    \foreach \x in{0,1,...,5}{
+            \fill[ball color=red](C\x)circle(3pt);}
+\end{tikzpicture}
+\begin{tikzpicture}
+    \def\r{1} \pgfmathsetmacro\b{\r*(1+sqrt(5))/2}
+    \pgfmathsetmacro\a{sqrt(1+(1+sqrt(5))^2/4-(1+sqrt(5))/2)*\r}
+    \pgfmathsetmacro\R{sqrt(1+(1+sqrt(5))^2/4+(1+sqrt(5))/2)*\r}
+    \pgfmathsetmacro\g{acos(((\r)^2-(\b)^2+(\R)^2)/(2*(\r)*(\R)))}
+    \clip (0,0) circle(\R*1.1);
+    \draw[densely dotted,very thin] (0,0) circle(\R);
+    \foreach \i/\mau in {0/pink,1/yellow!40,2/blue!30}{
+            \fill[rotate=\i*120,\mau] (0,0)--(-30:\r)--(-150+\g:\a)--(-210+\g:\R)--(150:\r)--(210:\r)--cycle (-30+\g:\R)--(-45+\g:\a)--(-30+\g:\a)--(30:\r)--(14.5+\g:\a)--cycle;% tô màu
+            \draw[rotate=\i*120,blue] % vẽ đường màu xanh
+            (0,0)--(-30:\r)--(-150+\g:\a)--(-210+\g:\R)--(150:\r)--(210:\r)--cycle (-30+\g:\R)--(-45+\g:\a)--(-30+\g:\a)--(30:\r)--(14.5+\g:\a)--cycle
+            (-90+\g:\R)--(-30+\g:\R)--(30+\g:\R)--(-30+\g:\a);}
+    \foreach \i in{0,1,2}{
+            \fill[rotate=\i*120,ball color=red](-30+\g:\a)circle(1pt);
+            \fill[rotate=\i*120,ball color=red](-30+\g:\R)circle(1pt);
+            \fill[rotate=\i*120,ball color=red](30+\g:\R)circle(1pt);}
+\end{tikzpicture}
 \end{document}
