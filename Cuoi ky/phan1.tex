@@ -1,0 +1,41 @@
+\textcolor{blue}{\section{Introduction}}
+Lý thuyết số đóng một vai trò quan trọng trong mật mã học,
+chủ thể của việc biến đổi thông tin để thông tin trở nên không dễ dàng khôi phục được
+nếu không có hiểu biết đặc biệt.
+Lý thuyết số là cơ sở của nhiều cách mã hóa cổ điển,
+được sử dụng lần đầu tiên cách đây hàng nghìn năm,
+và được sử dụng rộng rãi cho đến thế kỷ 20.
+Các cách mã hóa này mã hóa các thông điệp bằng cách thay đổi mỗi chữ cái thành một chữ cái khác hoặc
+mỗi khối chữ cái thành một khối chữ cái khác.
+Ta sẽ thảo luận về một số cách mã hóa cổ điển, bao gồm cách mã hóa \textit{dịch chuyển}, nghĩa là dịch mỗi chữ cái một số cố định về phía trước
+trong bảng chữ cái, rồi quay vòng lại đầu bảng chữ cái nếu cần thiết.
+Các cách mã hóa cổ điển mà ta thảo luận là các ví dụ về
+mã hóa có khóa bí mật, trong đó, nếu ai đó biết cách mã hóa thì họ cũng có thể
+giải mã các thông điệp.
+Với mã hóa có khóa, hai bên muốn giao tiếp được phải chia sẻ khóa bí mật.
+Các cách mã hóa cổ điển mà ta sẽ thảo luận cũng rất dễ bị phá mã (giải mã được mà không cần khóa).
+Chúng tôi sẽ chỉ ra cách giải mã các tin nhắn được gửi bằng cách sử dụng cách mã hóa \textit{dịch chuyển}.
+
+Lý thuyết số cũng rất quan trọng trong mã hóa có khóa công khai, một cách mã hóa
+được phát minh vào những năm 1970. Trong mã hóa có khóa công khai, biết cách mã hóa
+cũng không chỉ cho ai đó cách giải mã. Hệ thống mã hõa có khóa công khai được sử dụng rộng
+rãi nhất, được gọi là hệ mã hóa RSA, mã hóa các thông điệp bằng cách sử
+dụng lũy thừa mô-đun, trong đó mô-đun là tích của hai số nguyên tố lớn. Đẻ biết
+cách mã hóa đòi hỏi phải có kiến thức về mô-đun và lũy thừa. (Không yêu cầu phải biết
+hai hệ số nguyên tố của mô-đun.) Việc biết cách giải mã đòi
+hỏi người đó phải biết cách đảo ngược việc mã hóa, điều này chỉ có thể
+được thực hiện trong một khoảng thời gian thực tế, khi người đó biết hai thừa số
+nguyên tố lớn này. Trong bài viết này, chúng tôi sẽ giải thích cách thức hoạt động
+của hệ mã hóa RSA, bao gồm cách mã hóa và giải mã các thông điệp.
+
+Chủ đề của mật mã học cũng bao gồm các giao thức gửi mật mã, là những cách trao
+đổi thông điệp được thực hiện bởi hai hoặc nhiều bên để được
+bảo mật cụ thể. Ta sẽ thảo luận về hai giao thức quan trọng trong chương
+này. Một giao thức cho phép hai người chia sẻ một khóa bí mật chung. Giao thức còn lại có thể được
+sử dụng để gửi tin nhắn đã được xác nhận để người nhận có thể chắc chắn rằng chúng đã được
+gửi bởi người gửi có chủ đích. Cuối cùng, chúng tôi sẽ giới thiệu về
+một hệ mã hóa đồng phôi, hiện đang đóng một vai trò quan trọng trong điện
+toán đám mây. Thông tin có thể trở nên dễ bị mất tính bảo mật nếu chúng phải được giải mã
+để sử dụng làm đầu vào cho các chương trình. Mã hóa đồng phôi loại bỏ lỗ hổng
+này bằng cách cho phép các chương trình được chạy trên dữ liệu được mã hóa. Đầu
+ra của các chương trình này sau đó là mã hóa của đầu ra mong muốn.

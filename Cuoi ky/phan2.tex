@@ -1,0 +1,90 @@
+\textcolor{blue}{\section{Classical Cryptography}}
+Một trong những người sử dụng mật mã được biết đến sớm nhất là Julius Caesar.
+Ông đã làm cho các thông điệp trở nên bí mật bằng cách \textit{dịch chuyển} mỗi chữ cái đi ba chữ
+cái về phía trước trong bảng chữ cái \thanks{Bảng chữ cái ở đây là bảng chữ cái tiếng Anh, các ví dụ cũng được giữ nguyên gốc} (và ba chữ cái cuối cùng của bảng chữ cái
+thành ba chữ cái đầu tiên). Ví dụ, theo sơ đồ này, chữ B được chuyển thành E và
+chữ X được chuyển thành A. Đây là một ví dụ về mã hóa, tức là quá trình tạo một thông
+điệp bí mật.
+
+Để biểu diễn quy trình mã hóa của Caesar theo toán học, trước tiên
+hãy thay thế mỗi chữ cái bằng một phần tử của $ \mathbf{Z}_{26} $, nghĩa là một số nguyên từ 0
+đến 25 dựa trên vị trí của nó trong bảng chữ cái. Ví dụ, thay A bằng 0,
+K bằng 10 và Z bằng 25. Phương pháp mã hóa của Caesar có thể được biểu diễn bằng
+hàm $f$ tác động vào số nguyên không âm $p$, $0 \leq p \leq  25$, số nguyên $f(p)$ trong tập
+$\{0, 1, 2, \ldots, 25\}$ sao cho:
+$$f(p) = (p+3)\ \mathbf{mod}\ 26$$
+Như vậy, trong phiên bản đã được mã hóa của thông điệp, chữ cái được biểu diễn bởi $p$ sẽ được thay thế bằng
+chữ cái được biểu diễn bởi $(p+3)\ \mathbf{mod}\ 26$
+\begin{example}
+    Thông điệp mã hóa của thông điệp "MEET YOU IN THE PARK" sử dụng cách mã hóa Caesar là gì?
+\end{example}
+\begin{solution}
+    Trước tiên, ta thay các chữ cái trong thông điệp bởi các số tương ứng, ta được:
+    \begin{center}
+        12 4 4 19 \hspace{0.5cm} 24 14 20 \hspace{0.5cm} 8 13 \hspace{0.5cm} 19 7 4 \hspace{0.5cm} 15 0 17 10
+    \end{center}
+    Tiếp theo, ta thay mỗi số $p$ bởi $f(p) = (p+3)\ \mathbf{mod}\ 26$, ta được:
+    \begin{center}
+        15 7 7 22 \hspace{0.5cm} 1 17 23 \hspace{0.5cm} 11 16 \hspace{0.5cm} 22 10 7 \hspace{0.5cm} 18 3 20 13
+    \end{center}
+    Với mỗi số, ta thay ngược lại bởi các chữ cái tương ứng, ta thu được thông điệp được mã hóa "PHHW BRX LQ WKH SDUN".
+\end{solution}
+Để phục hồi lại thông điệp gốc đã được mã hóa theo cách mã hóa Caesar, ta cần phải dùng hàm ngược $f^{-1}$ của hàm $f$.
+Chú ý hàm $f^{-1}$ ánh xạ số nguyên $p$ từ tập $ \mathbf{Z}_{26} $, đến $f^{-1}(p) = (p-3)\ \mathbf{mod}\ 26$.
+Nói cách khác, để tìm được thông điệp gốc, mỗi chữ cái được \textit{dịch chuyển} ba chữ
+cái về phía sau trong bảng chữ cái, với ba chữ cái đầu tiên được chuyển thành ba chữ cái cuối
+cùng. Quá trình xác định thông điệp gốc từ thông điệp được mã
+hóa được gọi là \textbf{giải mã}.
+
+Có nhiều cách khác nhau để khái quát cách mã hóa Caesar. Ví dụ, thay vì \textit{dịch chuyển} mỗi chữ cái cho 3,
+ta có thể \textit{dịch chuyển} mỗi chữ cái cho $k$ chữ cái về phía trước, tức là:
+$$f(p) = (p+k)\ \mathbf{mod}\ 26$$
+Một mật mã như thế được gọi là \textbf{mật mã dịch}. Đối với loại mật mã này, việc giải mã thực hiện bằng cách dùng
+$$f^{-1}(p) = (p-k)\ \mathbf{mod}\ 26$$
+Ở đây số nguyên $k$ được gọi là \textbf{khóa}. Chúng tôi minh họa việc sử dụng mật mã dịch trong Ví dụ 2 và 3.
+\begin{example}
+    Mã hóa văn bản thông báo “STOP GLOBAL WARMING” bằng cách sử dụng mật mã dịch với khóa $k = 11$
+\end{example}
+\begin{solution}
+    Để mã hóa thông điệp “STOP GLOBAL WARMING”, trước tiên ta thay các chữ cái trong thông điệp bởi các số tương ứng trong $ \mathbf{Z}_{26} $. Điều này tạo ra chuỗi
+    \begin{center}
+        18 19 14 15 \hspace{0.5cm} 6 11 14 1 0 11 \hspace{0.5cm} 22 0 17 12 8 13 6
+    \end{center}
+    Bây giờ ta áp dụng hàm dịch $f(p) = (p+k)\ \mathbf{mod}\ 26$ cho mỗi số trong chuỗi này. Ta thu được
+    \begin{center}
+        3 4 25 0 \hspace{0.5cm} 17 22 25 12 11 22 \hspace{0.5cm} 7 11 2 23 19 24 17
+    \end{center}
+    Thay thế chuỗi cuối cùng này trở lại các chữ cái, ta thu được thông điệp mã hóa
+    "DEZA RWZMLW HLCXTYR".
+\end{solution}
+\begin{example}
+    Giải mã thông điệp mật mã "LEWLYPLUJL PZ H NYLHA ALHJOLY" đã được mã
+    hóa bằng mật mã dịch với khóa $k = 7$.
+\end{example}
+\begin{solution}
+    Để giải mã thông điệp "LEWLYPLUJL PZ H NYLHA ALHJOLY", trước tiên ta
+    thay các chữ cái bởi các phần tử tương ứng trong $ \mathbf{Z}_{26} $. Ta đạt được
+    \begin{center}
+        11 4 22 11 24 15 11 20 9 11 \hspace{0.5cm} 15 25 \hspace{0.5cm} 7 \hspace{0.5cm} 13 24 11 7 0 \hspace{0.5cm} 0 11 7 9 14 11 24
+    \end{center}
+    Để giải mã, ta phải dùng hàm $f^{-1}(p) = (p-7)\ \mathbf{mod}\ 26$, áp dụng cho mỗi số trong chuỗi, ta được
+    \begin{center}
+        4 23 15 4 17 8 4 13 2 4 \hspace{0.5cm} 8 18 \hspace{0.5cm} 0 \hspace{0.5cm} 6 17 4 0 19 \hspace{0.5cm}  19 4 0 2 7 4 17
+    \end{center}
+    Cuối cùng, ta thay thế các số này trở lại thành các chữ cái để thu được thông điệp gốc. Ta thu được "EXPERIENCE IS A GREAT TEACHER".
+\end{solution}
+
+Rõ ràng, phương pháp của Caesar và mật mã dịch không có độ an toàn cao.
+Ta có thể tổng quát hóa mật mã dịch để tăng cường độ bảo mật
+bằng cách sử dụng hàm
+$$f(p) = (ap+b)\ \mathbf{mod}\ 26$$
+trong đó $a$ và $b$ là các số nguyên sao cho thỏa mãn $f$ là song ánh ($f(p)$ là song ánh khi và chỉ khi
+UCLN$(a,26)$ = 1). Một hàm như vậy được gọi là \textbf{hàm tuyến tính} và mật mã dịch thu được sau khi dùng hàm tuyến tính là \textbf{mật mã dich tuyến tính}.
+\begin{example}
+    Chữ cái nào thay thế cho chữ K khi dùng hàm $f(p) = (7p + 3)\ \textbf{mod}\ 26$ để mã hóa?
+\end{example}
+\begin{solution}
+    Đầu tiên, ta biết rằng số 10 tương ứng cho chữ K. Sau đó, dùng hàm mã hóa
+    $f(p)$, ta được $f (10) = (7 \times 10 + 3)\ \textbf{mod}\ 26 = 21$. Bởi vì 21 tương ứng
+    với chữ V, vậy nên sẽ K được thay thế bằng V trong thông điệp mã hóa.
+\end{solution}
