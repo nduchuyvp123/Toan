@@ -88,3 +88,60 @@ UCLN$(a,26)$ = 1). Một hàm như vậy được gọi là \textbf{hàm tuyến
     $f(p)$, ta được $f (10) = (7 \times 10 + 3)\ \textbf{mod}\ 26 = 21$. Bởi vì 21 tương ứng
     với chữ V, vậy nên sẽ K được thay thế bằng V trong thông điệp mã hóa.
 \end{solution}
+
+Bây giờ ta sẽ học cách giải mã một mật mã dịch tuyến tính. Để giả mã được, ta phải xác định được $f^{-1}(p)$.
+Giả sử $c= (ap+b)\ \mathbf{mod}\ 26$
+với $a$ thỏa mãn UCLN$(a,26)=1$. Ta sẽ tìm cách biêu diễn $p$ theo $c$, ta sẽ biến đổi tương đương dựa trên phép đồng dư.
+
+\begin{center}
+    \begin{tabular}{ c c c c c c }
+                           & $c$                    & $\equiv$ & $ap+b$\            & $(\textbf{mod}\ 26)$ &                                                  \\
+        $\Leftrightarrow $ & $c - b$                & $\equiv$ & $ap$\              & $(\textbf{mod}\ 26)$ &                                                  \\
+        $\Leftrightarrow $ & $\overline{a} (c - b)$ & $\equiv$ & $\overline{a}ap$\  & $(\textbf{mod}\ 26)$ &                                                  \\
+        $\Leftrightarrow $ & $\overline{a} (c - b)$ & $\equiv$ & $p$\               & $(\textbf{mod}\ 26)$ & (vì $\overline{a}a \equiv 1 (\textbf{mod}\ 26)$) \\
+    \end{tabular}
+\end{center}
+Từ đó, ta xác định được $p$ vì $p$ thuộc $\mathbf{Z}_{26}$. \\
+
+\noindent \textcolor{Mycolor}{\textbf{PHÂN TÍCH MÃ}} Quá trình giải mã mà không biết cách mã hóa và khóa được gọi là \textbf{phân tích mã} hoặc \textbf{phá mã}.
+Thông thường, rất khó để phân tích mã, nhất là khi không biết cách mã hóa.
+
+Ta sẽ không thảo luận sâu về phá mã, nhưng tôi sẽ đi qua một chút cách
+phá mã thông điệp đã được mã hóa bằng cách dùng mật mã dịch.
+
+Nếu ta biết rằng một mật mã được tạo ra bằng cách sử dụng mật mã dịch,
+ta có thể cố gắng phá mã bằng cách dịch tất cả các chữ cái của mật theo từng số trong $\mathbf{Z}_{26}$, ta có 26 khóa có thể (bao gồm cả số 0). Một trong những thông điệp thu được
+chắc chắn là thông điệp gốc.
+
+Tuy nhiên, ta có một cách
+thông minh hơn, ta có thể phá mã từ các mật mã khác.
+Mấu chốt của việc phá các mã đã được mã hóa bằng mật mã dịch là đếm tần tần suất
+của các chữ cái trong mật mã. Chín chữ cái phổ biến nhất trong văn bản tiếng Anh
+và tần số xuất hiện gần đúng của chúng là E 13\%, T 9\%, A 8\%, O 8\%, I 7\%, N
+7\%, S 7\%, H 6\% và R 6\%.
+Trước tiên ta tìm tần suất xuất hiện của các chữ cái trong mật mã và liệt kê theo thứ tự.
+Ta có thể \textit{dự đoán} chữ cái xuất hiện nhiều nhất trong mật mã được mã hóa từ chữ E, với \textit{dự đoán} này, ta có thể tìm được khóa, giả sử là $k$.
+Nếu mật mã này thu được bằng cách dùng mật mã dịch với khóa $k$, ta sẽ thu được thông điệp ban đầu có nghĩa và có thể cho rằng \textit{dự đoán} của ta là đúng.
+Nếu thu được thông điệp không có nghĩa, tiếp theo ta \textit{dự đoán} chữ cái xuất hiện nhiều nhất trong mật mã được mã hóa từ chữ T. Tiếp tục, theo \textit{dự đoán} này, ta tìm được khóa $k$.
+Sau đó, ta xem thông điệp gốc thu được có nghĩa không, nếu không, ta tiếp tục quá trình cho đến chữ cái ít phổ biến nhất trong văn bản tiếng Anh.
+
+\begin{example}
+    Giả sử rằng chúng ta đã biết mật mã "ZNK KGXRE HOXJ MKZY ZNK
+    CUXS" được tạo ra bởi mật mã dịch. Thông điệp gốc là gì?
+\end{example}
+\begin{solution}
+    Ta đã biết rằng thông điệp được mã hóa bằng
+    mật mã dịch, đàu tiên, ta tính tần suất xuất hiện
+    của các chữ cái trong mật mã. Ta thấy rằng ký tự xuất hiện nhiều nhất nhất trong
+    bản mã là K. Vì vậy, ta \textit{dự đoán} rằng chữ K được mã hóa từ chữ E. Nếu \textit{dự đoán} này đúng, ta tìm khóa $k$ thỏa mãn
+    $10 = (4+k)\ \mathbf{mod}\ 26  \Rightarrow k = 6$. Tiếp theo, giải mã thông điệp với khóa $k=6$, ta thu được "THE EARLY BIRD GETS THE WORM". Bởi vì thông điệp
+    này có nghĩa, ta có thể cho rằng \textit{dự đoán} là đúng và $k=6$.
+\end{solution}
+
+\noindent \textcolor{Mycolor}{\textbf{MẬT MÃ KHỐI}} Mật mã dịch và mật mã
+dịch tuyến tính thực bằng cách thay thế mỗi chữ cái
+bằng một chữ cái khác trong bảng chữ cái. Do đó, những mật mã này được gọi là mật mã đơn pha.
+Các phương pháp mã hóa thuộc loại này dễ bị phá mã dựa
+trên phân tích tần suất chữ cái trong bản mã, như tôi vừa minh họa.
+Ta có thể làm cho mật mã khó bị phá hơn bằng cách thay thế các
+khối chữ cái bằng các khối chữ cái khác thay vì thay thế từng chữ cái riêng lẻ, mật mã như vậy được gọi là \textbf{mật mã khối}.
