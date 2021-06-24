@@ -1,6 +1,6 @@
 \textcolor{blue}{\section{Giải mã RSA}}
-Để giải mã một thông điệp được mã hóa bằng hệ RSA, vì là hệ mã hóa khóa công khai nên ta phải có khóa giải mã $d$ mới có thể giải mã được.
-Chú ý rằng UCLN$(e,(p-1)(q-1)) = 1$ nên luôn tồn tại $d$ để $de \equiv 1 (\mathbf{mod}\ (p-1)(q-1))$.
+Để giải mã một thông điệp được mã hóa bằng hệ RSA, vì là hệ mã hóa khóa công khai nên ta phải có khóa giải mã $(n,d)$ mới có thể giải mã được.
+Chú ý rằng UCLN$(e,\phi(n)) = 1$ nên luôn tồn tại $d$ để $de \equiv 1 (\mathbf{mod}\ \phi(n))$.
 Gọi $de = 1 + k(p-1)(q-1)$ với $k$ là số nguyên. Suy ra
 $$c^d \equiv (m^e)^d = m^{de} = m^{1 + k(p-1)(q-1)}\ (\mathbf{mod}\ n)$$
 Giả sử $m$ không chia hết cho $p$ và $q$, từ định lý Fermat nhỏ \footnote{Định lý Fermat nhỏ: Nếu $p$ là số nguyên tố và $a$ là số tự nhiên không chia hết cho $p$ thì $ a^{p-1} \equiv 1 (\mathbf{mod}\ p)$},

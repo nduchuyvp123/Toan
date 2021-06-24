@@ -1,4 +1,4 @@
-\textcolor{blue}{\section{Giao thức mã hóa}}
+\textcolor{blue}{\section{Giao thức mật mã}}
 Từ đầu bài viết, tôi đã chỉ ra cách mật mã được sử dụng để đảm bảo an
 toàn cho các thông điệp gửi đi. Cón rất nhiều ứng dụng quan trọng khác của
 mật mã học. Một trong các ứng dụng này là \textbf{giao thức mã hóa}, là cách trao đổi
@@ -7,9 +7,9 @@ mật. Tiếp theo, tôi sẽ chỉ ra hai ứng dụng của mật mã học ch
 phép hai người trao đổi khóa bí mật qua một kênh liên lạc không an toàn
 và gửi các thông điệp bí mật để người nhận có thể chắc chắn rằng thông điệp đến từ người gửi có chủ đích. \\
 
-\noindent \textcolor{Mycolor}{\textbf{KHÓA TRAO ĐỔI}} Bây giờ ta sẽ thảo luận về một phương thức giúp hai người có thể trao đổi khóa bí mật qua một kênh liên lạc không an toàn.
+\noindent \textcolor{Mycolor}{\textbf{TRAO ĐỔI KHÓA}} Bây giờ ta sẽ thảo luận về một giao thức giúp hai người có thể trao đổi khóa bí mật qua một kênh liên lạc không an toàn.
 Trong nhiều ứng dụng của mật mã học, việc tạo ra một khóa để hai bên có thể sử dụng là rất quan trọng. Ví dụ, trong hệ mã hóa khóa bí mật, hai bên cần có một khóa chung.
-Phương thức mà tôi chuẩn bị giới thiệu dưới đây là phương pháp \textbf{trao đổi khóa Diffie-Hellman}, được công bố bởi Whitfield Diffie và Martin Hellman vào năm 1976.
+Giao thức mà tôi chuẩn bị giới thiệu dưới đây là giao thức \textbf{trao đổi khóa Diffie-Hellman}, được công bố bởi Whitfield Diffie và Martin Hellman vào năm 1976.
 Mặc dù, giao thức này được phát minh năm 1974 bởi Malcolm Williamson
 trong khi ông làm việc bí mật tại Chính phủ Vương quốc Anh (GCHQ). Vì là làm việc bí mật nên mãi đến năm 1997, phát minh của ông mới
 được công khai.
@@ -25,6 +25,62 @@ Giả sử Alice và Bob muốn chia sẻ một khóa chung, giao thức đượ
 Sau khi kết thúc, Alice và Bob đã có một khóa chung là
 $$(a^{k_2})^{k_1}\ \mathbf{mod}\ p = (a^{k_2})^{k_1}\ \mathbf{mod}\ p$$
 
-Vậy vì sao phương pháp này lại bảo mật, chú ý các bước 1, 2 và 3 không được gửi một cách an toàn hay thậm chí có thể công khai?
+Vậy vì sao giao thức này lại bảo mật, chú ý các bước 1, 2 và 3 không được gửi một cách an toàn hay thậm chí có thể công khai?
 Vì truyền trên một kênh không an toàn, thông tin về $p, a, a^{k_1}\ \mathbf{mod}\ p$ và $a^{k_2}\ \mathbf{mod}\ p$ được giả sử là những thông tin ai cũng có thể biết.
-Nhưng phương thức này đảm bảo $k_1,k_2$ và $(a^{k_2})^{k_1}\ \mathbf{mod}\ p = (a^{k_2})^{k_1}\ \mathbf{mod}\ p$ được giữ bí mật.
+Nhưng giao thức này đảm bảo $k_1,k_2$ và $(a^{k_2})^{k_1}\ \mathbf{mod}\ p = (a^{k_2})^{k_1}\ \mathbf{mod}\ p$ được giữ bí mật.
+Để tìm $k_1,k_2$, yêu cầu phải giải các bài toán logarit riêng biệt.
+Ngoài ra, không có phương pháp nào khác để tìm khóa
+bằng cách chỉ sử dụng thông tin công khai ở trên. Điều này là không thể khi $a$ và $p$ đủ lớn. Vởi khả năng tính toán hiện tại,
+với $p$ có khoảng 300 chữ số và $k_1,k_2$ có khoảng 100 chữ số, giao thức này an toàn. \\
+
+\noindent \textcolor{Mycolor}{\textbf{CHỮ KÝ SỐ}} Mật mã không chỉ
+được dùng để bảo mật thông điệp mà còn được dùng để
+người nhận biết ai là người gửi. Tiếp theo, tôi sẽ trình bày cách một thông điệp được gửi đi để người nhận chắc chắn rằng thông điệp đến từ người gửi có chủ đích.
+Hơn nữa, tôi có thể chỉ ra cách thực hiện điều này bằng cách sử dụng hệ mã hóa RSA để áp dụng \textbf{chữ ký số} lên thông điệp.
+
+Giả sử rằng khóa công khai của Alice là $(n, e)$ và khóa bí mật để giải mã là $(n, d)$.
+Alice mã hóa thông điệp $x$ ($x$ ở dạng số) bằng cách sử dụng hàm mã hóa $E_{(n, e)}(x) = x^e\ \mathbf{mod}\ n$. Cô ấy
+giải mã một thông điệp $y$ bằng hàm giải mã $D_{(n, e)}(y) = y^d\ \mathbf{mod}\ n$. Alice
+muốn gửi thông điệp $M$ để mọi người nhận được đều biết rằng cô ấy là người gửi.
+Trong hệ mã hóa RSA, cô ấy thay các chữ cái bằng các số tương ứng
+và chia dãy số thu được thành các khối $m_1, m_2,\ldots , m_k$ có cùng kích thước, càng lớn càng tốt thỏa mãn $0 \leq m_i \leq n$
+với $i = 1, 2, \ldots , k$. Sau đó, Alice áp dụng \textit{hàm giải mã} $D_{(n, e)}$
+cho mỗi khối, thu được $D_{(n, e)}(m_i), i = 1, 2,\ldots , k$. Và cuối cùng, Alice gửi mật mã cho
+tất cả bạn bè.
+
+Khi bạn bè của Alice nhận được mật mã, họ dùng hàm mã hóa $E_{(n,e)}$ của Alice lên mỗi khối, vì đây là khóa công khai nên tất cả mọi người, bao gồm bạn bè của Alice, đều có.
+Kết quả thu được sẽ là $E_{(n,e)}(D_{(n, e)}(x)) = x$.
+Vì vậy, Alice có thể gửi cho bao nhiêu người tùy thích và theo cách này, mọi người nhận được đều chắc chắn rằng thông điệp
+gửi từ Alice. Tôi sẽ minh họa qua Ví dụ 10.
+
+\begin{example}
+    Giả sử khóa công khai trong hệ RSA của Alice là $(2537,13)$ (giống ở ví dụ 8). Khóa để giải mã là $(2537, 937)$, đã giải thích ở ví dụ 9.
+    Alice muốn gửi thông điệp ``MEET AT NOON'' đến bạn bè và đảm bảo họ biết Alice là người gửi.
+    Cô ấy sẽ gửi mật mã như thế nào?
+\end{example}
+\begin{solution}
+    Trước tiên, Alice sẽ thay thế chữ cái thành các số tương ứng và chia dãy số thành nhiều khối, thu được
+    \begin{center}
+        1204 \hspace{0.5cm} 0419 \hspace{0.5cm} 0019 \hspace{0.5cm} 1314 \hspace{0.5cm} 1413
+    \end{center}
+    Tiếp theo, áp dụng hàm $D_{(2537,13)}(x) = x^{937}\ \mathbf{mod}\ 2537$ với mỗi khối.
+    Sau khi tính toán, Alice được kết quả: \\
+
+    \begin{tabular}{c}
+        $1204^{937}\ \mathbf{mod}\ 2537 = 0817$ \\
+        $0419^{937}\ \mathbf{mod}\ 2537 = 0555$ \\
+        $0019^{937}\ \mathbf{mod}\ 2537 = 1310$ \\
+        $1314^{937}\ \mathbf{mod}\ 2537 = 2173$ \\
+        $1413^{937}\ \mathbf{mod}\ 2537 = 1206$ \\
+        \\
+    \end{tabular}
+
+    Vậy, mật mã mà Alice cần gửi là
+    \begin{center}
+        0817 \hspace{0.5cm} 0555 \hspace{0.5cm} 1310 \hspace{0.5cm} 2173 \hspace{0.5cm} 1206
+    \end{center}
+    Khi một trong những người bạn của Alice nhận được mật mã, họ áp
+    dụng hàm mã hóa $E_{(2537,13)}$ của cô ấy cho mỗi khối. Sau đó, họ
+    thay thế bằng các chữ cái tương ứng sẽ thu được thông điệp gốc.
+\end{solution}
+

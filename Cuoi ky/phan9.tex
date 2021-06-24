@@ -1,0 +1,49 @@
+\textcolor{blue}{\section{Mã hóa đồng cấu}}
+Một hệ mã hóa thông tin, chẳng hạn như RSA, có thể mã hóa các tệp
+nhằm mục đích bảo mật. Ngày nay, nhiều người lưu trữ các tệp được mã
+hóa trên \textbf{đám mây}. Khi phải chạy các
+chương trình sử dụng dữ liệu từ các tệp được lưu trữ trên đám mây, những dữ liệu
+này dễ bị tấn công bởi người dùng có quyền truy cập vào máy tính nếu ta chạy các chương trình trực tiếp trên đám mây
+mà không tải xuống. Những tệp này cũng dễ bị rò rỉ khi tải xuống, tải lên và chạy chương trình.
+Ta có thể tránh những lỗ hổng này bẳng cách chạy chương trình với đầu vào được mã hóa không?
+Mặc dù ban đầu, điều này có vẻ hơi xa vời, nhưng vào năm 1979, ngay sau khi hệ RSA
+được công bố, người ta đã đặt ra câu hỏi liệu có một hệ mã hóa nào cho phép
+các chương trình tính toán chạy trên dữ liệu được mã hóa và cho đầu ra là đầu ra mong muốn sau khi được mã hóa
+không?
+Đối với hệ mã hóa như vậy, sẽ không cần thiết phải giải mã dữ liệu đầu vào.
+Vì vậy, việc tìm kiếm bắt đầu cho một hệ \textbf{mã hóa đồng cấu toàn phần} cho
+phép tính toán trên dữ liệu được mã hóa.
+
+Trước khi thảo luận về sự tiến bộ đối với mã hóa đồng cấu toàn phần, tôi
+sẽ chỉ ra rằng hệ mã hóa RSA không phải đồng cấu toàn phần, mặc dù nó cho phép
+một vài tính toán được thực hiện trên dữ liệu được mã hóa.
+
+\begin{example}
+    \textbf{RSA là hệ mã hóa đồng cấu một phần} Cho $(n,e)$ là khóa công khai trong hệ RSA. Giả sử $M_1$ và $M_2$ là thông điệp gốc, vậy nên $0\leq M_1 <n$ và $0\leq M_2 <n$.
+
+    Ta có:
+    \begin{align*}
+        E_{(n,e)}(M_1) E_{(n,e)}(M_2)\ \mathbf{mod}\ n & =  (M_1^e\ \mathbf{mod}\ n \cdot M_2^e\ \mathbf{mod}\ n)\ \mathbf{mod}\ m \\
+                                                       & =  (M_1M_2)^e\ \mathbf{mod}\ n = E_{(n,e)}(M_1M_2)
+    \end{align*}
+    Từ biểu thức trên, ta rút ra được $E_{(n,e)}(M_1)\cdot E_{(n,e)}(M_2) = E_{(n,e)}(M_1M_2)$ thuộc $\mathbf{Z}_n$.
+    Vậy nên ta nói hệ RSA là \textbf{đồng cấu tích}.
+    Ta có thể thực hiện các phép nhân mà không cần giải mã trước vì
+    mã hóa của tích của hai thông điệp bằng tích mã hóa của từng thông điệp.
+
+    Tuy nhiên, $E_{(n,e)}(M_1) + E_{(n,e)}(M_2) = E_{(n,e)}(M_1+M_2)$ không đúng với mọi $M_1$ và $M_2$ thuộc $\mathbf{Z}_n$.
+    (Dễ thấy khi $M_1=1$).
+    Hơn nữa, không có phương pháp nào có thể xác định $E_{(n,e)}(M_1+M_2)$ từ $E_{(n,e)}(M_1)$ và $E_{(n,e)}(M_1)$ mà cần không giải mã.
+    Ta nói rằng RSA không phải là \textbf{đồng cấu tổng}. Bởi vì nó là đồng
+    cấu tích, nhưng không đồng cấu tổng, nên RSA là \textbf{đồng cấu một phần}.
+    \begin{flushright}
+        $\blacktriangleleft$
+    \end{flushright}
+\end{example}
+
+Năm 2009, Craig Gentry đã công bố hệ mã hóa đồng cấu toàn phần đầu tiên,
+dựa trên Mật mã dựa trên lưới. Không may, vì yêu cầu số lượng xử lý và bộ nhớ cực kỳ lớn nên không có
+hệ mã hóa đồng cấu toàn phần nào được phát triển. Hy vọng rằng
+sự tiến bộ sẽ tạo ra các hệ mã hóa đồng cấu toàn phần
+trong tương lai không xa.
+

@@ -1,4 +1,4 @@
-\textcolor{blue}{\section{Mã hóa cổ điển}}
+\textcolor{blue}{\section{Phương pháp mã hóa cổ điển}}
 Một trong những người sử dụng mật mã được biết đến sớm nhất là Julius Caesar. Ông đã làm cho các thông điệp trở nên bí mật bằng cách \textit{dịch chuyển} mỗi chữ cái đi ba chữ cái về phía trước trong bảng chữ cái \footnote{Bảng chữ cái ở đây là bảng chữ cái tiếng Anh, các ví dụ cũng được giữ nguyên gốc} (và ba chữ cái cuối cùng của bảng chữ cái thành ba chữ cái đầu tiên). Ví dụ, theo sơ đồ này, chữ B được chuyển thành E và chữ X được chuyển thành A. Đây là một ví dụ về mã hóa, tức là quá trình tạo một thông điệp bí mật.
 
 Để biểu diễn quy trình mã hóa của Caesar theo toán học, trước tiên hãy thay thế mỗi chữ cái bằng một phần tử của $ \mathbf{Z}_{26} $, nghĩa là một số nguyên từ 0 đến 25 dựa trên vị trí của nó trong bảng chữ cái. Ví dụ, thay A bằng 0, K bằng 10 và Z bằng 25. Phương pháp mã hóa của Caesar có thể được biểu diễn bằng hàm $f$ tác động vào số nguyên không âm $p$, $0 \leq p \leq  25$, số nguyên $f(p)$ trong tập $\{0, 1, 2, \ldots, 25\}$ sao cho:
@@ -83,7 +83,7 @@ Ta sẽ không thảo luận sâu về phá mã, nhưng tôi sẽ đi qua một 
 
 Nếu ta biết rằng một mật mã được tạo ra bằng cách sử dụng mật mã dịch, ta có thể cố gắng phá mã bằng cách dịch tất cả các chữ cái của mật theo từng số trong $\mathbf{Z}_{26}$, ta có 26 khóa có thể (bao gồm cả số 0). Một trong những thông điệp thu được chắc chắn là thông điệp gốc.
 
-Tuy nhiên, ta có một cách thông minh hơn, ta có thể phá mã từ các mật mã khác. Mấu chốt của việc phá các mã đã được mã hóa bằng mật mã dịch là đếm tần tần suất của các chữ cái trong mật mã. Chín chữ cái phổ biến nhất trong văn bản tiếng Anh và tần số xuất hiện gần đúng của chúng là E 13\%, T 9\%, A 8\%, O 8\%, I 7\%, N 7\%, S 7\%, H 6\% và R 6\%. Trước tiên ta tìm tần suất xuất hiện của các chữ cái trong mật mã và liệt kê theo thứ tự. Ta có thể \textit{dự đoán} chữ cái xuất hiện nhiều nhất trong mật mã được mã hóa từ chữ E, với \textit{dự đoán} này, ta có thể tìm được khóa, giả sử là $k$. Nếu mật mã này thu được bằng cách dùng mật mã dịch với khóa $k$, ta sẽ thu được thông điệp ban đầu có nghĩa và có thể cho rằng \textit{dự đoán} của ta là đúng. Nếu thu được thông điệp không có nghĩa, tiếp theo ta \textit{dự đoán} chữ cái xuất hiện nhiều nhất trong mật mã được mã hóa từ chữ T. Tiếp tục, theo \textit{dự đoán} này, ta tìm được khóa $k$. Sau đó, ta xem thông điệp gốc thu được có nghĩa không, nếu không, ta tiếp tục quá trình cho đến chữ cái ít phổ biến nhất trong văn bản tiếng Anh.
+Tuy nhiên, ta có một cách thông minh hơn, ta có thể phá mã dựa trên các mật mã khác. Mấu chốt của việc phá các mã đã được mã hóa bằng mật mã dịch là đếm tần tần suất của các chữ cái trong mật mã. Chín chữ cái phổ biến nhất trong văn bản tiếng Anh và tần số xuất hiện gần đúng của chúng là E 13\%, T 9\%, A 8\%, O 8\%, I 7\%, N 7\%, S 7\%, H 6\% và R 6\%. Trước tiên ta tìm tần suất xuất hiện của các chữ cái trong mật mã và liệt kê theo thứ tự. Ta có thể \textit{dự đoán} chữ cái xuất hiện nhiều nhất trong mật mã được mã hóa từ chữ E, với \textit{dự đoán} này, ta có thể tìm được khóa, giả sử là $k$. Nếu mật mã này thu được bằng cách dùng mật mã dịch với khóa $k$, ta sẽ thu được thông điệp ban đầu có nghĩa và có thể cho rằng \textit{dự đoán} của ta là đúng. Nếu thu được thông điệp không có nghĩa, tiếp theo ta \textit{dự đoán} chữ cái xuất hiện nhiều nhất trong mật mã được mã hóa từ chữ T. Tiếp tục, theo \textit{dự đoán} này, ta tìm được khóa $k$. Sau đó, ta xem thông điệp gốc thu được có nghĩa không, nếu không, ta tiếp tục quá trình cho đến chữ cái ít phổ biến nhất trong văn bản tiếng Anh.
 
 \begin{example}
     Giả sử rằng chúng ta đã biết mật mã "ZNK KGXRE HOXJ MKZY ZNK CUXS" được tạo ra bởi mật mã dịch. Thông điệp gốc là gì?
@@ -109,7 +109,7 @@ Bầy giờ tôi sẽ giới thiệu một loại mật mã khối đơn giản,
               Ta được "PIRA TEAT TACK". Với mỗi khối, ta đặt chữ cái đầu tiên ở vị trí thứ ba, chữ cái thứ hai ở vị trí đầu tiên, chữ cái thứ ba ở vị trí thứ tư, và chứ cái thứ tư ở vị trí thứ hai.
               Ta được mật mã là "IAPR ETTA AKTC".
 
-        \item Chú ý $\sigma^{-1}$ là nghịch đảo của $\sigma$, nghĩa là đặt chữ cái thứ ba ở vị trí đầu tiê, chữ cái đầu tiên ở vị trí thứ 2, chữ cái thứ tư ở vị trí thứ 3 và chữ cái thứ hai ở vị trí thứ tư.
+        \item Chú ý $\sigma^{-1}$ là nghịch đảo của $\sigma$, nghĩa là đặt chữ cái thứ ba ở vị trí đầu tiên, chữ cái đầu tiên ở vị trí thứ hai, chữ cái thứ tư ở vị trí thứ ba và chữ cái thứ hai ở vị trí thứ tư.
               Áp dụng $\sigma^{-1}$ cho mỗi khối, ta thu được "USEW ATER HOSE". Gộp nhóm các chữ cái này với nhau để thành một thông điệp có nghĩa, ta có thể phỏng đoán thông điệp gốc là "USE WATER HOSE".
     \end{enumerate}
 \end{solution}
