@@ -1,0 +1,15 @@
+\textcolor{blue}{\section{Hệ RSA là hệ mã hóa khóa công khai}}
+Tại sao hệ mã hóa RSA là hệ mã hóa khóa công khai? Đầu tiên, có thể dễ dàng tìm được một khóa công khai $(n,e)$ bằng cách chọn 2 số nguyên tố $p,q$ và
+số $e$ nguyên tố cùng nhau với $n$ và $\phi(n)$. Dù không biết $p$ và $q$, nhưng từ khóa công khai $(n,e)$, bằng cách phân tích $n$ thành thừa số nguyên tố, ta sẽ tìm được $p$ và $q$.
+sau đó, ta sẽ tìm được $d$ vì $d$ là nghịch đảo của $e$ trên modulo $\phi(n)$.
+Khi tìm được $d$ ta sẽ tìm được khóa để giải mã là $(n,d)$. Nếu không tìm được $p$ và $q$ thì không giải mã được là điều dễ hiểu.
+
+Phân tích $n$ thừa số nguyên tố là một việc rất khó, đặc biệt khi $n$ là số có khoảng 600 chữ số, khó hơn cả tìm hai số nguyên tố $p,q$.
+Đến năm 2017, các phương pháp hiệu quả cũng mất hàng ngàn năm để phân tích đươc một số lớn như vậy.
+Do vậy, người ta tin rằng, với $p$ và $q$ có khoảng 300 chữ số, việc mã hóa bằng khóa $(n,e)$ $(n=pq)$ sẽ không giải mã được trừ khi $p$ và $q$ được biết trước.
+
+Hiện nay, hệ RSA đang được sử dụng rộng rãi. Dù vậy, các hệ mã hóa
+được sử dụng phổ biến nhất là các hệ mã hóa khóa bí mật. Việc sử dụng hệ mã hóa khóa công khai nói chung, hệ RSA nói riêng, vẫn chỉ là đang phát triển.
+Có một số ít ứng dụng sử dụng cả hệ mã hóa khóa bí mật và khóa công khai. Ví dụ, một
+hệ mã hóa khóa công khai, chẳng hạn như RSA, có thể được sử dụng để chọn khóa bí mật cho các nhóm cặp khi họ muốn giao tiếp. Những người này sau
+đó sử dụng một hệ mã hóa khóa bí mật để mã hóa và giải mã các thông điệp.

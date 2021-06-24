@@ -1,0 +1,32 @@
+\textcolor{blue}{\section{Mã hóa RSA}}
+Để mã hóa thông điệp $M$ sử dụng khóa $(n,e)$, trước tiên, ta thay thể chuỗi $M$ bằng chuỗi số nguyên.
+Tương tự như mật mã dịch, ta thay mỗi chữ cái bởi mỗi số tương ứng, nhưng khác biệt ở chỗ số được thay là số được biểu diễn bởi 2 chữ số.
+Ví dụ A được thay bằng 00, B được thay bằng 01, ..., J được thay bằng 09.
+Tiếp theo, ta chia chuỗi vừa thu được thành các khối có độ dài $2N$, trong đó $N$ là số lớn nhất thỏa mãn số 2525...25 có $2N$ chữ số không vượt quá $n$. Ta có thể thêm vào cuối một vài ký tự (nếu cần thiết) để khối cuối cùng có cùng độ dài với các khổi còn lại.
+
+Sau khi thực hiện các bước trên, ta thu được thông điệp $M$ dưới dạng một chuỗi các số nguyên $m_1, m_2, \ldots, m_k$ ($k>0$).
+Quá trình mã hóa sẽ chuyển đổi từng khối $m_i$ thành khối mật mã $c_i$ bằng cách sử dụng hàm
+$$ c_i = m_i^e\ \mathbf{mod}\ n$$
+Ta để thông điệp mã hóa dưới dạng một dãy các khối số và gửi đến
+người nhận mà không thay thế các khổi này bằng cách chữ nữa. Bởi vì hệ RSA mã hóa các khối chữ cái thành các
+khối ký tự khác, nên nó là một mật mã khối.
+
+Ví dụ 8 minh họa cách thực hiện mã hóa bằng hệ RSA. Để dễ tính toán, trong ví dụ này, $p$ và $q$ là hai số nguyên tố nhỏ thay vì các số nguyên tố có
+300 chữ số trở lên, cho nên nó không có tính bảo mật cao.
+Mặc dù mật mã trong ví dụ này không an toàn,
+nhưng nó minh họa các kỹ thuật được sử dụng trong hệ mã hóa RSA.
+\begin{example}
+    Mã hóa thông điệp "STOP" dùng hệ RSA với khóa $(n,13),\ p =43,\ q =59$
+\end{example}
+\begin{solution}
+    Vì $n = pq$ nên ta tính được $n=43\times59 = 2537$, chú ý UCLN$(e,(p-1)(q-1)) = 1$.
+
+    Để mã hóa, trước tiên ta thay các chữ cái trong thông điệp bằng các số tương ứng. Sau đó nhóm thành các nhóm có 4 chữ số (vì $2525 < n < 252525$). Ta được
+    \begin{center}
+        1819 \hspace{0.5cm} 1415
+    \end{center}
+    Với mỗi khối, ta dùng hàm
+    $$ c = m^{13}\ \mathbf{mod}\ 2537$$
+    Tính toán cho thấy $1819^{13}\ \mathbf{mod}\ 2537 = 2081$ và $1415^{13}\ \mathbf{mod}\ 2537 = 2182$.
+    Thông điệp mã hóa được gửi đi là 2081 2182.
+\end{solution}

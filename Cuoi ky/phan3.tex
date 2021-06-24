@@ -1,0 +1,29 @@
+\textcolor{blue}{\section{Hệ mã hóa khóa công khai}}
+Tất cả các mật mã cổ điển, bao gồm mật mã dịch và mật mã dịch tuyến tính, là những ví dụ về \textbf{hệ mã hóa khóa bí mật}. Trong hệ mã hóa khóa bí mật, một khi đã biết khóa, bạn có thể nhanh chóng giải mã. Vì vậy, biết cách mã hóa bằng một khóa cụ thể cho phép giải mã các thông điệp đã được mã hóa bằng khóa này. Ví dụ, khi mã hóa bằng mật mã dịch với khóa k, số nguyên $p$ sẽ trở thành
+$$c = (p+k)\ \mathbf{mod}\ 26$$
+Còn việc giải mã $c$ sẽ trở thành
+$$p = (c-k)\ \mathbf{mod}\ 26$$
+Vậy, khi biết cách mã hóa, ta sẽ biết cách giải mã.
+
+Khi dùng mã hóa khóa bí mật, hai bên muốn giao tiếp bí mật phải dùng chung khóa.
+Bởi vì bất kỳ ai biết khóa này đều có thể mã hóa và giải mã thông điệp, hai người muốn giao tiếp bí mật phải trao đổi khóa một cách an toàn.
+(Tôi sẽ giới thiệu một phương pháp để thực hiện việc này ở phần sau.)
+Mật mã dịch và mật mã dịch tuyến tính thuộc loại mã hóa khóa bí mật. Chúng khá đơn giản và cực kỳ dễ bị phá.
+Tuy nhiên, điều này không đúng với tất cả các mật mã thuộc loại mã hóa khóa bí mật.
+Đặc biệt, tiêu chuẩn của chính phủ Hoa Kỳ về mã hóa khóa bí mật, được gọi là tiêu chuẩn mã hóa tiên tiến (AES), cực kỳ
+phức tạp và được coi là có tính bảo mật cao (khó bị phá).
+AES được sử dụng rộng rãi trong thương mại và chính phủ.
+Để tăng cường bảo mật, mỗi khóa mới được sử dụng cho một phiên giao tiếp giữa hai bên, điều này yêu cầu phương pháp tạo khóa và gửi khóa một cách an toàn.
+
+Để tránh việc phải chia sẻ khóa mỗi phiên giao tiếp, vào những năm 1970, các nhà mật mã học đã đưa ra khái niệm về \textbf{hệ mã hóa khóa công khai}.
+Khi sử dụng mã hóa khóa công khai, chỉ biết mã hóa thông điệp không giúp ta giải mã được. Tất cả mọi người đều có thể biết khóa công khai.
+Chỉ duy nhất khóa dùng để giải mã được giữ bí mật và chỉ người nhận thông điệp mới có thể giải mã nó,
+vì theo những gì được biết hiện nay, nếu chỉ biết cách mã hóa thì việc giải mã không hề dễ dàng.
+
+Hệ mã hóa khóa công khai đầu tiên được phát minh vào khoảng giữa những năm 1970. Trong những thập kỷ tiếp theo,
+nhiều hệ mã hóa khóa công khai khác cũng được ra đời. Ở phần dưới, tôi sẽ giới thiệu một hệ mã hóa khóa công khai được sử dụng phổ biến nhất, được gọi là hệ RSA.
+Bên cạnh hệ RSA, có nhiều hệ mã hóa khóa công khai khác có nhiều ứng dụng trong thời điểm hiện nay.
+Các hệ mã hóa khóa công khai này sẽ đóng một vai trò quan trọng khi những tiến bộ trong việc giao tiếp có thể làm cho hệ mã hóa RSA trở nên lỗi thời, điều này thường xảy ra trong mật mã học.
+
+Mặc dù mã hóa khóa công khai có ưu điểm là hai bên muốn giao tiếp bí mật không cần trao đổi khóa, nhưng nó có nhược điểm là việc mã hóa và giải mã có thể tốn rất nhiều thời gian.
+Việc này có thể không thực tế trong một số ứng dụng. Trong những tình huống như vậy, mã hóa khóa bí mật được sử dụng thay thế.

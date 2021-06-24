@@ -1,0 +1,30 @@
+\textcolor{blue}{\section{Giao thức mã hóa}}
+Từ đầu bài viết, tôi đã chỉ ra cách mật mã được sử dụng để đảm bảo an
+toàn cho các thông điệp gửi đi. Cón rất nhiều ứng dụng quan trọng khác của
+mật mã học. Một trong các ứng dụng này là \textbf{giao thức mã hóa}, là cách trao đổi
+thông điệp được thực hiện bởi hai hoặc nhiều bên để nhằm mục tiêu bảo
+mật. Tiếp theo, tôi sẽ chỉ ra hai ứng dụng của mật mã học cho
+phép hai người trao đổi khóa bí mật qua một kênh liên lạc không an toàn
+và gửi các thông điệp bí mật để người nhận có thể chắc chắn rằng thông điệp đến từ người gửi có chủ đích. \\
+
+\noindent \textcolor{Mycolor}{\textbf{KHÓA TRAO ĐỔI}} Bây giờ ta sẽ thảo luận về một phương thức giúp hai người có thể trao đổi khóa bí mật qua một kênh liên lạc không an toàn.
+Trong nhiều ứng dụng của mật mã học, việc tạo ra một khóa để hai bên có thể sử dụng là rất quan trọng. Ví dụ, trong hệ mã hóa khóa bí mật, hai bên cần có một khóa chung.
+Phương thức mà tôi chuẩn bị giới thiệu dưới đây là phương pháp \textbf{trao đổi khóa Diffie-Hellman}, được công bố bởi Whitfield Diffie và Martin Hellman vào năm 1976.
+Mặc dù, giao thức này được phát minh năm 1974 bởi Malcolm Williamson
+trong khi ông làm việc bí mật tại Chính phủ Vương quốc Anh (GCHQ). Vì là làm việc bí mật nên mãi đến năm 1997, phát minh của ông mới
+được công khai.
+
+Giả sử Alice và Bob muốn chia sẻ một khóa chung, giao thức được thực hiện lần lượt các bước sau đây, các tính toán được thực hiện trong tập $\mathbf{Z}_p$. \\
+\begin{enumerate}[label=\arabic*)]
+    \item Alice và Bob đồng thuận sử dụng số nguyên tố $p$ và căn nguyên thủy\footnote{số nguyên $a$ là căn nguyên thủy của số nguyên dương $p$ khi $a$ và $p$ nguyên tố cùng nhau, $a<p$ và \mbox{$ord_{p}(a)=\varphi(p)$}} $a$ của $p$
+    \item Alice bí mật chọn số nguyên $k_1$ và cho Bob biết giá trị của $a^{k_1}\ \mathbf{mod}\ p$
+    \item Bob bí mật chọn số nguyên $k_2$ và cho Alice biết giá trị của $a^{k_2}\ \mathbf{mod}\ p$
+    \item Alice tính giá trị của $(a^{k_2})^{k_1}\ \mathbf{mod}\ p$
+    \item Bob tính giá trị của $(a^{k_2})^{k_1}\ \mathbf{mod}\ p$
+\end{enumerate}
+Sau khi kết thúc, Alice và Bob đã có một khóa chung là
+$$(a^{k_2})^{k_1}\ \mathbf{mod}\ p = (a^{k_2})^{k_1}\ \mathbf{mod}\ p$$
+
+Vậy vì sao phương pháp này lại bảo mật, chú ý các bước 1, 2 và 3 không được gửi một cách an toàn hay thậm chí có thể công khai?
+Vì truyền trên một kênh không an toàn, thông tin về $p, a, a^{k_1}\ \mathbf{mod}\ p$ và $a^{k_2}\ \mathbf{mod}\ p$ được giả sử là những thông tin ai cũng có thể biết.
+Nhưng phương thức này đảm bảo $k_1,k_2$ và $(a^{k_2})^{k_1}\ \mathbf{mod}\ p = (a^{k_2})^{k_1}\ \mathbf{mod}\ p$ được giữ bí mật.

@@ -1,0 +1,22 @@
+\textcolor{blue}{\section{Hệ mã hóa RSA}}
+Vào năm 1976 \footnote{một vài tài liệu ghi 1977}, ba nhà nghiên cứu tại Học viện Công nghệ Massachusetts (MIT) - Ronald Rivest, Adi
+Shamir, và Leonard Adleman - đã giới thiệu một hệ mã hóa khóa công khai, lấy tên là RSA, chính là lấy từ ba chữ cái đầu của tên ba tác giả.
+Trước đó, năm 1973, Clifford Cocks, một nhà toán học người Anh làm việc tại Chính phủ Vương quốc Anh (GCHQ)
+đã có một bản mô tả thuật toán tương tự. Với khả năng tính toán tại thời điểm
+này thì thuật toán này không khả thi và nó chưa được thực nghiệm. Nhưng, phát
+minh này lại được công bố vào năm 1997 vì nó được xếp vào loại tuyệt mật.
+
+Trong hệ mã hóa RSA, mỗi cá nhân có một khóa mã hóa $(n, e)$, trong đó $n = pq$ ($p$ và $q$ là hai số nguyên tố bất kỳ, $p$ và $q$ càng lớn thì độ bảo mật càng cao),
+và số $e$ ($1 < e < \phi(n),\ \phi(n) =(p-1)(q-1)$) thỏa mãn UCLN$(n,e) = 1$ và UCLN$(e,\phi(n)) = 1$. Để có tính bảo mật cao, $p$ và $q$ là hai số nguyên tố có độ dài mỗi số khoảng 300 chữ số.
+(Việc tìm số nguyên tố lớn có thể nhờ tới sự trợ giúp của máy tính), theo đó, $n$ có độ dài khoảng 600 chữ số, một con số lớn không thể tính được trong khoảng thời gian ngắn.
+Do vậy, dẫn điến việc không thể giải mã nếu không có khóa giải mã. \\
+
+\begin{remark}
+    Với sự phát triển của máy tính, kích thước được khuyến nghị của
+    số nguyên tố $p$ và $q$ dùng để tạo ra khóa công khai RSA đã tăng cũng
+    lên. Nhưng $n$ càng lớn thì việc mã hóa và giải mã càng chậm.
+    Các thuật toán phân tích nhân tử đã được phát triển cho máy tính lượng tử để có thể phân tích nhanh một số thành các thừa số nguyên tố lớn, khiến cho tính bảo mật của hệ RSA bị đe dọa.
+    Vì vậy, khi tính toán lượng tử trở
+    nên thông dụng, có lẽ trong 20 đến 30 năm tới, các hệ mã hóa khóa công
+    khai khác cần phát triển hơn để không thể bị phá bằng máy tính lượng tử.
+\end{remark}

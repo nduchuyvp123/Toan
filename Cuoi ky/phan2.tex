@@ -1,20 +1,9 @@
-\textcolor{blue}{\section{Classical Cryptography}}
-Một trong những người sử dụng mật mã được biết đến sớm nhất là Julius Caesar.
-Ông đã làm cho các thông điệp trở nên bí mật bằng cách \textit{dịch chuyển} mỗi chữ cái đi ba chữ
-cái về phía trước trong bảng chữ cái \thanks{Bảng chữ cái ở đây là bảng chữ cái tiếng Anh, các ví dụ cũng được giữ nguyên gốc} (và ba chữ cái cuối cùng của bảng chữ cái
-thành ba chữ cái đầu tiên). Ví dụ, theo sơ đồ này, chữ B được chuyển thành E và
-chữ X được chuyển thành A. Đây là một ví dụ về mã hóa, tức là quá trình tạo một thông
-điệp bí mật.
+\textcolor{blue}{\section{Mã hóa cổ điển}}
+Một trong những người sử dụng mật mã được biết đến sớm nhất là Julius Caesar. Ông đã làm cho các thông điệp trở nên bí mật bằng cách \textit{dịch chuyển} mỗi chữ cái đi ba chữ cái về phía trước trong bảng chữ cái \footnote{Bảng chữ cái ở đây là bảng chữ cái tiếng Anh, các ví dụ cũng được giữ nguyên gốc} (và ba chữ cái cuối cùng của bảng chữ cái thành ba chữ cái đầu tiên). Ví dụ, theo sơ đồ này, chữ B được chuyển thành E và chữ X được chuyển thành A. Đây là một ví dụ về mã hóa, tức là quá trình tạo một thông điệp bí mật.
 
-Để biểu diễn quy trình mã hóa của Caesar theo toán học, trước tiên
-hãy thay thế mỗi chữ cái bằng một phần tử của $ \mathbf{Z}_{26} $, nghĩa là một số nguyên từ 0
-đến 25 dựa trên vị trí của nó trong bảng chữ cái. Ví dụ, thay A bằng 0,
-K bằng 10 và Z bằng 25. Phương pháp mã hóa của Caesar có thể được biểu diễn bằng
-hàm $f$ tác động vào số nguyên không âm $p$, $0 \leq p \leq  25$, số nguyên $f(p)$ trong tập
-$\{0, 1, 2, \ldots, 25\}$ sao cho:
+Để biểu diễn quy trình mã hóa của Caesar theo toán học, trước tiên hãy thay thế mỗi chữ cái bằng một phần tử của $ \mathbf{Z}_{26} $, nghĩa là một số nguyên từ 0 đến 25 dựa trên vị trí của nó trong bảng chữ cái. Ví dụ, thay A bằng 0, K bằng 10 và Z bằng 25. Phương pháp mã hóa của Caesar có thể được biểu diễn bằng hàm $f$ tác động vào số nguyên không âm $p$, $0 \leq p \leq  25$, số nguyên $f(p)$ trong tập $\{0, 1, 2, \ldots, 25\}$ sao cho:
 $$f(p) = (p+3)\ \mathbf{mod}\ 26$$
-Như vậy, trong phiên bản đã được mã hóa của thông điệp, chữ cái được biểu diễn bởi $p$ sẽ được thay thế bằng
-chữ cái được biểu diễn bởi $(p+3)\ \mathbf{mod}\ 26$
+Như vậy, trong phiên bản đã được mã hóa của thông điệp, chữ cái được biểu diễn bởi $p$ sẽ được thay thế bằng chữ cái được biểu diễn bởi $(p+3)\ \mathbf{mod}\ 26$
 \begin{example}
     Thông điệp mã hóa của thông điệp "MEET YOU IN THE PARK" sử dụng cách mã hóa Caesar là gì?
 \end{example}
@@ -29,15 +18,9 @@ chữ cái được biểu diễn bởi $(p+3)\ \mathbf{mod}\ 26$
     \end{center}
     Với mỗi số, ta thay ngược lại bởi các chữ cái tương ứng, ta thu được thông điệp được mã hóa "PHHW BRX LQ WKH SDUN".
 \end{solution}
-Để phục hồi lại thông điệp gốc đã được mã hóa theo cách mã hóa Caesar, ta cần phải dùng hàm ngược $f^{-1}$ của hàm $f$.
-Chú ý hàm $f^{-1}$ ánh xạ số nguyên $p$ từ tập $ \mathbf{Z}_{26} $, đến $f^{-1}(p) = (p-3)\ \mathbf{mod}\ 26$.
-Nói cách khác, để tìm được thông điệp gốc, mỗi chữ cái được \textit{dịch chuyển} ba chữ
-cái về phía sau trong bảng chữ cái, với ba chữ cái đầu tiên được chuyển thành ba chữ cái cuối
-cùng. Quá trình xác định thông điệp gốc từ thông điệp được mã
-hóa được gọi là \textbf{giải mã}.
+Để phục hồi lại thông điệp gốc đã được mã hóa theo cách mã hóa Caesar, ta cần phải dùng hàm ngược $f^{-1}$ của hàm $f$. Chú ý hàm $f^{-1}$ ánh xạ số nguyên $p$ từ tập $ \mathbf{Z}_{26} $, đến $f^{-1}(p) = (p-3)\ \mathbf{mod}\ 26$. Nói cách khác, để tìm được thông điệp gốc, mỗi chữ cái được \textit{dịch chuyển} ba chữ cái về phía sau trong bảng chữ cái, với ba chữ cái đầu tiên được chuyển thành ba chữ cái cuối cùng. Quá trình xác định thông điệp gốc từ thông điệp được mã hóa được gọi là \textbf{giải mã}.
 
-Có nhiều cách khác nhau để khái quát cách mã hóa Caesar. Ví dụ, thay vì \textit{dịch chuyển} mỗi chữ cái cho 3,
-ta có thể \textit{dịch chuyển} mỗi chữ cái cho $k$ chữ cái về phía trước, tức là:
+Có nhiều cách khác nhau để khái quát cách mã hóa Caesar. Ví dụ, thay vì \textit{dịch chuyển} mỗi chữ cái cho 3, ta có thể \textit{dịch chuyển} mỗi chữ cái cho $k$ chữ cái về phía trước, tức là:
 $$f(p) = (p+k)\ \mathbf{mod}\ 26$$
 Một mật mã như thế được gọi là \textbf{mật mã dịch}. Đối với loại mật mã này, việc giải mã thực hiện bằng cách dùng
 $$f^{-1}(p) = (p-k)\ \mathbf{mod}\ 26$$
@@ -54,16 +37,13 @@ $$f^{-1}(p) = (p-k)\ \mathbf{mod}\ 26$$
     \begin{center}
         3 4 25 0 \hspace{0.5cm} 17 22 25 12 11 22 \hspace{0.5cm} 7 11 2 23 19 24 17
     \end{center}
-    Thay thế chuỗi cuối cùng này trở lại các chữ cái, ta thu được thông điệp mã hóa
-    "DEZA RWZMLW HLCXTYR".
+    Thay thế chuỗi cuối cùng này trở lại các chữ cái, ta thu được thông điệp mã hóa "DEZA RWZMLW HLCXTYR".
 \end{solution}
 \begin{example}
-    Giải mã thông điệp mật mã "LEWLYPLUJL PZ H NYLHA ALHJOLY" đã được mã
-    hóa bằng mật mã dịch với khóa $k = 7$.
+    Giải mã thông điệp mật mã "LEWLYPLUJL PZ H NYLHA ALHJOLY" đã được mã hóa bằng mật mã dịch với khóa $k = 7$.
 \end{example}
 \begin{solution}
-    Để giải mã thông điệp "LEWLYPLUJL PZ H NYLHA ALHJOLY", trước tiên ta
-    thay các chữ cái bởi các phần tử tương ứng trong $ \mathbf{Z}_{26} $. Ta đạt được
+    Để giải mã thông điệp "LEWLYPLUJL PZ H NYLHA ALHJOLY", trước tiên ta thay các chữ cái bởi các phần tử tương ứng trong $ \mathbf{Z}_{26} $. Ta đạt được
     \begin{center}
         11 4 22 11 24 15 11 20 9 11 \hspace{0.5cm} 15 25 \hspace{0.5cm} 7 \hspace{0.5cm} 13 24 11 7 0 \hspace{0.5cm} 0 11 7 9 14 11 24
     \end{center}
@@ -74,74 +54,82 @@ $$f^{-1}(p) = (p-k)\ \mathbf{mod}\ 26$$
     Cuối cùng, ta thay thế các số này trở lại thành các chữ cái để thu được thông điệp gốc. Ta thu được "EXPERIENCE IS A GREAT TEACHER".
 \end{solution}
 
-Rõ ràng, phương pháp của Caesar và mật mã dịch không có độ an toàn cao.
-Ta có thể tổng quát hóa mật mã dịch để tăng cường độ bảo mật
-bằng cách sử dụng hàm
+Rõ ràng, phương pháp của Caesar và mật mã dịch không có độ an toàn cao. Ta có thể tổng quát hóa mật mã dịch để tăng cường độ bảo mật bằng cách sử dụng hàm
 $$f(p) = (ap+b)\ \mathbf{mod}\ 26$$
-trong đó $a$ và $b$ là các số nguyên sao cho thỏa mãn $f$ là song ánh ($f(p)$ là song ánh khi và chỉ khi
-UCLN$(a,26)$ = 1). Một hàm như vậy được gọi là \textbf{hàm tuyến tính} và mật mã dịch thu được sau khi dùng hàm tuyến tính là \textbf{mật mã dich tuyến tính}.
+trong đó $a$ và $b$ là các số nguyên sao cho thỏa mãn $f$ là song ánh ($f(p)$ là song ánh khi và chỉ khi UCLN$(a,26)$ = 1). Một hàm như vậy được gọi là \textbf{hàm tuyến tính} và mật mã dịch thu được sau khi dùng hàm tuyến tính là \textbf{mật mã dich tuyến tính}.
 \begin{example}
-    Chữ cái nào thay thế cho chữ K khi dùng hàm $f(p) = (7p + 3)\ \textbf{mod}\ 26$ để mã hóa?
+    Chữ cái nào thay thế cho chữ K khi dùng hàm $f(p) = (7p + 3)\ \mathbf{mod}\ 26$ để mã hóa?
 \end{example}
 \begin{solution}
-    Đầu tiên, ta biết rằng số 10 tương ứng cho chữ K. Sau đó, dùng hàm mã hóa
-    $f(p)$, ta được $f (10) = (7 \times 10 + 3)\ \textbf{mod}\ 26 = 21$. Bởi vì 21 tương ứng
-    với chữ V, vậy nên sẽ K được thay thế bằng V trong thông điệp mã hóa.
+    Đầu tiên, ta biết rằng số 10 tương ứng cho chữ K. Sau đó, dùng hàm mã hóa $f(p)$, ta được $f (10) = (7 \times 10 + 3)\ \mathbf{mod}\ 26 = 21$. Bởi vì 21 tương ứng với chữ V, vậy nên sẽ K được thay thế bằng V trong thông điệp mã hóa.
 \end{solution}
 
-Bây giờ ta sẽ học cách giải mã một mật mã dịch tuyến tính. Để giả mã được, ta phải xác định được $f^{-1}(p)$.
-Giả sử $c= (ap+b)\ \mathbf{mod}\ 26$
-với $a$ thỏa mãn UCLN$(a,26)=1$. Ta sẽ tìm cách biêu diễn $p$ theo $c$, ta sẽ biến đổi tương đương dựa trên phép đồng dư.
+Bây giờ ta sẽ học cách giải mã một mật mã dịch tuyến tính. Để giả mã được, ta phải xác định được $f^{-1}(p)$. Giả sử $c= (ap+b)\ \mathbf{mod}\ 26$ với $a$ thỏa mãn UCLN$(a,26)=1$. Ta sẽ tìm cách biêu diễn $p$ theo $c$, ta sẽ biến đổi tương đương dựa trên phép đồng dư.
 
 \begin{center}
     \begin{tabular}{ c c c c c c }
-                           & $c$                    & $\equiv$ & $ap+b$\            & $(\textbf{mod}\ 26)$ &                                                  \\
-        $\Leftrightarrow $ & $c - b$                & $\equiv$ & $ap$\              & $(\textbf{mod}\ 26)$ &                                                  \\
-        $\Leftrightarrow $ & $\overline{a} (c - b)$ & $\equiv$ & $\overline{a}ap$\  & $(\textbf{mod}\ 26)$ &                                                  \\
-        $\Leftrightarrow $ & $\overline{a} (c - b)$ & $\equiv$ & $p$\               & $(\textbf{mod}\ 26)$ & (vì $\overline{a}a \equiv 1 (\textbf{mod}\ 26)$) \\
+                           & $c$                    & $\equiv$ & $ap+b$\            & $(\mathbf{mod}\ 26)$               &                                                  \\
+        $\Leftrightarrow $ & $c - b$                & $\equiv$ & $ap$\              & $(\mathbf{mod}\ 26)$               &                                                  \\
+        $\Leftrightarrow $ & $\overline{a} (c - b)$ & $\equiv$ & $\overline{a}ap$\  & $(\mathbf{mod}\ 26)$ \footnotemark &                                                  \\
+        $\Leftrightarrow $ & $\overline{a} (c - b)$ & $\equiv$ & $p$\               & $(\mathbf{mod}\ 26)$               & (vì $\overline{a}a \equiv 1 (\mathbf{mod}\ 26)$) \\
     \end{tabular}
+    \footnotetext{Nếu $a$ và $m$ là nguyên tố cùng nhau, ký hiệu $\overline{a}$ là số nghịch đảo của $a$ trên modulo $m$ và $\overline{a}a \equiv 1 (\mathbf{mod}\ m)$ }
 \end{center}
 Từ đó, ta xác định được $p$ vì $p$ thuộc $\mathbf{Z}_{26}$. \\
 
-\noindent \textcolor{Mycolor}{\textbf{PHÂN TÍCH MÃ}} Quá trình giải mã mà không biết cách mã hóa và khóa được gọi là \textbf{phân tích mã} hoặc \textbf{phá mã}.
-Thông thường, rất khó để phân tích mã, nhất là khi không biết cách mã hóa.
+\noindent \textcolor{Mycolor}{\textbf{PHÂN TÍCH MÃ}} Quá trình giải mã mà không biết cách mã hóa và khóa được gọi là \textbf{phân tích mã} hoặc \textbf{phá mã}. Thông thường, rất khó để phân tích mã, nhất là khi không biết cách mã hóa.
 
-Ta sẽ không thảo luận sâu về phá mã, nhưng tôi sẽ đi qua một chút cách
-phá mã thông điệp đã được mã hóa bằng cách dùng mật mã dịch.
+Ta sẽ không thảo luận sâu về phá mã, nhưng tôi sẽ đi qua một chút cách phá mã thông điệp đã được mã hóa bằng cách dùng mật mã dịch.
 
-Nếu ta biết rằng một mật mã được tạo ra bằng cách sử dụng mật mã dịch,
-ta có thể cố gắng phá mã bằng cách dịch tất cả các chữ cái của mật theo từng số trong $\mathbf{Z}_{26}$, ta có 26 khóa có thể (bao gồm cả số 0). Một trong những thông điệp thu được
-chắc chắn là thông điệp gốc.
+Nếu ta biết rằng một mật mã được tạo ra bằng cách sử dụng mật mã dịch, ta có thể cố gắng phá mã bằng cách dịch tất cả các chữ cái của mật theo từng số trong $\mathbf{Z}_{26}$, ta có 26 khóa có thể (bao gồm cả số 0). Một trong những thông điệp thu được chắc chắn là thông điệp gốc.
 
-Tuy nhiên, ta có một cách
-thông minh hơn, ta có thể phá mã từ các mật mã khác.
-Mấu chốt của việc phá các mã đã được mã hóa bằng mật mã dịch là đếm tần tần suất
-của các chữ cái trong mật mã. Chín chữ cái phổ biến nhất trong văn bản tiếng Anh
-và tần số xuất hiện gần đúng của chúng là E 13\%, T 9\%, A 8\%, O 8\%, I 7\%, N
-7\%, S 7\%, H 6\% và R 6\%.
-Trước tiên ta tìm tần suất xuất hiện của các chữ cái trong mật mã và liệt kê theo thứ tự.
-Ta có thể \textit{dự đoán} chữ cái xuất hiện nhiều nhất trong mật mã được mã hóa từ chữ E, với \textit{dự đoán} này, ta có thể tìm được khóa, giả sử là $k$.
-Nếu mật mã này thu được bằng cách dùng mật mã dịch với khóa $k$, ta sẽ thu được thông điệp ban đầu có nghĩa và có thể cho rằng \textit{dự đoán} của ta là đúng.
-Nếu thu được thông điệp không có nghĩa, tiếp theo ta \textit{dự đoán} chữ cái xuất hiện nhiều nhất trong mật mã được mã hóa từ chữ T. Tiếp tục, theo \textit{dự đoán} này, ta tìm được khóa $k$.
-Sau đó, ta xem thông điệp gốc thu được có nghĩa không, nếu không, ta tiếp tục quá trình cho đến chữ cái ít phổ biến nhất trong văn bản tiếng Anh.
+Tuy nhiên, ta có một cách thông minh hơn, ta có thể phá mã từ các mật mã khác. Mấu chốt của việc phá các mã đã được mã hóa bằng mật mã dịch là đếm tần tần suất của các chữ cái trong mật mã. Chín chữ cái phổ biến nhất trong văn bản tiếng Anh và tần số xuất hiện gần đúng của chúng là E 13\%, T 9\%, A 8\%, O 8\%, I 7\%, N 7\%, S 7\%, H 6\% và R 6\%. Trước tiên ta tìm tần suất xuất hiện của các chữ cái trong mật mã và liệt kê theo thứ tự. Ta có thể \textit{dự đoán} chữ cái xuất hiện nhiều nhất trong mật mã được mã hóa từ chữ E, với \textit{dự đoán} này, ta có thể tìm được khóa, giả sử là $k$. Nếu mật mã này thu được bằng cách dùng mật mã dịch với khóa $k$, ta sẽ thu được thông điệp ban đầu có nghĩa và có thể cho rằng \textit{dự đoán} của ta là đúng. Nếu thu được thông điệp không có nghĩa, tiếp theo ta \textit{dự đoán} chữ cái xuất hiện nhiều nhất trong mật mã được mã hóa từ chữ T. Tiếp tục, theo \textit{dự đoán} này, ta tìm được khóa $k$. Sau đó, ta xem thông điệp gốc thu được có nghĩa không, nếu không, ta tiếp tục quá trình cho đến chữ cái ít phổ biến nhất trong văn bản tiếng Anh.
 
 \begin{example}
-    Giả sử rằng chúng ta đã biết mật mã "ZNK KGXRE HOXJ MKZY ZNK
-    CUXS" được tạo ra bởi mật mã dịch. Thông điệp gốc là gì?
+    Giả sử rằng chúng ta đã biết mật mã "ZNK KGXRE HOXJ MKZY ZNK CUXS" được tạo ra bởi mật mã dịch. Thông điệp gốc là gì?
 \end{example}
 \begin{solution}
-    Ta đã biết rằng thông điệp được mã hóa bằng
-    mật mã dịch, đàu tiên, ta tính tần suất xuất hiện
-    của các chữ cái trong mật mã. Ta thấy rằng ký tự xuất hiện nhiều nhất nhất trong
-    bản mã là K. Vì vậy, ta \textit{dự đoán} rằng chữ K được mã hóa từ chữ E. Nếu \textit{dự đoán} này đúng, ta tìm khóa $k$ thỏa mãn
-    $10 = (4+k)\ \mathbf{mod}\ 26  \Rightarrow k = 6$. Tiếp theo, giải mã thông điệp với khóa $k=6$, ta thu được "THE EARLY BIRD GETS THE WORM". Bởi vì thông điệp
-    này có nghĩa, ta có thể cho rằng \textit{dự đoán} là đúng và $k=6$.
+    Ta đã biết rằng thông điệp được mã hóa bằng mật mã dịch, đàu tiên, ta tính tần suất xuất hiện của các chữ cái trong mật mã. Ta thấy rằng ký tự xuất hiện nhiều nhất nhất trong bản mã là K. Vì vậy, ta \textit{dự đoán} rằng chữ K được mã hóa từ chữ E. Nếu \textit{dự đoán} này đúng, ta tìm khóa $k$ thỏa mãn $10 = (4+k)\ \mathbf{mod}\ 26  \Rightarrow k = 6$. Tiếp theo, giải mã thông điệp với khóa $k=6$, ta thu được "THE EARLY BIRD GETS THE WORM". Bởi vì thông điệp này có nghĩa, ta có thể cho rằng \textit{dự đoán} là đúng và $k=6$.
 \end{solution}
 
-\noindent \textcolor{Mycolor}{\textbf{MẬT MÃ KHỐI}} Mật mã dịch và mật mã
-dịch tuyến tính thực bằng cách thay thế mỗi chữ cái
-bằng một chữ cái khác trong bảng chữ cái. Do đó, những mật mã này được gọi là mật mã đơn pha.
-Các phương pháp mã hóa thuộc loại này dễ bị phá mã dựa
-trên phân tích tần suất chữ cái trong bản mã, như tôi vừa minh họa.
-Ta có thể làm cho mật mã khó bị phá hơn bằng cách thay thế các
-khối chữ cái bằng các khối chữ cái khác thay vì thay thế từng chữ cái riêng lẻ, mật mã như vậy được gọi là \textbf{mật mã khối}.
+\noindent \textcolor{Mycolor}{\textbf{MẬT MÃ KHỐI}} Mật mã dịch và mật mã dịch tuyến tính thực bằng cách thay thế mỗi chữ cái bằng một chữ cái khác trong bảng chữ cái. Do đó, những mật mã này được gọi là mật mã đơn pha. Các phương pháp mã hóa thuộc loại này dễ bị phá mã dựa trên phân tích tần suất chữ cái trong bản mã, như tôi vừa minh họa. Ta có thể làm cho mật mã khó bị phá hơn bằng cách thay thế các khối chữ cái bằng các khối chữ cái khác thay vì thay thế từng chữ cái riêng lẻ, mật mã như vậy được gọi là \textbf{mật mã khối}.
+
+Bầy giờ tôi sẽ giới thiệu một loại mật mã khối đơn giản, được gọi là \textbf{mật mã chuyển vị}. Khóa mà tôi sử dụng là một hoán vị $\sigma$ của tập $\{1,2,3,\ldots,m\}$ với $m$ là số nguyên dương. Để mã hóa, trước tiên ta chia thông điệp thành các khối chữ cái có kích thước $m$ (nếu số chữ cái trong thông điệp không chia hết cho $m$, ta thêm một vài chữ cái ngẫu nhiên vào phía sau để khối cuối cùng vẫn có đủ $m$ chữ cái). Một khối $m$ chữ cái $p_1p_2\ldots p_m$ sau khi mã hóa bằng khóa $\sigma$ sẽ trở thành $c_1c_2\ldots c_m$ với $c_i = p_{\sigma(i)}\ ( 1\leq i \leq m)$. Để giải mã khối $c_1c_2\ldots c_m$, ta sử dụng $\sigma^{-1}$. Ví dụ 6 sẽ minh họa việc mã hóa và giải mã một mật mã chuyển vị.
+
+\begin{example}
+    Sử dụng mật mã chuyển vị với $\sigma$ là hoán vị của tập \{1, 2, 3, 4\}, trong đó $\sigma (1) = 3, \sigma (2) = 1, \sigma (3) = 4$ và $\sigma (4) = 2$
+    \begin{enumerate}[label=\alph*)]
+        \item Mã hóa thông điệp "PIRATE ATTACK"
+        \item Giải mã thông điệp "SWUE TRAE OEHS", biết thông điệp gốc được mã hóa bằng mật mã chuyển vị với hoán vị $\sigma$.
+    \end{enumerate}
+\end{example}
+\begin{solution}
+    \begin{enumerate}[label=\alph*)]
+        \item Đầu tiên chúng ta chia các chữ cái của bản rõ thành các khối gồm 4 chữ cái, vì thông điệp có 12 chữ cái, vừa đủ chia 4 nên ta không cần thêm chữ cái nào vào cuối.
+              Ta được "PIRA TEAT TACK". Với mỗi khối, ta đặt chữ cái đầu tiên ở vị trí thứ ba, chữ cái thứ hai ở vị trí đầu tiên, chữ cái thứ ba ở vị trí thứ tư, và chứ cái thứ tư ở vị trí thứ hai.
+              Ta được mật mã là "IAPR ETTA AKTC".
+
+        \item Chú ý $\sigma^{-1}$ là nghịch đảo của $\sigma$, nghĩa là đặt chữ cái thứ ba ở vị trí đầu tiê, chữ cái đầu tiên ở vị trí thứ 2, chữ cái thứ tư ở vị trí thứ 3 và chữ cái thứ hai ở vị trí thứ tư.
+              Áp dụng $\sigma^{-1}$ cho mỗi khối, ta thu được "USEW ATER HOSE". Gộp nhóm các chữ cái này với nhau để thành một thông điệp có nghĩa, ta có thể phỏng đoán thông điệp gốc là "USE WATER HOSE".
+    \end{enumerate}
+\end{solution}
+
+\noindent \textcolor{Mycolor}{\textbf{HỆ MÃ HÓA THÔNG TIN}} Vừa rồi, tôi đã nêu định nghĩa về hai họ mật mã: mật mã dịch và mật mã dịch tuyến tính. Bây giờ, tôi sẽ giới thiệu về hệ mã hóa thông tin.
+\begin{center}
+    \colorbox{Mycolor2}{
+        \begin{minipage}{1\textwidth}
+            \begin{definition}[Hệ mã hóa thông tin]
+                Hệ mã hóa thông tin là một bộ gồm 5 phần tử $(\mathcal{P,C,K,E,D})$ trong đó $\mathcal{P}$ là tập các thông điệp gốc (Plaintext), $\mathcal{C}$ là tập các thông điệp mã hóa (Ciphertext), $\mathcal{K}$ là tập các khóa (Keyspace), $\mathcal{E}$ là tập các hàm mã hóa (Encryption) và $\mathcal{D}$ là tập các hàm giải mã (Decryption). Ta định nghĩa $E_k \in \mathcal{E}$ là hàm mã hóa ứng với khóa $k \in \mathcal{K}$ và $D_k \in \mathcal{D}$ là hàm giải mã thông điệp được mã hóa bằng $E_k$, dễ thấy $D_k(E_k(p)) = p$, với mọi thông điệp $p$.
+            \end{definition}
+        \end{minipage}
+    }
+\end{center}
+Tiếp theo, tôi sẽ minh họa việc sử dụng định nghĩa của hệ mã hóa thông tin.
+\begin{example}
+    Mô tả mật mã dịch dưới dạng một hệ mã hóa thông tin.
+\end{example}
+\begin{solution}
+    Để mã hóa một chuỗi chữ cái tiếng Anh bằng mật mã dịch, đầu tiên ta phải thay thế mỗi chữ cái bằng một số nguyên thuộc $\mathbf{Z}_{26}$ tương ứng, sử dụng hàm dịch với mỗi số, sau đó thay thế mỗi số bởi chữ cái tương ứng. Để áp dụng được định nghĩa của hệ mã hóa thông tin vào mật mã dịch, ta giả sử thông điệp ban đầu đã được thay thế bởi những số nguyên thuộc $\mathbf{Z}_{26}$. Theo giả thiết này, việc thay thế các chữ cái bởi các số hay thay các số bởi chữ cái sẽ không nằm trong hệ mã hóa thông tin. Do đó, tập thông điệp gốc $\mathcal{P}$ và tập thông điệp mã hóa $\mathcal{C}$ là những tập chứa chuỗi của các số thuộc $\mathbf{Z}_{26}$. Tập khóa $\mathcal{K}$ là gồm số bước dịch có thể, cho nên $\mathcal{K} = \mathbf{Z}_{26}$. Tập $\mathcal{E}$ gồm các hàm mã hóa có dạng $E_k(p) = (p+k)\ \mathbf{mod}\ 26$, và tập $\mathcal{D}$ tương tự như tập $\mathcal{E}$, gồm các hàm giải mã có dạng $D_k(p) = (p-k)\ \mathbf{mod}\ 26$.
+\end{solution}
+
+Mô hình hệ mã hóa thông tin rất hữu ích trong việc thảo luận về các họ mật mã cổ điển và được sử dụng rộng rãi trong mật mã học.
